@@ -1,0 +1,32 @@
+{
+  "name": "morada-ideal-theme",
+  "version": "1.0.0",
+  "description": "Tema WordPress do site Morada Ideal",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Morada",
+    "Ideal",
+    "WordPress"
+  ],
+  "author": "Ingo Stramm",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.6.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-imagemin": "^4.0.0",
+    "grunt-contrib-jshint": "^3.2.0",
+    "grunt-contrib-uglify": "^5.2.2",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-sass": "^3.1.0",
+    "grunt-text-replace": "^0.4.0",
+    "grunt-zip": "^1.0.0",
+    "load-grunt-tasks": "^5.1.0",
+    "node-sass": "^9.0.0"
+  },
+  "dependencies": {
+    "imask": "^7.6.1"
+  }
+}
