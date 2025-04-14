@@ -80,7 +80,7 @@ if ($mapstatic_key && $imovel_lat && $imovel_lng) {
                                             <?php } ?>
                                         </ul>
                                     </div>
-                                    <input type="hidden" name="tipo-terms" data-select-list-value="" value="<?php echo $selected_tipo_term_id; ?>">
+                                    <input type="hidden" name="tipo-terms" data-select-list-value value="<?php echo $selected_tipo_term_id; ?>">
                                 </div>
                             </div>
                         <?php } ?>

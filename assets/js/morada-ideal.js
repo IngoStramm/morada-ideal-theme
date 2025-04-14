@@ -197,6 +197,8 @@ const markers = {};
         operacaoListItems.forEach(listItem => {
             listItem.addEventListener('click', e => {
                 e.preventDefault();
+                console.log('nav-link-item');
+                
                 const selectedTermId = listItem.getAttribute('data-term-id');
                 miRemoveClassFromItems(operacaoListItems, 'active');
                 listItem.classList.add('active');
@@ -207,11 +209,12 @@ const markers = {};
 
     function miSelectList() {
         const selectLists = document.querySelectorAll('.select-list');
-        selectLists.forEach(selectList => {
+        selectLists.forEach(selectList => {            
             const input = selectList.querySelector('[data-select-list-value]');
             const selectListsItems = selectList.querySelectorAll('li');
             selectListsItems.forEach(selectListsItem => {
                 selectListsItem.addEventListener('click', () => {
+                    console.log('selectLists click');
 
                     const selectedValue = selectListsItem.getAttribute('data-value');
                     const selectedTermId = selectListsItem.getAttribute('data-term-id');
