@@ -8,3 +8,4 @@ require_once 'settings-cmb.php';
 require_once 'imovel-cmb.php';
 require_once 'user-cmb.php';
 require_once 'page-cmb.php';
+require_once 'faq-cmb.php';
