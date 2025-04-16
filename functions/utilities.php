@@ -1205,6 +1205,18 @@ function mi_show_login_cmb_options($cmb)
 }
 
 /**
+ * mi_show_home_cmb_options
+ *
+ * @param  object $cmb
+ * @return boolean
+ */
+function mi_show_home_cmb_options($cmb)
+{
+    $home_page_id = get_option('page_on_front');
+    return $cmb->object_id === $home_page_id;
+}
+
+/**
  * mi_dados_imovel_form_1
  *
  * @param  string $edit_novo_imovel_link

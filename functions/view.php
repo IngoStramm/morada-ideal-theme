@@ -45,7 +45,7 @@ function mi_imovel_meta_list($imovel_tipologia = null, $imovel_casas_banho = nul
         $output .= '
             <li class="item">
                 <i class="icon icon-bath"></i>
-                <span class="text-variant-1">' . __('Casa de banho', 'mi') . ':</span>
+                <span class="text-variant-1">' . __('WC', 'mi') . ':</span>
                 <span class="fw-6">' . $imovel_casas_banho . '</span>
             </li>';
     }
@@ -471,7 +471,7 @@ function mi_radio_widget($title, $name, $terms, $current_term, $is_required = fa
     return $output;
 }
 
-add_filter('the_editor', 'mi_make_wp_editor_required');
+// add_filter('the_editor', 'mi_make_wp_editor_required');
 
 function mi_make_wp_editor_required($output)
 {

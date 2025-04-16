@@ -16,12 +16,21 @@ if ($random_post) {
 ?>
 <section class="flat-slider home-1" style="background-image: url(<?php echo $random_post_thumbnail; ?>);">
     <div class="container relative">
+        <?php if ($random_post) { ?>
+            <div class="home-slider-random-post">
+                <a href="<?php echo get_post_permalink($random_post->ID); ?>">
+                    <?php echo get_the_title($random_post->ID); ?>
+                </a>
+            </div>
+        <?php } ?>
         <div class="row">
             <div class="col-lg-12">
                 <div class="slider-content">
-                    <div class="flat-tab flat-tab-form">
+                    <div class="flat-tab flat-tab-form home-slider-form-container">
                         <div class="tab-content">
                             <div class="tab-pane active show" role="tabpanel">
+                                <?php do_action('home_filter_announces'); ?>
+                                <h4 class="home-slider-form-title"><?php _e('Quando é a casa ideal, sabes logo. O próximo passo é torná-la tua!', 'mi'); ?></h4>
                                 <?php get_template_part('template-parts/content/home/home', 'filter-form'); ?>
                                 <div class="form-sl">
                                 </div>

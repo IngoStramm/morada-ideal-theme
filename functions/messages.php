@@ -140,6 +140,20 @@ function mi_update_imovel_success_single_message()
     }
 }
 
+add_action('imovel_single_announces', 'mi_update_imovel_warn_single_message');
+
+function mi_update_imovel_warn_single_message()
+{
+    $output = '';
+    if (isset($_SESSION['mi_imovel_warn_message']) && $_SESSION['mi_imovel_warn_message']) {
+        $output .= '<div class="container mt-5"><div class="row"><div class="col-md-12">';
+        $output .= mi_dismissible_alert($_SESSION['mi_imovel_warn_message'], 'warning');
+        $output .= '</div></div></div>';
+        echo $output;
+        unset($_SESSION['mi_imovel_warn_message']);
+    }
+}
+
 add_action('dashboard_announces', 'mi_update_imovel_error_message');
 
 /**
@@ -167,5 +181,22 @@ function mi_permission_imovel_error_message()
     if (isset($_SESSION['mi_permisssion_error_message']) && $_SESSION['mi_permisssion_error_message']) {
         echo mi_dismissible_alert($_SESSION['mi_permisssion_error_message'], 'danger');
         unset($_SESSION['mi_permisssion_error_message']);
+    }
+}
+
+add_action('home_filter_announces', 'mi_home_filter_error_message');
+
+/**
+ * mi_home_filter_error_message
+ *
+ * @return void
+ */
+function mi_home_filter_error_message()
+{
+    if (isset($_SESSION['mi_home_filter_error_message']) && $_SESSION['mi_home_filter_error_message']) {
+        $output = '';
+        $output .= mi_dismissible_alert($_SESSION['mi_home_filter_error_message'], 'danger');
+        echo $output;
+        unset($_SESSION['mi_home_filter_error_message']);
     }
 }

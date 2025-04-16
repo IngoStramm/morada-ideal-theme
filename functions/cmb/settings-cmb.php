@@ -59,9 +59,32 @@ function mi_register_main_options_metabox()
     ));
 
     $cmb_options->add_field(array(
+        'name'    => esc_html__('Url do Blog do site (precisa ser um site em WordPress)', 'mi'),
+        'id'      => 'mi_blog_url',
+        'type'    => 'text_url',
+    ));
+
+    $cmb_options->add_field(array(
+        'name'    => esc_html__('Quantidade de blogposts a serem exibidos (o padrão é 3)', 'mi'),
+        'id'      => 'mi_blog_qty',
+        'type'    => 'text',
+        'default'       => 3,
+        'attributes'        => array(
+            'type'      => 'number'
+        )
+    ));
+
+    $cmb_options->add_field(array(
         'name'    => esc_html__('Exibir preloader?', 'mi'),
         'description'    => 'Exibir ícone de carregamento enquanto a página está carregando?',
         'id'      => 'mi_preloader',
+        'type'    => 'checkbox',
+    ));
+
+    $cmb_options->add_field(array(
+        'name'    => esc_html__('Desativar memória temporária dos blogposts?', 'mi'),
+        'description'    => 'A memória temporária dos blogposts funciona para deixar o carregamento do site seja mais rápido, evitando que o site precise consultar o blog toda vez que for acessado. Desative esta opção se quiser forçar que a memória temporária do blog seja esvaziada. Por padrão, a memória temporária do blog se esvazia sozinha a cada 12 horas.',
+        'id'      => 'mi_disable_blog_transient',
         'type'    => 'checkbox',
     ));
 }

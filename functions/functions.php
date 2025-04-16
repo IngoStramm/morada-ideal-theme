@@ -2,6 +2,7 @@
 require_once 'session.php';
 require_once 'utilities.php';
 require_once 'view.php';
+require_once 'transients.php';
 require_once 'dependencies.php';
 require_once 'features.php';
 require_once 'post-types/post-types.php';
@@ -23,3 +24,5 @@ require_once 'control-access.php';
 require_once 'update-user.php';
 require_once 'imovel/imovel-form.php';
 require_once 'messages.php';
+require_once 'home-filter.php';
+require_once 'imovel-single.php';

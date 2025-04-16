@@ -17,7 +17,7 @@ function mi_register_page_metabox()
         'desc'       => esc_html__('A imagem é exibida do lado do formulário da página.', 'mi'),
         'type'       => 'file',
         'attributes' => array(
-            'accept' => '.jpg,.jpeg,.png'
+            'accept' => '.jpg,.jpeg,.png,.svg'
         )
     ));
 }
@@ -71,5 +71,152 @@ function mi_register_page_edit_imovel_metabox()
         'name' => esc_html__('Ícone', 'mi'),
         'id'   => 'image',
         'type' => 'file',
+    ));
+}
+
+add_action('cmb2_admin_init', 'mi_register_home_page_metabox');
+
+function mi_register_home_page_metabox()
+{
+    $cmb = new_cmb2_box(array(
+        'id'            => 'mi_homepage_metabox',
+        'title'         => esc_html__('Opções de página', 'mi'),
+        'object_types'  => array('page'), // Post type
+        'show_on_cb' => 'mi_show_home_cmb_options',
+        'context'    => 'normal',
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Seção de destaque #1', 'mi'),
+        'id'         => 'home_destaque_1_title_cmb',
+        'type'       => 'title',
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Título', 'mi'),
+        'id'         => 'home_destaque_1_title',
+        'type'       => 'text',
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Texto', 'mi'),
+        'id'         => 'home_destaque_1_content',
+        'type'    => 'wysiwyg',
+        'options' => array(
+            'textarea_rows' => 5,
+        ),
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Imagem', 'mi'),
+        'id'         => 'home_destaque_1_image',
+        'desc'       => esc_html__('A imagem é exibida do lado do formulário da página.', 'mi'),
+        'type'       => 'file',
+        'attributes' => array(
+            'accept' => '.jpg,.jpeg,.png,.svg'
+        )
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Ícone do botão', 'mi'),
+        'id'         => 'home_destaque_1_icon',
+        'type'       => 'file',
+        'attributes' => array(
+            'accept' => '.jpg,.jpeg,.png,.svg'
+        )
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Texto do botão', 'mi'),
+        'id'         => 'home_destaque_1_btn',
+        'type'       => 'text',
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Link', 'mi'),
+        'id'         => 'home_destaque_1_url',
+        'type'       => 'text_url',
+    ));
+    $cmb->add_field(array(
+        'name'       => esc_html__('Seção de destaque #2', 'mi'),
+        'id'         => 'home_destaque_3_title_cmb',
+        'type'       => 'title',
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Título', 'mi'),
+        'id'         => 'home_destaque_3_title',
+        'type'       => 'text',
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Texto', 'mi'),
+        'id'         => 'home_destaque_3_content',
+        'type'    => 'wysiwyg',
+        'options' => array(
+            'textarea_rows' => 5,
+        ),
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Imagem', 'mi'),
+        'id'         => 'home_destaque_3_image',
+        'desc'       => esc_html__('A imagem é exibida do lado do formulário da página.', 'mi'),
+        'type'       => 'file',
+        'attributes' => array(
+            'accept' => '.jpg,.jpeg,.png,.svg'
+        )
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Ícone do botão', 'mi'),
+        'id'         => 'home_destaque_3_icon',
+        'type'       => 'file',
+        'attributes' => array(
+            'accept' => '.jpg,.jpeg,.png,.svg'
+        )
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Texto do botão', 'mi'),
+        'id'         => 'home_destaque_3_btn',
+        'type'       => 'text',
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Link', 'mi'),
+        'id'         => 'home_destaque_3_url',
+        'type'       => 'text_url',
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Seção das últimas notícias do blog da Morada Ideal', 'mi'),
+        'id'         => 'home_destaque_4_title_cmb',
+        'type'       => 'title',
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Título da seção das últimas notícias', 'mi'),
+        'id'         => 'home_destaque_4_title',
+        'type'    => 'text',
+        'sanitization_cb' => 'mi_text_without_sanitization',
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Texto da seção das últimas notícias', 'mi'),
+        'id'         => 'home_destaque_4_content',
+        'type'    => 'wysiwyg',
+        'options' => array(
+            'textarea_rows' => 5,
+        ),
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Selo das últimas notícias', 'mi'),
+        'id'         => 'home_destaque_4_selo',
+        'type'    => 'file',
+        'attributes' => array(
+            'accept' => '.jpg,.jpeg,.png,.svg'
+        )
     ));
 }

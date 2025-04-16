@@ -16,8 +16,9 @@ $imovel_galeria = get_post_meta($post_id, 'imovel_galeria', true);
 $imovel_galeria_id = get_post_meta($post_id, '_imovel_galeria_id', true);
 $imovel_caracteristicas_especificas = get_post_meta($post_id, 'imovel_caracteristicas_especificas', true);
 $imovel_certificado_energetico = get_post_meta($post_id, 'imovel_certificado_energetico', true);
+$container_class = isset($args['container_class']) && $args['container_class'] ? $args['container_class'] : 'col-md-6';
 ?>
-<div class="col-md-6">
+<div class="<?php echo $container_class; ?>">
     <div class="homelengo-box">
         <div class="archive-top">
             <a href="<?php echo get_permalink(); ?>" class="images-group">

@@ -10,6 +10,17 @@ add_action('pre_get_posts', 'mi_sort_query');
  */
 function mi_sort_query($wp_query)
 {
+    if (!is_main_query() || is_admin()) {
+        return;
+    }
+
+    if (!is_home() && !is_author() && !is_search() && !is_archive()) {
+        return;
+    }
+
+    if ($wp_query->get('post_type') !== 'imovel') {
+        return;
+    }
     $sort_params = mi_sort_params();
     $check = false;
     foreach ($sort_params as $params) {

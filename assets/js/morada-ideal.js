@@ -198,7 +198,7 @@ const markers = {};
             listItem.addEventListener('click', e => {
                 e.preventDefault();
                 console.log('nav-link-item');
-                
+
                 const selectedTermId = listItem.getAttribute('data-term-id');
                 miRemoveClassFromItems(operacaoListItems, 'active');
                 listItem.classList.add('active');
@@ -209,7 +209,7 @@ const markers = {};
 
     function miSelectList() {
         const selectLists = document.querySelectorAll('.select-list');
-        selectLists.forEach(selectList => {            
+        selectLists.forEach(selectList => {
             const input = selectList.querySelector('[data-select-list-value]');
             const selectListsItems = selectList.querySelectorAll('li');
             selectListsItems.forEach(selectListsItem => {
@@ -739,6 +739,30 @@ const markers = {};
         return repeaterGroup;
     }
 
+    function homeDestaquesSwiper() {
+
+        const swiper = new Swiper('.home-destaque-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                992: {
+                    slidesPerView: 3,
+                },
+                1200: {
+                    slidesPerView: 4,
+                },
+            },
+        });
+    }
+
+
     window.addEventListener('load', function () {
         miFormsValidation();
         miNewsletterForm();
@@ -757,7 +781,7 @@ const markers = {};
         miGaleriaPreview();
         miGerenciamentoGaleriaImovel();
         miDragAndDropFiles();
-        // miDragAndDropToReorderImages();
+        homeDestaquesSwiper();
     });
 
 })();

@@ -85,12 +85,9 @@ function mi_imovel_form_step_1_handle()
     if ($post_id) {
         // se existir o post, define como publicado
         $post_data = get_post($post_id);
-        $tipo = get_term($tipo_term_id, 'tipo');
-        $tipo_nome = !is_wp_error($tipo) ? $tipo->name : __('Imóvel', 'mi');
         $args['ID'] = $post_id;
-        $args['post_title'] = sprintf(__('%s em %s, %s', 'mi'), $tipo_nome, $dados_form_1['imovel_cidade']['value'], $dados_form_1['imovel_estado']['value']);
         $args['post_content'] = get_post_field('post_content', $post_id);
-        $args['post_status'] = 'publish';
+        $args['post_status'] = $post_data->post_status;
         $args['post_author'] = $post_data->post_author;
     } else {
         // senão, define como rascunho
@@ -100,6 +97,9 @@ function mi_imovel_form_step_1_handle()
         $args['post_content'] = '';
         $args['post_excerpt'] = '';
     }
+    $tipo = get_term($tipo_term_id, 'tipo');
+    $tipo_nome = !is_wp_error($tipo) ? $tipo->name : __('Imóvel', 'mi');
+    $args['post_title'] = sprintf(__('%s em %s, %s', 'mi'), $tipo_nome, $dados_form_1['imovel_cidade']['value'], $dados_form_1['imovel_estado']['value']);
     $args['post_type'] = 'imovel';
 
     $meta_input = [];
