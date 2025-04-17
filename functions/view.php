@@ -490,3 +490,76 @@ function mi_make_wp_editor_required($output)
     // mi_debug($new_output);
     return $new_output;
 }
+
+/**
+ * mi_faq
+ *
+ * @param  array $term_posts
+ * @param  string $term_name
+ * @param  int $term_id
+ * @return string
+ */
+function mi_faq($faq_terms_id, $title_center = true)
+{
+    $output = '';
+
+    if ($faq_terms_id) {
+        $output .= '
+        <div class="row mt-5">
+                <div class="col-md-12">';
+        foreach ($faq_terms_id as $item_arr) {
+            $term_id = $item_arr['faq_cat'];
+            $args = [
+
+                'post_type' => 'faq',
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'faq-cat',
+                        'field' => 'term_id',
+                        'terms' => $term_id,
+                    ),
+                ),
+                'posts_per_page'        => -1,
+                'order'                 => 'ASC',
+                'orderby'               => 'menu_order'
+            ];
+            $term_posts = get_posts($args);
+            $term = get_term($term_id);
+            if ($term_posts) {
+                $term_description = term_description($term_id);
+                $term_text_after = get_term_meta($term_id, 'text_after', true);
+                $title_alignment = $title_center ? 'text-center' : '';
+                $output .= '
+        <div class="tf-faq">
+            <h3 class="fw-8 ' . $title_alignment . ' title">' . $term->name . '</h3>';
+                if ($term_description) {
+                    $output .= '<div class="faq-description">' . $term_description . '</div>';
+                }
+                $output .= '
+            <ul class="box-faq" id="wrapper-faq-' . $term_id . '">';
+                foreach ($term_posts as $term_post) {
+                    $term_post_id = $term_post->ID;
+                    $output .= '
+                    <li class="faq-item">
+                        <a href="#accordion-faq-' . $term_id . '-' . $term_post_id . '" class="faq-header collapsed" data-bs-toggle="collapse" aria-expanded="false" aria-controls="accordion-faq-' . $term_id . '-' . $term_post_id . '">
+                            ' . get_the_title($term_post_id) . '
+                        </a>
+                        <div id="accordion-faq-' . $term_id . '-' . $term_post_id . '" class="collapse" data-bs-parent="#wrapper-faq-' . $term_id . '">
+                            <div class="faq-body">
+                                ' . get_the_content(null, null, $term_post_id) . '
+                            </div>
+                        </div>
+                    </li>';
+                }
+                $output .= '
+            </ul>';
+                if ($term_text_after) {
+                    $output .= '<div class="faq-text-after">' . $term_text_after . '</div>';
+                }
+                $output .= '
+        </div>';
+            }
+        }
+    }
+    return $output;
+}

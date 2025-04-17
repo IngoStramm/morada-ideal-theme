@@ -11,6 +11,7 @@ require_once 'cmb/cmb.php';
 require_once 'menus.php';
 require_once 'shortcodes.php';
 require_once 'newsletter-ajax.php';
+require_once 'contact-ajax.php';
 require_once 'contact-anunciante-ajax.php';
 require_once 'email.php';
 require_once 'breadcrumb.php';

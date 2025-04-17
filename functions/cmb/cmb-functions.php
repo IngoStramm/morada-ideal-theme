@@ -68,6 +68,12 @@ function mi_show_about_cmb_options($cmb)
     return $page_template === 'page-about.php';
 }
 
+function mi_show_contact_cmb_options($cmb)
+{
+    $page_template = get_page_template_slug();
+    return $page_template === 'page-contact.php';
+}
+
 /**
  * mi_text_without_sanitization
  *

@@ -276,7 +276,65 @@ function mi_register_about_page_metabox()
     $cmb_group->add_group_field($group_field_id, array(
         'name'       => esc_html__('Categoria de FAQ', 'mi'),
         'id'         => 'faq_cat',
-        'type'     => 'select', 
+        'type'     => 'select',
+        'options' => 'mi_faq_cat',
+        'show_option_none' => true,
+    ));
+}
+
+add_action('cmb2_admin_init', 'mi_register_contact_page_metabox');
+
+function mi_register_contact_page_metabox()
+{
+    $cmb = new_cmb2_box(array(
+        'id'            => 'mi_contact_metabox',
+        'title'         => esc_html__('Opções de página', 'mi'),
+        'object_types'  => array('page'), // Post type
+        'show_on_cb' => 'mi_show_contact_cmb_options',
+        'context'    => 'normal',
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Imagem do corpo do texto', 'mi'),
+        'id'         => 'image',
+        'type'    => 'file',
+        'attributes' => array(
+            'accept' => '.jpg,.jpeg,.png,.svg'
+        )
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Título antes do formulário', 'mi'),
+        'id'         => 'subtitle',
+        'type'    => 'text',
+    ));
+
+    $cmb_group = new_cmb2_box(array(
+        'id'           => 'mi_contact_faq_metabox',
+        'title'        => esc_html__('FAQ', 'mi'),
+        'object_types' => array('page'),
+        'show_on_cb' => 'mi_show_contact_cmb_options',
+    ));
+
+    // $group_field_id is the field id string, so in this case: 'yourprefix_group_demo'
+    $group_field_id = $cmb_group->add_field(array(
+        'id'          => 'faq_group',
+        'type'        => 'group',
+        'description' => esc_html__('FAQ', 'mi'),
+        'options'     => array(
+            'group_title'    => esc_html__('FAQ {#}', 'mi'), // {#} gets replaced by row number
+            'add_button'     => esc_html__('Adicionar novo FAQ', 'mi'),
+            'remove_button'  => esc_html__('Remover FAQ', 'mi'),
+            'sortable'       => true,
+            // 'closed'      => true, // true to have the groups closed by default
+            // 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'mi' ), // Performs confirmation before removing group.
+        ),
+    ));
+
+    $cmb_group->add_group_field($group_field_id, array(
+        'name'       => esc_html__('Categoria de FAQ', 'mi'),
+        'id'         => 'faq_cat',
+        'type'     => 'select',
         'options' => 'mi_faq_cat',
         'show_option_none' => true,
     ));

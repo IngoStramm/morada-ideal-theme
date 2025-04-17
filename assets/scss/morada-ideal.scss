@@ -527,7 +527,16 @@ p {
         object-position: center;
         margin-bottom: 80px;
     }
-    &:has(.page-banner) {
+    .page-title {
+        width: 100%;
+        margin: auto;
+        margin-bottom: 80px;
+        background-color: $secondary;
+        color: $primary;
+        padding-block: 80px;
+    }
+    &:has(.page-banner),
+    &:has(.page-title) {
         padding-top: 0;
     }
     .page-content {
@@ -536,6 +545,12 @@ p {
         color: $black;
         .wp-block-heading {
             color: $primary;
+            strong {
+                color: $black;
+            }
+        }
+        .wp-block-list {
+            margin-bottom: 20px;
         }
         .wp-block-heading,
         p {
@@ -551,6 +566,12 @@ p {
     .tf-faq {
         margin-bottom: 80px;
     }
+}
+
+.faq-description,
+.faq-text-after {
+    font-size: 16px;
+    margin-block: 30px;
 }
 
 @media (min-width: 768px) {
@@ -571,9 +592,6 @@ p {
     .page {
         .page-banner {
             height: 280px;
-        }
-        .page-content {
-            padding-left: 30px;
         }
         .page-side-image {
             margin-bottom: 0;

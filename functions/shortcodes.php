@@ -39,49 +39,88 @@ function mi_contact_form_shortcode($atts)
     ), $atts);
     $nome = '';
     $email = '';
+    $phone = '';
     if (is_user_logged_in()) {
         $user = wp_get_current_user();
         $nome = $user->first_name && $user->last_name ?
             $user->first_name . ' ' . $user->last_name :
             $user->display_name;
         $email = $user->user_email;
+        $phone = get_user_meta($user->id, 'mi_user_phone', true);
     }
     $mi_add_contact_form_nonce = wp_create_nonce('mi_contact_form_nonce');
     $form = '';
     $form .=
-        '<form class="mi-contact-form needs-validation" role="search" action="' . esc_url(admin_url('admin-post.php')) . '" method="post" id="mi-contact-form" novalidate>
+        '
+        <div class="flat-contact">
+            <div class="contact-content">
+                <form class="mi-contact-form needs-validation form-contact mb-4" role="search" action="' . esc_url(admin_url('admin-post.php')) . '" method="post" id="mi-contact-form" novalidate>
 
-            <div class="row">
+                    <div class="box grid-2">
+                        <fieldset>
+                            <label for="nome" class="form-label">' . __('Nome', 'mi') . '</label>
+                            <input type="text" class="form-control" name="nome" id="nome" value ="' . $nome . '" autocomplete="off" aria-autocomplete="list" aria-label="' . __('Nome', 'mi') . '" tabindex="1" placeholder="-" required>
+                            <div class="invalid-feedback">' . __('Campo obrigatório', 'mi') . '</div>
+                        </fieldset>
 
-                <div class="mb-3">
-                    <label for="nome" class="form-label">' . __('Nome', 'mi') . '</label>
-                    <input type="text" class="form-control" name="nome" id="nome" value ="' . $nome . '" autocomplete="off" aria-autocomplete="list" aria-label="' . __('Nome', 'mi') . '" tabindex="1" required>
-                    <div class="invalid-feedback">' . __('Campo obrigatório', 'mi') . '</div>
-                </div>
+                        <fieldset>
+                            <label for="email" class="form-label">' . __('E-mail', 'mi') . '</label>
+                            <input type="text" class="form-control" name="email" id="email" value="' . $email . '" autocomplete="off" aria-autocomplete="list" aria-label="' . __('E-mail', 'mi') . '" tabindex="2" placeholder="@" required>
+                            <div class="invalid-feedback">' . __('Campo obrigatório', 'mi') . '</div>
+                        </fieldset>
+                    </div>
+                    <div class="box grid-2">
 
-                <div class="mb-3">
-                    <label for="email" class="form-label">' . __('E-mail', 'mi') . '</label>
-                    <input type="text" class="form-control" name="email" id="email" value="' . $email . '" autocomplete="off" aria-autocomplete="list" aria-label="' . __('E-mail', 'mi') . '" tabindex="2" required>
-                    <div class="invalid-feedback">' . __('Campo obrigatório', 'mi') . '</div>
-                </div>
+                        <fieldset>
+                            <label for="phone" class="form-label">' . __('Telefone', 'mi') . '</label>
+                            <input type="text" class="form-control" name="phone" id="phone" value="' . $phone . '" autocomplete="off" aria-autocomplete="list" aria-label="' . __('Telefone', 'mi') . '" tabindex="3" placeholder="+" required>
+                            <div class="invalid-feedback">' . __('Campo obrigatório', 'mi') . '</div>
+                        </fieldset>
 
-                <div class="mb-3">
-                    <label for="mensagem" class="form-label">' . __('Mensagem', 'mi') . '</label>
-                    <textarea class="form-control" name="mensagem" id="mensagem" rows="5" aria-autocomplete="list" aria-label="' . __('Mensagem', 'mi') . '" tabindex="3" required></textarea>
-                    <div class="invalid-feedback">' . __('Campo obrigatório', 'mi') . '</div>
-                </div>
+                        <fieldset>
+                            <label for="subject" class="form-label">' . __('Assunto', 'mi') . '</label>
 
-                <div class="mb-3">
-                    <button type="submit" class="btn btn-primary" tabindex="4">' . __('Enviar', 'mi') . '</button>
-                </div>
+                            <div class="form-style select-list">
+                                <div class="group-select">
+                                    <div class="nice-select" tabindex="4"><span class="current">' . __('Selecionar', 'mi') . '</span>
+                                        <ul class="list">
 
+                                            <li data-value="" data-term-id="" class="option">' . __('Selecionar', 'mi') . '</li>
+
+                                            <li data-value="' . __('Sugestão', 'mi') . '" data-term-id="' . __('Sugestão', 'mi') . '" class="option">' . __('Sugestão', 'mi') . '</li>
+                                            
+                                            <li data-value="' . __('Problema ou queixa', 'mi') . '" data-term-id="' . __('Problema ou queixa', 'mi') . '" class="option">' . __('Problema ou queixa', 'mi') . '</li>
+
+                                            <li data-value="' . __('Reportar conteúdo ilegal ou inapropriado', 'mi') . '" data-term-id="' . __('Reportar conteúdo ilegal ou inapropriado', 'mi') . '" class="option">' . __('Reportar conteúdo ilegal ou inapropriado', 'mi') . '</li>
+
+                                        </ul>
+                                    </div>
+
+                                    <input type="hidden" name="subject" data-select-list-value="" value="" required>
+                                    <div class="invalid-feedback">' . __('Campo obrigatório', 'mi') . '</div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                        <fieldset class="mb-20">
+                            <label for="mensagem" class="form-label">' . __('Mensagem', 'mi') . '</label>
+                            <textarea class="form-control" name="mensagem" id="mensagem" rows="5" aria-autocomplete="list" aria-label="' . __('Mensagem', 'mi') . '" tabindex="5" placeholder="' . __('Escreva aqui a sua mensagem.', 'mi') . '" required></textarea>
+                            <div class="invalid-feedback">' . __('Campo obrigatório', 'mi') . '</div>
+                        </fieldset>
+
+                        <div class="send-wrap">
+                            <button type="submit" class="tf-btn primary size-1 w-auto" tabindex="6">' . __('Enviar', 'mi') . '</button>
+                        </div>
+
+
+                    <input type="hidden" name="mi_contact_form_nonce" value="' . $mi_add_contact_form_nonce . '" />
+                    <input type="hidden" value="mi_contact_form" name="action">
+
+                </form>
+                <div id="contact-form-alert-placeholder"></div>
             </div>
-
-            <input type="hidden" name="mi_contact_form_nonce" value="' . $mi_add_contact_form_nonce . '" />
-            <input type="hidden" value="mi_contact_form" name="action">
-
-        </form>
-        <div id="contact-form-alert-placeholder"></div>';
+        </div>';
 
     return $form;
 }
