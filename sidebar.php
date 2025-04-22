@@ -38,7 +38,7 @@ if ($mapstatic_key && $imovel_lat && $imovel_lng) {
     <?php } ?>
 <?php } ?>
 
-<div class="widget-sidebar fixed-sidebar">
+<div class="widget-sidebar">
     <div class="flat-tab flat-tab-form widget-filter-search widget-box">
         <form role="filter" method="get" name="filter-imoveis">
             <?php if ($operacao_terms) { ?>
