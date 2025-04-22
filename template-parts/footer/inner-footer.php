@@ -39,7 +39,7 @@
                             <div class="col-lg-2 col-md-6">
                                 <?php if (has_nav_menu('footer_cat')) : ?>
                                     <div class="footer-cl-2 footer-col-block">
-                                        <div class="fw-7 text-white footer-heading-mobile"><?php _e('Categorias', 'mi'); ?></div>
+                                        <div class="fw-7 text-white footer-heading-mobile"><?php _e('Blog', 'mi'); ?></div>
                                         <div class="tf-collapse-content">
                                             <?php
                                             wp_nav_menu(
@@ -59,7 +59,7 @@
                             <div class="col-lg-2 col-md-6">
                                 <?php if (has_nav_menu('footer_company')) : ?>
                                     <div class="footer-cl-3 footer-col-block">
-                                        <div class="fw-7 text-white footer-heading-mobile"><?php _e('Nossa Empresa', 'mi'); ?></div>
+                                        <div class="fw-7 text-white footer-heading-mobile"><?php _e('Institucional', 'mi'); ?></div>
                                         <div class="tf-collapse-content">
                                             <?php
                                             wp_nav_menu(
@@ -78,9 +78,9 @@
                             </div>
                             <div class="col-lg-4 col-md-6">
                                 <div class="footer-cl-4 footer-col-block">
-                                    <div class="fw-7 text-white footer-heading-mobile"><?php _e('Boletim Informativo', 'mi'); ?></div>
+                                    <div class="fw-7 text-white footer-heading-mobile"><?php _e('Newsletter', 'mi'); ?></div>
                                     <div class="tf-collapse-content">
-                                        <p class="mt-12 text-variant-2"><?php _e('Sua dose semanal/mensal de conhecimento e inspiração', 'mi'); ?></p>
+                                        <p class="mt-12 text-variant-2"><?php _e('Insira o seu e-mail para receber gratuitamente as atualizações do blog', 'mi'); ?></p>
                                         <?php echo do_shortcode('[newsletter_form]'); ?>
                                     </div>
                                 </div>

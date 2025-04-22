@@ -339,3 +339,71 @@ function mi_register_contact_page_metabox()
         'show_option_none' => true,
     ));
 }
+
+add_action('cmb2_admin_init', 'mi_register_anuncie_page_metabox');
+
+function mi_register_anuncie_page_metabox()
+{
+    $cmb = new_cmb2_box(array(
+        'id'            => 'mi_anuncie_metabox',
+        'title'         => esc_html__('Opções de página', 'mi'),
+        'object_types'  => array('page'), // Post type
+        'show_on_cb' => 'mi_show_anuncie_cmb_options',
+        'context'    => 'normal',
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Título', 'mi'),
+        'id'         => 'destaque_title',
+        'type'       => 'text',
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Texto', 'mi'),
+        'id'         => 'destaque_content',
+        'type'    => 'wysiwyg',
+        'options' => array(
+            'textarea_rows' => 5,
+        ),
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Imagem', 'mi'),
+        'id'         => 'destaque_image',
+        'desc'       => esc_html__('A imagem é exibida do lado do formulário da página.', 'mi'),
+        'type'       => 'file',
+        'attributes' => array(
+            'accept' => '.jpg,.jpeg,.png,.svg'
+        )
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Ícone do botão', 'mi'),
+        'id'         => 'destaque_icon',
+        'type'       => 'file',
+        'attributes' => array(
+            'accept' => '.jpg,.jpeg,.png,.svg'
+        )
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Texto do botão', 'mi'),
+        'id'         => 'destaque_btn',
+        'type'       => 'text',
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Link', 'mi'),
+        'id'         => 'destaque_url',
+        'type'       => 'text_url',
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Texto após o botão', 'mi'),
+        'id'         => 'destaque_text_after_btn',
+        'type'    => 'wysiwyg',
+        'options' => array(
+            'textarea_rows' => 5,
+        ),
+    ));
+}
