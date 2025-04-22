@@ -68,17 +68,19 @@ if ($mapstatic_key && $imovel_lat && $imovel_lng) {
                             'hide_empty' => false,
                         ));
                         $selected_tipo_term_id = isset($_GET['tipo-terms']) && $_GET['tipo-terms'] ? $_GET['tipo-terms'] : null;
+                        $selected_tipo_term = $selected_tipo_term_id ? get_term($selected_tipo_term_id, 'tipo') : null;
                         ?>
                         <?php if ($tipo_terms) { ?>
 
                             <div class="form-style select-list">
 
                                 <div class="group-select">
-                                    <div class="nice-select" tabindex="0"><span class="current"><?php _e('Tipo de imóvel', 'mi'); ?></span>
+                                    <div class="nice-select" tabindex="0"><span class="current"><?php echo $selected_tipo_term ? $selected_tipo_term->name : __('Tipo de imóvel', 'mi'); ?></span>
                                         <ul class="list">
                                             <li data-value="" data-term-id="" class="option"><?php _e('Tipo de imóvel', 'mi'); ?></li>
                                             <?php foreach ($tipo_terms as $term) { ?>
-                                                <li data-value="<?php echo $term->name; ?>" data-term-id="<?php echo $term->term_id; ?>" class="option"><?php echo $term->name; ?></li>
+                                                <?php $selected = (int)$term->term_id === (int)$selected_tipo_term_id ? 'selected' : ''; ?>
+                                                <li data-value="<?php echo $term->name; ?>" data-term-id="<?php echo $term->term_id; ?>" class="option <?php echo $selected; ?>"><?php echo $term->name; ?></li>
                                             <?php } ?>
                                         </ul>
                                     </div>
