@@ -125,7 +125,7 @@ function mi_frontend_scripts()
     $gmaps_key = mi_get_option('gmaps_key', false, 'mi_google_keys_options');
 
     if ($gmaps_key) {
-        wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=' . $gmaps_key . '&libraries=places&callback=initGoogleApi&', array(), null,  array(
+        wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=' . $gmaps_key . '&language=pt-PT&libraries=places&callback=initGoogleApi&', array(), null,  array(
             'in_footer' => true,
             'strategy' => 'defer'
         ));
