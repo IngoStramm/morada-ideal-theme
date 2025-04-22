@@ -5,6 +5,14 @@ $user = wp_get_current_user();
 $user_id = $user->get('ID');
 $search = isset($_GET['search']) && $_GET['search'] ? $_GET['search'] : null;
 $editar_imovel_url = mi_get_page_url('editimovel');
+$orderby = isset($_GET['orderby']) ? $_GET['orderby'] : null;
+$order_list = [
+    ''                      => __('Ordenar (padrão)', 'mi'),
+    'date_desc'             => __('Mais recentes primeiro', 'mi'),
+    'date_asc'              => __('Mais antigos primeiro', 'mi'),
+    'title_asc'             => __('Ordem alfabética (A-Z)', 'mi'),
+    'title_desc'            => __('Ordem alfabética reversa (Z-A)', 'mi'),
+];
 ?>
 <div class="main-content">
     <div class="main-content-inner wrap-dashboard-content">
@@ -15,13 +23,12 @@ $editar_imovel_url = mi_get_page_url('editimovel');
                     <label>
                         <?php _e('Data', 'mi'); ?>:<span>*</span>
                     </label>
-                    <div class="nice-select my-imoveis-select" tabindex="0"><span class="current"><?php _e('Ordenar (Padrão)', 'mi'); ?></span>
+                    <div class="nice-select my-imoveis-select" tabindex="0"><span class="current"><?php echo $order_list[$orderby]; ?></span>
                         <ul class="list">
-                            <li data-value="" class="option selected"><?php _e('Ordenar (padrão)', 'mi'); ?></li>
-                            <li data-value="date_desc" class="option"><?php _e('Mais recentes primeiro', 'mi'); ?></li>
-                            <li data-value="date_asc" class="option"><?php _e('Mais antigos primeiro', 'mi'); ?></li>
-                            <li data-value="title_asc" class="option"><?php _e('Ordem alfabética (A-Z)', 'mi'); ?></li>
-                            <li data-value="title_desc" class="option"><?php _e('Ordem alfabética reversa (Z-A)', 'mi'); ?></li>
+                            <?php foreach ($order_list as $k => $v) {
+                                $selected = $k === $orderby ? 'selected' : '';
+                                echo '<li data-value="' . $k . '" class="option ' . $selected . '">' . $v . '</li>';
+                            } ?>
                         </ul>
                     </div>
                 </fieldset>
@@ -47,8 +54,7 @@ $editar_imovel_url = mi_get_page_url('editimovel');
                     'post_status'           => array('publish', 'draft'),
                     'author'                => $user_id,
                 );
-
-                $orderby = isset($_GET['orderby']) ? $_GET['orderby'] : 'date_desc';
+                $orderby = $orderby ? $orderby : 'date_desc';
                 $order_array = array(
                     'date_asc' => array(
                         'orderby'   => 'date',
