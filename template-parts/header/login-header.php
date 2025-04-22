@@ -1,5 +1,5 @@
 <!-- Main Header -->
-<header id="header" class="main-header login-header header-fixed fixed-header">
+<header id="header" class="main-header login-header">
     <!-- Header Lower -->
     <div class="header-lower">
         <div class="row">
@@ -14,13 +14,14 @@
                             <!-- Main Menu End-->
                         </div>
                     </div>
+                    <?php /* ?>
                     <div class="inner-header-right">
                         <a href="#" class="tf-btn outline go-back-btn btn-line btn-login">
                             <img src="<?php echo MI_URL; ?>/assets/images/go-back.png" alt="<?php _e('Voltar', 'mi'); ?>">
                             <?php _e('Voltar', 'mi'); ?>
                         </a>
                     </div>
-
+                    <?php */ ?>
                 </div>
             </div>
         </div>

@@ -69,7 +69,7 @@ $contact_id = mi_get_option('mi_contact', false, 'mi_site_pages_options');
 
                             <?php if (mi_get_page_id('login') && mi_get_page_id('lostpassword')) { ?>
                                 <div class="d-flex align-items-center justify-content-between mt-3">
-                                    <a href="<?php echo mi_get_page_url('login'); ?>"><?php _e('Entrar', 'mi'); ?></a>
+                                    <a href="<?php echo mi_get_page_url('login'); ?>"><?php _e('Inicia Sessão', 'mi'); ?></a>
                                     <a href="<?php echo mi_get_page_url('lostpassword'); ?>"><?php _e('Perdeu a senha?', 'mi'); ?></a>
                                 </div>
                             <?php } ?>
