@@ -6,6 +6,8 @@ $full_url = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $has_params = parse_url($full_url, PHP_URL_QUERY);
 $reset_url = mi_remove_url_parameters($full_url, $filter_params);
 $reset_url = mi_remove_url_parameters($reset_url, array('view'));
+$reset_url = explode('page/', $reset_url);
+$reset_url = $reset_url[0];
 $mapa_view_url = $has_params ? $full_url . '&view=map' : $full_url . '?view=map';
 $lista_view_url = mi_remove_url_parameters($full_url, array('view'));
 $operacao_terms = get_terms(array(
@@ -40,7 +42,7 @@ if ($mapstatic_key && $imovel_lat && $imovel_lng) {
 
 <div class="widget-sidebar">
     <div class="flat-tab flat-tab-form widget-filter-search widget-box">
-        <form role="filter" method="get" name="filter-imoveis">
+        <form role="filter" method="get" name="filter-imoveis" action="<?php echo $reset_url; ?>">
             <?php if ($operacao_terms) { ?>
                 <div class="list-btns">
                     <ul class="nav-tab-form" id="operacao-filter">
