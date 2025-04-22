@@ -48,7 +48,9 @@ get_header(); ?>
                             </div>
                             <?php mi_paging_nav(); ?>
 
-                        <?php } ?>
+                        <?php } else {
+                            get_template_part('template-parts/archive/archive', 'content-none');
+                        } ?>
                     <?php } else {
                         get_template_part('template-parts/archive/archive', 'map-content');
                     } ?>
