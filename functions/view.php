@@ -68,9 +68,12 @@ function mi_imovel_meta_list($imovel_tipologia = null, $imovel_casas_banho = nul
  *
  * @param  string $imovel_lat
  * @param  string $imovel_lng
+ * @param  boolean $display_box_address
+ * @param  boolean $is_required
+ * @param  boolean $display_hidden_fields
  * @return string
  */
-function mi_autocomplete_search_input($imovel_lat = '', $imovel_lng = '', $display_box_address = false, $is_required = false)
+function mi_autocomplete_search_input($imovel_lat = '', $imovel_lng = '', $display_box_address = false, $is_required = false, $display_hidden_fields = true, $validate_autocomplete_input = false)
 {
     $search = isset($_GET['search']) && $_GET['search'] ? $_GET['search'] : null;
     if (!$imovel_lat) {
@@ -84,21 +87,26 @@ function mi_autocomplete_search_input($imovel_lat = '', $imovel_lng = '', $displ
     $imovel_codigo_postal = isset($_GET['imovel_codigo_postal']) && $_GET['imovel_codigo_postal'] ? $_GET['imovel_codigo_postal'] : null;
     $imovel_rua = isset($_GET['imovel_rua']) && $_GET['imovel_rua'] ? $_GET['imovel_rua'] : null;
     $required = $is_required ? 'required' : '';
+    $data_validate = $validate_autocomplete_input ? 'data-validate="true"' : 'data-validate="false"';
     $invalid_feedback = '<div class="ms-2 invalid-feedback">' . __('Campo obrigatório', 'mi') . '</div>';
     $output = '';
     $output .= '
     <div class="autocomplete-wrapper form-style">
         <div class="group-ip ip-icon">
-            <input type="text" class="form-control autocomplete search-address-group" placeholder="' . __('Localização', 'mi') . '" value="' . $search . '" name="search" id="autocomplete" title="' . __('Pesquisar por', 'mi') . '" ' . $required . '>
+            <input type="text" class="form-control autocomplete search-address-group" placeholder="' . __('Localização', 'mi') . '" value="' . $search . '" name="search" id="autocomplete" title="' . __('Pesquisar por', 'mi') . '" ' . $data_validate . ' ' . $required . '>
             <a href="#" class="icon-right icon-location"></a>' . $invalid_feedback . '
         </div>
-        <div id="autocomplete-message" class="autocomplete-message invalid-feedback px-2">' . __('Digite um endereço válido para fazer a pesquisa.', 'mi') . '</div>
+        <div id="autocomplete-message" class="autocomplete-message invalid-feedback px-2">' . __('Digite um endereço completo (rua, cidade, Estado e código postal) para fazer a pesquisa.', 'mi') . '</div>
         <input type="hidden" value="' . $imovel_lat . '" name="lat" />
-        <input type="hidden" value="' . $imovel_lng . '" name="lng" />
+        <input type="hidden" value="' . $imovel_lng . '" name="lng" />';
+    if ($display_hidden_fields) {
+        $output .= '
         <input type="hidden" value="' . $imovel_estado . '" name="imovel_estado" />
         <input type="hidden" value="' . $imovel_cidade . '" name="imovel_cidade" />
         <input type="hidden" value="' . $imovel_codigo_postal . '" name="imovel_codigo_postal" />
-        <input type="hidden" value="' . $imovel_rua . '" name="imovel_rua" />
+        <input type="hidden" value="' . $imovel_rua . '" name="imovel_rua" />';
+    }
+    $output .= '
     </div>
     ';
     if ($display_box_address) {

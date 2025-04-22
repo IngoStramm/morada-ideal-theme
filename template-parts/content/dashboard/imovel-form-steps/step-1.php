@@ -83,7 +83,7 @@ $price = $post_id ? get_post_meta($post_id, 'imovel_valor', true) : null;
         <label>
             <?php _e('Localização do imóvel', 'mi'); ?>:<span>*</span>
         </label>
-        <?php echo mi_autocomplete_search_input($imovel_lat, $imovel_lng, false, $is_required); ?>
+        <?php echo mi_autocomplete_search_input($imovel_lat, $imovel_lng, false, $is_required, false, true); ?>
     </fieldset>
 
     <div class="box grid-2 gap-30">
@@ -91,14 +91,14 @@ $price = $post_id ? get_post_meta($post_id, 'imovel_valor', true) : null;
             <label for="imovel_rua">
                 <?php _e('Rua', 'mi'); ?><span class="text-danger" data-bs-toggle="tooltip" data-bs-title="<?php _e('Campo obrigatório.', 'mi'); ?>">*</span>
             </label>
-            <input name="imovel_rua" id="imovel_rua" value="<?php echo $imovel_rua; ?>" type="text" class="form-control" placeholder="<?php _e('Rua', 'mi'); ?>" readonly>
+            <input name="imovel_rua" id="imovel_rua" value="<?php echo $imovel_rua; ?>" type="text" class="form-control" readonly>
             <div class="invalid-feedback"><?php _e('Campo obrigatório', 'mi'); ?></div>
         </fieldset>
         <fieldset class="box-fieldset">
             <label for="imovel_numero">
                 <?php _e('Número', 'mi'); ?><span class="text-danger" data-bs-toggle="tooltip" data-bs-title="<?php _e('Campo obrigatório.', 'mi'); ?>">*</span>
             </label>
-            <input type="text" name="imovel_numero" id="imovel_numero" class="form-control" value="<?php echo $imovel_numero; ?>" placeholder="<?php _e('Número', 'mi'); ?>" required>
+            <input type="text" name="imovel_numero" id="imovel_numero" class="form-control" value="<?php echo $imovel_numero; ?>" required>
             <div class="invalid-feedback"><?php _e('Campo obrigatório', 'mi'); ?></div>
         </fieldset>
     </div>
@@ -108,14 +108,14 @@ $price = $post_id ? get_post_meta($post_id, 'imovel_valor', true) : null;
             <label for="imovel_codigo_postal">
                 <?php _e('Código Postal', 'mi'); ?><span class="text-danger" data-bs-toggle="tooltip" data-bs-title="<?php _e('Campo obrigatório.', 'mi'); ?>">*</span>
             </label>
-            <input type="text" name="imovel_codigo_postal" id="imovel_codigo_postal" class="form-control" value="<?php echo $imovel_codigo_postal; ?>" placeholder="<?php _e('Código Postal', 'mi'); ?>" readonly>
+            <input type="text" name="imovel_codigo_postal" id="imovel_codigo_postal" class="form-control" value="<?php echo $imovel_codigo_postal; ?>" readonly>
             <div class="invalid-feedback"><?php _e('Campo obrigatório', 'mi'); ?></div>
         </fieldset>
         <fieldset class="box-fieldset">
             <label for="imovel_cidade">
                 <?php _e('Cidade', 'mi'); ?><span class="text-danger" data-bs-toggle="tooltip" data-bs-title="<?php _e('Campo obrigatório.', 'mi'); ?>">*</span>
             </label>
-            <input name="imovel_cidade" id="imovel_cidade" value="<?php echo $imovel_cidade; ?>" type="text" class="form-control" placeholder="<?php _e('Cidade', 'mi'); ?>" readonly>
+            <input name="imovel_cidade" id="imovel_cidade" value="<?php echo $imovel_cidade; ?>" type="text" class="form-control" readonly>
             <div class="invalid-feedback"><?php _e('Campo obrigatório', 'mi'); ?></div>
         </fieldset>
     </div>
@@ -125,14 +125,14 @@ $price = $post_id ? get_post_meta($post_id, 'imovel_valor', true) : null;
             <label for="imovel_estado">
                 <?php _e('Estado', 'mi'); ?><span class="text-danger" data-bs-toggle="tooltip" data-bs-title="<?php _e('Campo obrigatório.', 'mi'); ?>">*</span>
             </label>
-            <input type="text" name="imovel_estado" id="imovel_estado" class="form-control" value="<?php echo $imovel_estado; ?>" placeholder="<?php _e('Estado', 'mi'); ?>" readonly>
+            <input type="text" name="imovel_estado" id="imovel_estado" class="form-control" value="<?php echo $imovel_estado; ?>" readonly>
             <div class="invalid-feedback"><?php _e('Campo obrigatório', 'mi'); ?></div>
         </fieldset>
         <fieldset class="box-fieldset">
             <label for="imovel_price">
                 <?php _e('Preço', 'mi'); ?><span class="text-danger" data-bs-toggle="tooltip" data-bs-title="<?php _e('Campo obrigatório.', 'mi'); ?>">*</span>
             </label>
-            <input name="imovel_price" id="imovel_price" value="<?php echo $price; ?>" type="text" class="form-control" placeholder="<?php _e('Preço do imóvel', 'mi'); ?>" required>
+            <input name="imovel_price" id="imovel_price" value="<?php echo $price; ?>" type="text" class="form-control" required>
             <div class="invalid-feedback"><?php _e('Campo obrigatório', 'mi'); ?></div>
         </fieldset>
     </div>

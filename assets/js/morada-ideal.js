@@ -980,6 +980,8 @@ function miOnPlaceChanged(autocompleteMessage) {
     let place = autocomplete.getPlace();
 
     const miAutocompleteForm = autocompleteMessage.closest('form');
+    const autocompleteInput = miAutocompleteForm.querySelector('input.autocomplete');
+    const validateCompleteAdress = autocompleteInput.getAttribute('data-validate') === 'true';
 
     if (typeof miAutocompleteForm === undefined || !miAutocompleteForm) {
         console.error('Não foi possível encontrar o formulário do autocomplete');
@@ -1041,6 +1043,7 @@ function miOnPlaceChanged(autocompleteMessage) {
         }
     } else {
         console.log(place.address_components);
+        autocompleteMessage.style.display = 'none';
 
         lat = place.geometry.location.lat();
         lng = place.geometry.location.lng();
@@ -1052,14 +1055,34 @@ function miOnPlaceChanged(autocompleteMessage) {
         document.getElementById('autocomplete').innerHTML = place.name;
         miSetInputsNewValue(latInput, lat);
         miSetInputsNewValue(lngInput, lng);
-        const newStateValue = estado[0]?.short_name ? estado[0]?.short_name : '';
-        miSetInputsNewValue(stateInput, newStateValue);
-        const newCidadeValue = cidade[0]?.short_name ? cidade[0]?.short_name : '';
-        miSetInputsNewValue(cidadeInput, newCidadeValue);
-        const newCepValue = cep[0]?.short_name ? cep[0]?.short_name : '';
-        miSetInputsNewValue(cepInput, newCepValue);
-        const newRuaValue = rua[0]?.long_name ? rua[0]?.long_name : '';
-        miSetInputsNewValue(imovelRua, newRuaValue);
+        if (estado[0]?.short_name) {
+            const newStateValue = estado[0]?.short_name ? estado[0]?.short_name : '';
+            miSetInputsNewValue(stateInput, newStateValue);
+        } else if (validateCompleteAdress) {
+            autocompleteMessage.style.display = 'block';
+            miSetInputsNewValue(stateInput, '');
+        }
+        if (cidade[0]?.short_name) {
+            const newCidadeValue = cidade[0]?.short_name ? cidade[0]?.short_name : '';
+            miSetInputsNewValue(cidadeInput, newCidadeValue);
+        } else if (validateCompleteAdress) {
+            autocompleteMessage.style.display = 'block';
+            miSetInputsNewValue(cidadeInput, '');
+        }
+        if (cep[0]?.short_name) {
+            const newCepValue = cep[0]?.short_name ? cep[0]?.short_name : '';
+            miSetInputsNewValue(cepInput, newCepValue);
+        } else if (validateCompleteAdress) {
+            autocompleteMessage.style.display = 'block';
+            miSetInputsNewValue(cepInput, '');
+        }
+        if (rua[0]?.long_name) {
+            const newRuaValue = rua[0]?.long_name ? rua[0]?.long_name : '';
+            miSetInputsNewValue(imovelRua, newRuaValue);
+        } else if (validateCompleteAdress) {
+            autocompleteMessage.style.display = 'block';
+            miSetInputsNewValue(imovelRua, '');
+        }
 
         const regiaoTable = document.getElementById('table-regiao-imoveis');
         if (typeof regiaoTable !== undefined && regiaoTable) {
@@ -1081,8 +1104,6 @@ function miOnPlaceChanged(autocompleteMessage) {
             }
         }
 
-
-        autocompleteMessage.style.display = 'none';
         if (typeof autocompleteFormBtn !== undefined && autocompleteFormBtn) {
             autocompleteFormBtn.removeAttribute('disabled');
         }
