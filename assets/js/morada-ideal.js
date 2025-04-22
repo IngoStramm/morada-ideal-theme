@@ -843,6 +843,25 @@ const markers = {};
         });
     }
 
+    function miUnselectRAdioInput() {
+        const radioInputs = document.querySelectorAll('input[type="radio"]');
+        radioInputs.forEach(radioInput => {
+            radioInput.addEventListener('click', () => {
+                if (radioInput.dataset.checked === 'true') {
+                    radioInput.checked = false;
+                    radioInput.dataset.checked = 'false';
+                } else {
+                    radioInputs.forEach(otherRadio => {
+                        otherRadio.checked = false;
+                        otherRadio.dataset.checked = 'false';
+                    });
+                    radioInput.checked = true;
+                    radioInput.dataset.checked = 'true';
+                }
+            });
+        });
+    }
+
     window.addEventListener('load', function () {
         miFormsValidation();
         miNewsletterForm();
@@ -863,6 +882,7 @@ const markers = {};
         miDragAndDropFiles();
         homeDestaquesSwiper();
         miContactForm();
+        miUnselectRAdioInput();
     });
 
 })();
