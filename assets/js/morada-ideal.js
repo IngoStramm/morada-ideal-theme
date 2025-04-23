@@ -563,6 +563,9 @@ const markers = {};
         function handleFiles(files) {
             // ref: @link https://pqina.nl/blog/set-value-to-file-input/
             const dataTransfer = new DataTransfer();
+            ([...fileInput.files]).forEach(file => {
+                dataTransfer.items.add(file);
+            });
             ([...files]).forEach(file => {
                 console.log(file);
                 dataTransfer.items.add(file);
