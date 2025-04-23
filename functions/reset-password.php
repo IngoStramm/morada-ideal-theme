@@ -18,7 +18,7 @@ function mi_redirect_to_custom_resetpassword()
 
     if (!isset($_REQUEST['login']) || !$_REQUEST['login']) {
 
-        $_SESSION['mi_resetpassword_error_message'] = __('Usuário inválido.', 'mi');
+        $_SESSION['mi_resetpassword_error_message'] = __('Utilizador inválido.', 'mi');
         wp_safe_redirect($login_page_url);
         exit;
     }
@@ -28,7 +28,7 @@ function mi_redirect_to_custom_resetpassword()
 
         if ($user && $user->get_error_code() === 'expired_key') {
 
-            $error_string = $user->get_error_message() ? $user->get_error_message() : __('O link de redefinição de senha expirou.', 'mi');
+            $error_string = $user->get_error_message() ? $user->get_error_message() : __('O link de redefinição de palavra-chave expirou.', 'mi');
             $_SESSION['mi_resetpassword_error_message'] = $error_string;
             wp_safe_redirect($login_page_url);
         } else {
@@ -70,21 +70,21 @@ function mi_resetpassword_form_handle()
 
     if (!isset($_POST['key']) || !$_POST['key']) {
 
-        $_SESSION['mi_resetpassword_error_message'] = __('Chave de redefinição de senha inválida.', 'mi');
+        $_SESSION['mi_resetpassword_error_message'] = __('Chave de redefinição de palavra-chave inválida.', 'mi');
         wp_safe_redirect($resetpassword_page_url);
         exit;
     }
 
     if (!isset($_POST['user_pass']) || !$_POST['user_pass']) {
 
-        $_SESSION['mi_resetpassword_error_message'] = __('Senha inválida.', 'mi');
+        $_SESSION['mi_resetpassword_error_message'] = __('Palavra-chave inválida.', 'mi');
         wp_safe_redirect($resetpassword_page_url);
         exit;
     }
 
     if (!isset($_POST['user_login']) || !$_POST['user_login']) {
 
-        $_SESSION['mi_resetpassword_error_message'] = __('Usuário inválido.', 'mi');
+        $_SESSION['mi_resetpassword_error_message'] = __('Utilizador inválido.', 'mi');
         wp_safe_redirect($resetpassword_page_url);
         exit;
     }
@@ -104,9 +104,9 @@ function mi_resetpassword_form_handle()
 
     if (!$user || is_wp_error($user)) {
         if ($user && $user->get_error_code() === 'expired_key') {
-            $error_string = $user->get_error_message() ? $user->get_error_message() : __('A chave de redefinição de senha expirou. Solicite um novo link de redefinição de senha clicando na opção "Esqueceu a senha?" na tela de login.', 'mi');
+            $error_string = $user->get_error_message() ? $user->get_error_message() : __('A chave de redefinição de palavra-chave expirou. Solicite um novo link de redefinição de palavra-chave clicando na opção "Esqueceu a palavra-chave?" na tela de inicia sessão.', 'mi');
         } else {
-            $error_string = $user->get_error_message() ? $user->get_error_message() : __('A chave de redefinição de senha é inválida. Solicite um novo link de redefinição de senha clicando na opção "Esqueceu a senha?" na tela de login.', 'mi');
+            $error_string = $user->get_error_message() ? $user->get_error_message() : __('A chave de redefinição de palavra-chave é inválida. Solicite um novo link de redefinição de palavra-chave clicando na opção "Esqueceu a palavra-chave?" na tela de inicia sessão.', 'mi');
         }
         $_SESSION['mi_resetpassword_error_message'] = $error_string;
         wp_safe_redirect($login_page_url);
@@ -115,9 +115,9 @@ function mi_resetpassword_form_handle()
 
     reset_password($user, $user_pass);
 
-    $_SESSION['mi_resetpassword_success_message'] = __('Senha alterada com sucesso.', 'mi');
+    $_SESSION['mi_resetpassword_success_message'] = __('Palavra-passe alterada com sucesso.', 'mi');
 
-    echo '<h3>' . __('Senha alterada com sucesso! Por favor, aguarde enquanto está sendo redicionando...', 'mi') . '</p>';
+    echo '<h3>' . __('Palavra-passe alterada com sucesso! Por favor, aguarde enquanto está sendo redicionando...', 'mi') . '</p>';
 
     wp_safe_redirect($login_page_url);
     exit;
