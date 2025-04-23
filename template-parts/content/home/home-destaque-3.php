@@ -10,7 +10,7 @@ $destaque_3_url = get_post_meta($post_id, 'home_destaque_3_url', true);
 <section class="destaque">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 home-destaque-text-col">
+            <div class="col-md-6 destaque-text-col">
                 <?php if ($destaque_3_title) { ?>
                     <h4 class="destaque-title"><?php echo $destaque_3_title; ?></h4>
                 <?php } ?>
