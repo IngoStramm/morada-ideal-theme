@@ -1,3 +1,7 @@
+<?php
+$login_page_url = mi_get_page_url('login');
+$newsuser_page_url = mi_get_page_url('newuser');
+?>
 <!-- Main Header -->
 <header id="header" class="main-header header-fixed fixed-header">
     <!-- Header Lower -->
@@ -15,7 +19,6 @@
                     </div>
                     <div class="inner-header-right header-account">
                         <?php if (!is_user_logged_in()) { ?>
-                            <?php $login_page_url = mi_get_page_url('login'); ?>
                             <?php if ($login_page_url) { ?>
                                 <a href="<?php echo $login_page_url; ?>" class="tf-btn btn-line btn-login">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -57,9 +60,9 @@
                 <div class="login-box flex align-center">
                     <?php
                     if (!is_user_logged_in()) { ?>
-                        <a href="#modalLogin" data-bs-toggle="modal"><?php _e('Entrar', 'mi'); ?></a>
+                        <a href="<?php echo $login_page_url; ?>"><?php _e('Entrar', 'mi'); ?></a>
                         <span>/</span>
-                        <a href="#modalRegister" data-bs-toggle="modal"><?php _e('Cadastrar-se', 'mi'); ?></a>
+                        <a href="<?php echo $newsuser_page_url; ?>"><?php _e('Cadastrar-se', 'mi'); ?></a>
                     <?php } else { ?>
                         <?php $account_page_url = mi_get_page_url('dashboard'); ?>
                         <a href="<?php echo $account_page_url; ?>"><?php _e('Sua Conta', 'mi'); ?></a>
