@@ -855,8 +855,10 @@ const markers = {};
                     radioInput.dataset.checked = 'false';
                 } else {
                     radioInputs.forEach(otherRadio => {
-                        otherRadio.checked = false;
-                        otherRadio.dataset.checked = 'false';
+                        if (otherRadio.name === radioInput.name) {
+                            otherRadio.checked = false;
+                            otherRadio.dataset.checked = 'false';
+                        }
                     });
                     radioInput.checked = true;
                     radioInput.dataset.checked = 'true';

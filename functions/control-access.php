@@ -38,7 +38,8 @@ function mi_edit_imovel_access()
     }
     $meus_imoveis_url = mi_get_page_url('myimoveis');
     $user_id = get_current_user_id();
-    $check_user_permition = mi_check_edit_imovel_user_permition($user_id, $post_id);
+    $imovel_id = isset($_REQUEST['imovel_id']) && $_REQUEST['imovel_id'] ? $_REQUEST['imovel_id'] : null;
+    $check_user_permition = mi_check_edit_imovel_user_permition($user_id, $imovel_id);
     if (!$check_user_permition) {
         $_SESSION['mi_permisssion_error_message'] = __('Você não possui permissão para editar este imóvel.', 'mi');
         wp_safe_redirect($meus_imoveis_url);

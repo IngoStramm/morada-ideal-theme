@@ -478,13 +478,16 @@ function mi_check_edit_imovel_user_permition($user_id, $post_id)
     if (!$user_id) {
         return false;
     }
+    if (!$post_id) {
+        return true;
+    }
     $is_user_administrator = mi_user_has_role($user_id, 'administrator');
     if ($is_user_administrator) {
         return true;
     }
     $post = get_post($post_id);
     $author_id = $post->post_author;
-    $check_user = $user_id === (int)$author_id;
+    $check_user = (int)$user_id === (int)$author_id;
     return $check_user;
 }
 
