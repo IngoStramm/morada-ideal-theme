@@ -73,13 +73,13 @@ $post_status = get_post_status($post_id);
                     </label>
                     <input type="file" class="ip-file" id="imovel_galeria" name="imovel_galeria[]" accept=".jpg,.jpeg,.png" data-img-qty="<?php echo $curr_img_qty; ?>" data-max-img-qty="<?php echo $max_img_qty; ?>" multiple>
                 </div>
-                <p class="file-name fw-5"><?php _e('Nenhum arquivo selecionado.', 'mi'); ?></p>
+                <p class="file-name fw-5"><?php _e('Nenhum ficheiro selecionado.', 'mi'); ?></p>
             </div>
         </div>
         <div class="box-img-upload">
         </div>
         <div class="d-flex align-items-center justify-content-center mt-3">
-            <a href="#" class="tf-btn danger btn-clear-file-upload"><?php _e('Descartar imagens selecionadas', 'mi'); ?><span class="icon icon-trash"></span></a>
+            <a href="#" class="tf-btn danger btn-clear-file-upload"><?php _e('Eliminar imagens selecionadas', 'mi'); ?><span class="icon icon-trash"></span></a>
         </div>
     </div>
 
@@ -88,10 +88,10 @@ $post_status = get_post_status($post_id);
         <button type="submit" name="previous-step" class="tf-btn secondary"><?php _e('Voltar para a etapa anterior', 'mi'); ?></button>
 
         <?php if ($post_status === 'draft') { ?>
-            <button id="new-imovel-form-btn" name="draft" type="submit" class="tf-btn outline"><?php _e('Salvar sem publicar', 'mi'); ?></button>
+            <button id="new-imovel-form-btn" name="draft" type="submit" class="tf-btn outline"><?php _e('Guardar sem publicar', 'mi'); ?></button>
         <?php } ?>
 
-        <button id="new-imovel-form-btn" name="publish" type="submit" class="tf-btn primary"><?php _e('Salvar e publicar', 'mi'); ?></button>
+        <button id="new-imovel-form-btn" name="publish" type="submit" class="tf-btn primary"><?php _e('Guardar e publicar', 'mi'); ?></button>
 
     </div>
     <input type="hidden" name="mi_form_imovel_step_3_nonce" value="<?php echo $mi_add_form_new_imovel_step_3_nonce ?>" />
