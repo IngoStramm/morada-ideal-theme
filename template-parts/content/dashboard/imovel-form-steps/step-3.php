@@ -15,7 +15,7 @@ $post_status = get_post_status($post_id);
 <form name="new-imovel-form" id="new-imovel-form" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" class="needs-validation new-imovel-form" enctype="multipart/form-data" novalidate>
 
     <div class="box-fieldset mi-file-image-preview mb-5">
-        <h5 class="title"><?php _e('Imagem Principal', 'mi') ?></h5>
+        <h5 class="title"><?php _e('Imagem principal', 'mi') ?></h5>
         <div class="box-agent-avt">
             <div>
                 <div class="img-poster images-preview">
@@ -29,7 +29,7 @@ $post_status = get_post_status($post_id);
             </div>
             <input type="hidden" name="changed-thumbnail" value="false">
             <div class="content uploadfile">
-                <p><?php _e('Escolher um arquivo', 'mi'); ?></p>
+                <p><?php _e('Escolher um ficheiro', 'mi'); ?></p>
                 <div class="box-ip">
                     <input type="file" class="ip-file" accept=".jpg,.jpeg,.png" name="imovel_thumbnail">
                 </div>
@@ -40,9 +40,9 @@ $post_status = get_post_status($post_id);
     </div>
 
     <h5 class="title"><?php _e('Galeria de imagens do imóvel', 'mi') ?></h5>
-    <p class="mb-3"><?php printf(__('Você está usando <strong>%s imagens</strong> do total disponível de <strong>%s imagens</strong>.', 'mi'), $curr_img_qty, $max_img_qty); ?></p>
+    <p class="mb-3"><?php printf(__('Você está a utilizar <strong>%s imagens</strong> do total disponível de <strong>%s imagens</strong>.', 'mi'), $curr_img_qty, $max_img_qty); ?></p>
     <?php if (!$imovel_galeria) { ?>
-        <p class="mb-2"><?php _e('Este imóvel ainda não possui nenhuma imagem.', 'mi'); ?></p>
+        <p class="mb-2"><?php _e('Este imóvel ainda não tem qualquer imagem.', 'mi'); ?></p>
     <?php } ?>
     <div class="box-img-upload galeria-imovel-management mb-5 drag-container">
         <?php if ($imovel_galeria) { ?>

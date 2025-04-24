@@ -15,7 +15,7 @@ $args = [
         <div class="wrapper-content row">
             <div class="col-lg-7 col-xl-8">
                 <div class="widget-box-2">
-                    <h3 class="title fw-bold"><?php _e('Cadastrar Imóvel', 'mi'); ?></h3>
+                    <h3 class="title fw-bold"><?php _e('Registrar Imóvel', 'mi'); ?></h3>
                     <?php get_template_part('template-parts/content/dashboard/imovel', 'form', $args); ?>
                 </div>
             </div>
