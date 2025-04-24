@@ -133,15 +133,15 @@ function mi_frontend_scripts()
         //     'in_footer' => true,
         //     'strategy' => 'defer'
         // ));
-        wp_enqueue_script('morada-maps', MI_URL . '/assets/js/map.js', array('google-maps'), null,  array(
+        wp_enqueue_script('morada-maps', MI_URL . '/assets/js/map.js', array('google-maps'), $version,  array(
             'in_footer' => true,
             'strategy' => 'defer'
         ));
-        wp_enqueue_script('morada-marker', MI_URL . '/assets/js/marker.js', array('google-maps', 'morada-maps'), null,  array(
+        wp_enqueue_script('morada-marker', MI_URL . '/assets/js/marker.js', array('google-maps', 'morada-maps'), $version,  array(
             'in_footer' => true,
             'strategy' => 'defer'
         ));
-        wp_enqueue_script('morada-infobox', MI_URL . '/assets/js/infobox.min.js', array('google-maps', 'morada-maps', 'morada-marker'), null,  array(
+        wp_enqueue_script('morada-infobox', MI_URL . '/assets/js/infobox.min.js', array('google-maps', 'morada-maps', 'morada-marker'), $version,  array(
             'in_footer' => true,
             'strategy' => 'defer'
         ));

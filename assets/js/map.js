@@ -73,8 +73,8 @@
             const author = imovel.author_name;
             const avatar = imovel.author_avatar;
             const price = imovel.valor;
-            const tipologia = imovel.tipologias[0].name;
-            const casasDeBanho = imovel.casas_de_banho_gerais[0].name;
+            const tipologia = imovel.tipologias[0]?.name;
+            const casasDeBanho = imovel.casas_de_banho_gerais[0]?.name;
             const area = imovel.metragem;
             locations.push(
                 [
