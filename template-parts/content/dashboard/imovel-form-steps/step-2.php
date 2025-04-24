@@ -81,25 +81,25 @@ $caracteristicas_especificas = $post_id ? get_post_meta($post_id, 'imovel_caract
     <div class="box grid-3 gap-30">
         <fieldset class="box-fieldset">
             <label for="imovel_area_bruta">
-                <?php _e('Área Bruta (m²)', 'mi'); ?>
+                <?php _e('Área bruta (m²)', 'mi'); ?>
             </label>
-            <input type="text" name="imovel_area_bruta" id="imovel_area_bruta" class="form-control" value="<?php echo $imovel_area_bruta; ?>" placeholder="<?php _e('Área Bruta (m²)', 'mi'); ?>" required>
+            <input type="text" name="imovel_area_bruta" id="imovel_area_bruta" class="form-control" value="<?php echo $imovel_area_bruta; ?>" required>
             <div class="invalid-feedback"><?php _e('Campo obrigatório', 'mi'); ?></div>
         </fieldset>
 
         <fieldset class="box-fieldset">
             <label for="imovel_area_util">
-                <?php _e('Área Útil (m²)', 'mi'); ?>
+                <?php _e('Área útil (m²)', 'mi'); ?>
             </label>
-            <input type="text" name="imovel_area_util" id="imovel_area_util" class="form-control" value="<?php echo $imovel_area_util; ?>" placeholder="<?php _e('Área Útil (m²)', 'mi'); ?>" required>
+            <input type="text" name="imovel_area_util" id="imovel_area_util" class="form-control" value="<?php echo $imovel_area_util; ?>" required>
             <div class="invalid-feedback"><?php _e('Campo obrigatório', 'mi'); ?></div>
         </fieldset>
 
         <fieldset class="box-fieldset">
             <label for="imovel_ano">
-                <?php _e('Ano de Construção', 'mi'); ?>
+                <?php _e('Ano de construção', 'mi'); ?>
             </label>
-            <input type="text" name="imovel_ano" id="imovel_ano" class="form-control" value="<?php echo $imovel_ano; ?>" placeholder="<?php _e('Ano de Construção', 'mi'); ?>" required>
+            <input type="text" name="imovel_ano" id="imovel_ano" class="form-control" value="<?php echo $imovel_ano; ?>" required>
             <div class="invalid-feedback"><?php _e('Campo obrigatório', 'mi'); ?></div>
         </fieldset>
     </div>
@@ -114,8 +114,6 @@ $caracteristicas_especificas = $post_id ? get_post_meta($post_id, 'imovel_caract
                     <div class="nice-select" tabindex="0"><span class="current"><?php echo $current_garagem ? $current_garagem : __('Selecione', 'mi'); ?></span>
                         <ul class="list">
                             <?php foreach ($garagens_options as $option) { ?>
-                                <?php // Apenas pega 
-                                ?>
                                 <?php $active = $option === $current_garagem ? 'selected' : ''; ?>
                                 <li data-value="<?php echo $option ?>" data-term-id="<?php echo $option ?>" class="option <?php echo $active; ?>"><?php echo $option; ?></li>
                             <?php } ?>
@@ -128,7 +126,7 @@ $caracteristicas_especificas = $post_id ? get_post_meta($post_id, 'imovel_caract
             </div>
         </fieldset>
         <fieldset class="box-fieldset">
-            <label><?php _e('Certificado Energético', 'mi'); ?>:
+            <label><?php _e('Certificado energético', 'mi'); ?>:
             </label>
             <div class="form-style select-list">
                 <div class="group-select">
@@ -151,15 +149,15 @@ $caracteristicas_especificas = $post_id ? get_post_meta($post_id, 'imovel_caract
     </div>
 
     <div class="box grid-2 gap-30">
-        <?php echo mi_checkbox_widget(__('Características Gerais', 'mi'), 'caracteristicas-gerais-terms[]', $caracteristica_geral_terms, $current_caracteristica_geral_terms); ?>
+        <?php echo mi_checkbox_widget(__('Características gerais', 'mi'), 'caracteristicas-gerais-terms[]', $caracteristica_geral_terms, $current_caracteristica_geral_terms); ?>
 
         <?php echo mi_radio_widget(__('Tipologia', 'mi'), 'tipologia-term', $tipologia_terms, $current_tipologia_term, true); ?>
     </div>
 
     <div class="box grid-2 gap-30">
-        <?php echo mi_checkbox_widget(__('Outras Denominações', 'mi'), 'outras-denominacoes-terms[]', $outras_denominacoes_terms, $current_outras_denominacoes_terms); ?>
+        <?php echo mi_checkbox_widget(__('Outras denominações', 'mi'), 'outras-denominacoes-terms[]', $outras_denominacoes_terms, $current_outras_denominacoes_terms); ?>
 
-        <?php echo mi_radio_widget(__('Casas de Banho', 'mi'), 'casas-de-banho-term', $casas_de_banho_terms, $current_casas_de_banho_term, true); ?>
+        <?php echo mi_radio_widget(__('Casas de banho', 'mi'), 'casas-de-banho-term', $casas_de_banho_terms, $current_casas_de_banho_term, true); ?>
     </div>
 
     <div class="box grid-2 gap-30">
@@ -170,7 +168,7 @@ $caracteristicas_especificas = $post_id ? get_post_meta($post_id, 'imovel_caract
 
     <div class="box grid-2 gap-30">
 
-        <?php echo mi_checkbox_widget(__('Mais Filtros', 'mi'), 'filtro-terms[]', $filtro_terms, $current_filtro_terms); ?>
+        <?php echo mi_checkbox_widget(__('Mais filtros', 'mi'), 'filtro-terms[]', $filtro_terms, $current_filtro_terms); ?>
 
         <div>
             <h6 class="text-btn mb-3"><?php _e('Características específicas', 'mi'); ?></h6>
