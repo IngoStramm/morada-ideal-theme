@@ -14,8 +14,8 @@ $imoveis_page_url = mi_get_page_url('myimoveis');
         <div class="wrapper-content row">
             <div class="col-xl-12">
                 <div class="widget-box-2 wd-listing">
-                    <h5 class="title"><?php echo sprintf(__('Bem vindo, %s!'), $user->display_name); ?></h5>
-                    <p><?php _e('Este é o painel da sua conta. Aqui se encontram os dados sobre os seus imóveis. Use o menu lateral para navegar entre as áreas do painel.', 'mi'); ?></p>
+                    <h5 class="title"><?php echo sprintf(__('Bem vindo, %s %s!'), $user->first_name, $user->last_name); ?></h5>
+                    <p><?php _e('Este é o painel da sua conta. Aqui encontram-se os dados sobre os seus imóveis. Use o menu lateral para navegar entre as áreas do painel.', 'mi'); ?></p>
                 </div>
             </div>
         </div>

@@ -322,7 +322,7 @@ function mi_dashboard_footer()
     $output = '';
     $output .= '
     <div class="footer-dashboard">
-        <p>Copyright © ' . date('Y') . ' ' . $site_name . '</p>
+        <p>' . $site_name . '© Todos os deireito reservados</p>
     </div>';
     return $output;
 }
