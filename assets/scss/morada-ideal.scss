@@ -589,6 +589,10 @@ p {
     color: $primary;
 }
 
+.user-avatar {
+    border-radius: 5px;
+}
+
 @media (min-width: 768px) {
     .home-imoveis-em-destaque {
         .homelengo-box {
