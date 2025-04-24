@@ -16,7 +16,7 @@ $mi_add_form_update_user_nonce = wp_create_nonce('mi_form_update_user_nonce');
         <div class="widget-box-2">
             <form name="update-user-form" id="update-user-form" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" class="needs-validation" enctype="multipart/form-data" novalidate>
                 <div class="box">
-                    <h4 class="title"><?php echo sprintf(__('Olá, %s!'), $user->display_name); ?></h4>
+                    <h4 class="title"><?php echo sprintf(__('Olá, %s %s!'), $user->first_name, $user->last_name); ?></h4>
                     <p><?php _e('Nesta página você pode alterar os seus dados pessoais.', 'mi') ?></p>
                 </div>
                 <h5 class="title"><?php the_title(); ?></h5>
@@ -42,17 +42,17 @@ $mi_add_form_update_user_nonce = wp_create_nonce('mi_form_update_user_nonce');
                         <?php echo mi_invalid_feedback(); ?>
                     </div>
                     <div class="box-fieldset">
-                        <label for="user_phone"><?php _e('Telefone de Contato', 'mi') ?>:<span>*</span></label>
+                        <label for="user_phone"><?php _e('Telefone de Contacto', 'mi') ?>:<span>*</span></label>
                         <input type="text" value="<?php echo $user_phone; ?>" class="form-control style-1" id="user_phone" name="user_phone" required>
                         <?php echo mi_invalid_feedback(); ?>
                     </div>
                 </div>
-                <h5 class="title"><?php _e('Alterar Senha', 'mi'); ?></h5>
                 <div class="box grid-2 gap-30">
                     <div class="box-fieldset">
-                        <label for="user_pass"><?php _e('Senha', 'mi'); ?>:<span>*</span></label>
+                        <h5 class="title"><?php _e('Alterar palavra chave', 'mi'); ?></h5>
+                        <label for="user_pass"><?php _e('Palavra chave', 'mi'); ?>:<span>*</span></label>
                         <div class="box-password">
-                            <input type="password" class="form-contact style-1 password-field" placeholder="<?php _e('Senha', 'mi'); ?>" name="user_pass" id="user_pass" autocomplete="off" aria-autocomplete="list" aria-label="<?php _e('Senha', 'mi'); ?>" aria-describedby="passwordHelp">
+                            <input type="password" class="form-contact style-1 password-field" placeholder="<?php _e('Palavra chave', 'mi'); ?>" name="user_pass" id="user_pass" autocomplete="off" aria-autocomplete="list" aria-label="<?php _e('Palavra chave', 'mi'); ?>" aria-describedby="passwordHelp">
                             <span class="show-pass">
                                 <i class="icon-pass icon-eye"></i>
                                 <i class="icon-pass icon-eye-off"></i>
@@ -64,7 +64,7 @@ $mi_add_form_update_user_nonce = wp_create_nonce('mi_form_update_user_nonce');
                                 <div class="meter-section rounded me-2"></div>
                                 <div class="meter-section rounded"></div>
                             </div>
-                            <div id="passwordHelp" class="form-text text-muted"><?php _e('Use 8 ou mais caracteres com uma mistura de letras, números e símbolos.', 'mi'); ?></div>
+                            <div id="passwordHelp" class="form-text text-muted"><?php _e('Use 8 ou mais carateres com uma mistura de letras, números e símbolos.', 'mi'); ?></div>
                         </div>
                     </div>
                     <div class="box-fieldset mi-file-image-preview">
@@ -91,7 +91,7 @@ $mi_add_form_update_user_nonce = wp_create_nonce('mi_form_update_user_nonce');
                                     <input type="file" class="ip-file" accept=".jpg,.jpeg,.png" name="user_avatar">
                                 </div>
                                 <?php echo mi_invalid_feedback(); ?>
-                                <span><?php _e('Arquivos aceitos: ".jpg" e ".png". Tamanho máximo permitido: 2MB.'); ?></span>
+                                <span><?php _e('Arquivos aceites: "jpg" e "png". Tamanho máximo permitido: 2MB.'); ?></span>
                             </div>
                         </div>
                     </div>
