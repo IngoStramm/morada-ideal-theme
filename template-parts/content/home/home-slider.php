@@ -30,7 +30,7 @@ if ($random_post) {
                         <div class="tab-content">
                             <div class="tab-pane active show" role="tabpanel">
                                 <?php do_action('home_filter_announces'); ?>
-                                <h4 class="home-slider-form-title"><?php _e('Quando é a casa ideal, sabes logo. O próximo passo é torná-la tua!', 'mi'); ?></h4>
+                                <h4 class="home-slider-form-title"><?php _e('A casa ideal está aqui! O próximo passo é torna-la tua!', 'mi'); ?></h4>
                                 <?php get_template_part('template-parts/content/home/home', 'filter-form'); ?>
                                 <div class="form-sl">
                                 </div>

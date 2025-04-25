@@ -486,7 +486,6 @@ p {
 }
 
 .home-imoveis-em-destaque {
-    padding: 80px;
     .home-imoveis-em-destaque-title {
         font-weight: 800;
         margin-bottom: 40px;
@@ -619,6 +618,9 @@ p {
 }
 
 @media (min-width: 992px) {
+    .home-imoveis-em-destaque {
+        padding: 80px;
+    }
     #map {
         height: 978px;
     }

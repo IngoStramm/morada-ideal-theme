@@ -136,7 +136,7 @@ $author_phone = get_user_meta($author_id, 'mi_user_phone', true);
                         <div class="toogle-preview-content">
                             <?php the_content(); ?>
                         </div>
-                        <a href="#" class="toogle-preview-btn" data-text="<?php _e('Ver Menos', 'mi'); ?>" data-anchor="preview-return-point"><span class="text"><?php _e('Ver Mais', 'mi'); ?></span> </a>
+                        <a href="#" class="toogle-preview-btn" data-text="<?php _e('Ver menos', 'mi'); ?>" data-anchor="preview-return-point"><span class="text"><?php _e('Ver mais', 'mi'); ?></span> </a>
                     </div>
                 </div>
                 <div class="single-property-element single-property-overview">
@@ -220,7 +220,7 @@ $author_phone = get_user_meta($author_id, 'mi_user_phone', true);
                 </div>
                 <?php if ($imovel_certificado_energetico) { ?>
                     <div class="single-property-element single-property-feature">
-                        <h5 class="title fw-6"><?php _e('Certificado Energético', 'mi'); ?></h5>
+                        <h5 class="title fw-6"><?php _e('Certificado energético', 'mi'); ?></h5>
                         <div class="wrap-feature">
                             <div class="box-feature">
                                 <ul>
