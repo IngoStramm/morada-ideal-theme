@@ -17,7 +17,7 @@ $tipo_terms = get_terms(array(
                 <div class="form-group-1 search-form form-style">
                     <div class="group-select select-list">
                         <div class="nice-select" tabindex="0">
-                            <span class="current"><?php _e('Operação', 'mi'); ?></span>
+                            <span class="current"><?php _e('Negócio', 'mi'); ?></span>
                             <ul class="list" id="operacao-filter">
                                 <li class="option" data-value="" data-term-id="">
                                     <?php _e('Todos', 'mi'); ?>

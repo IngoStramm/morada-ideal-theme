@@ -19,6 +19,10 @@ $newsuser_page_url = mi_get_page_url('newuser');
                         </div>
                     </div>
                     <div class="inner-header-right header-account">
+                        <a href="<?php echo mi_get_page_url('editimovel'); ?>" class="tf-btn secondary">
+                            <img src="<?php echo MI_URL; ?>/assets/icons/home.svg" />
+                            <?php _e('Publica teu anúncio grátis', 'mi'); ?>
+                        </a>
                         <?php if (!is_user_logged_in()) { ?>
                             <?php if ($login_page_url) { ?>
                                 <a href="<?php echo $login_page_url; ?>" class="tf-btn btn-line btn-login">
@@ -58,7 +62,7 @@ $newsuser_page_url = mi_get_page_url('newuser');
                 </a>
             </div>
             <div class="bottom-canvas">
-                <div class="login-box flex align-center">
+                <div class="login-box d-flex gap-10 align-items-start justify-content-center flex-column">
                     <?php
                     if (!is_user_logged_in()) { ?>
                         <a href="<?php echo $login_page_url; ?>"><?php echo get_the_title(mi_get_page_id('login')); ?></a>
@@ -68,8 +72,14 @@ $newsuser_page_url = mi_get_page_url('newuser');
                         <?php $account_page_url = mi_get_page_url('dashboard'); ?>
                         <a href="<?php echo $account_page_url; ?>"><?php _e('Sua Conta', 'mi'); ?></a>
                     <?php } ?>
+                    <a href="<?php echo mi_get_page_url('editimovel'); ?>">
+                        <strong><?php _e('Publica teu anúncio grátis', 'mi'); ?></strong>
+                    </a>
                 </div>
-                <div class="menu-outer"></div>
+                <?php /* ?>
+                <div class="menu-outer">
+                    </div>
+                <?php */ ?>
                 <div class="mobi-icon-box">
                     <?php
                     $mi_company_phone = mi_get_option('mi_company_phone', false, 'mi_site_info_options');
