@@ -69,9 +69,7 @@ $imovel_certificado_energetico = get_post_meta($post_id, 'imovel_certificado_ene
             <div class="content-bottom">
                 <div class="d-flex gap-8 align-items-center">
                     <?php if ($user_avatar) { ?>
-                        <div class="avatar avt-112-26">
-                            <img src="<?php echo $user_avatar; ?>" class="user-avatar">
-                        </div>
+                        <img src="<?php echo $user_avatar; ?>" class="user-avatar">
                     <?php } ?>
                     <?php /* ?><span><?php the_author(); ?></span><?php */ ?>
                 </div>
