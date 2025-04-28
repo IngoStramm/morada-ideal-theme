@@ -35,6 +35,8 @@ $imovel_rua = $post_id ? get_post_meta($post_id, 'imovel_rua', true) : null;
 $imovel_lat = $post_id ? get_post_meta($post_id, 'imovel_lat', true) : null;
 $imovel_lng = $post_id ? get_post_meta($post_id, 'imovel_lng', true) : null;
 $imovel_numero = $post_id ? get_post_meta($post_id, 'imovel_numero', true) : null;
+$imovel_andar = $post_id ? get_post_meta($post_id, 'imovel_andar', true) : null;
+$imovel_porta = $post_id ? get_post_meta($post_id, 'imovel_porta', true) : null;
 $imovel_codigo_postal = $post_id ? get_post_meta($post_id, 'imovel_codigo_postal', true) : null;
 $imovel_cidade = $post_id ? get_post_meta($post_id, 'imovel_cidade', true) : null;
 $imovel_estado = $post_id ? get_post_meta($post_id, 'imovel_estado', true) : null;
@@ -94,6 +96,23 @@ $price = $post_id ? get_post_meta($post_id, 'imovel_valor', true) : null;
                 <?php _e('Número', 'mi'); ?><span class="text-danger" data-bs-toggle="tooltip" data-bs-title="<?php _e('Campo obrigatório.', 'mi'); ?>">*</span>
             </label>
             <input type="text" name="imovel_numero" id="imovel_numero" class="form-control" value="<?php echo $imovel_numero; ?>" required>
+            <div class="invalid-feedback"><?php _e('Campo obrigatório', 'mi'); ?></div>
+        </fieldset>
+    </div>
+
+    <div class="box grid-2 gap-30">
+        <fieldset class="box-fieldset">
+            <label for="imovel_andar">
+                <?php _e('Andar', 'mi'); ?><span class="text-danger" data-bs-toggle="tooltip" data-bs-title="<?php _e('Campo obrigatório.', 'mi'); ?>"></span>
+            </label>
+            <input type="text" name="imovel_andar" id="imovel_andar" class="form-control" value="<?php echo $imovel_andar; ?>">
+            <div class="invalid-feedback"><?php _e('Campo obrigatório', 'mi'); ?></div>
+        </fieldset>
+        <fieldset class="box-fieldset">
+            <label for="imovel_porta">
+                <?php _e('Porta', 'mi'); ?><span class="text-danger" data-bs-toggle="tooltip" data-bs-title="<?php _e('Campo obrigatório.', 'mi'); ?>"></span>
+            </label>
+            <input type="text" name="imovel_porta" id="imovel_porta" class="form-control" value="<?php echo $imovel_porta; ?>">
             <div class="invalid-feedback"><?php _e('Campo obrigatório', 'mi'); ?></div>
         </fieldset>
     </div>

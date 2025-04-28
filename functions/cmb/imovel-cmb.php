@@ -150,6 +150,18 @@ function mi_register_imovel_metabox()
     ));
 
     $cmb->add_field(array(
+        'name'       => esc_html__('Andar', 'mi'),
+        'id'         => 'imovel_andar',
+        'type'       => 'text',
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Porta', 'mi'),
+        'id'         => 'imovel_porta',
+        'type'       => 'text',
+    ));
+
+    $cmb->add_field(array(
         'name'       => esc_html__('Código Postal', 'mi'),
         'id'         => 'imovel_codigo_postal',
         'type'       => 'text',
