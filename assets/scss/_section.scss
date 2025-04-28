@@ -93,11 +93,11 @@
         margin-top: 26px;
         .title {
             margin-top: 10px;
-            text-transform: capitalize;
         }
         .description {
             margin-top: 12px;
-            color: $variant-1;
+            color: $black;
+            font-size: 16px;
         }
     }
     &.style-1 {

@@ -48,7 +48,7 @@ if ($blogposts && count($blogposts) > 0) {
                                     <?php // mi_debug($blogpost); 
                                     ?>
                                     <h5 class="title link"><?php echo $blogpost->title->rendered; ?></h5>
-                                    <p class="description"><?php echo $blogpost->excerpt->rendered; ?></p>
+                                    <div class="description"><?php echo $blogpost->excerpt->rendered; ?></div>
                                 </div>
 
                             </a>
