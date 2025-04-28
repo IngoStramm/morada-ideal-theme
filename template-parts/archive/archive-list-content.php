@@ -36,7 +36,7 @@ $imovel_certificado_energetico = get_post_meta($post_id, 'imovel_certificado_ene
         </div>
         <div class="archive-bottom">
             <div class="content-top">
-                <h6 class="text-capitalize"><a href="<?php echo get_permalink(); ?>" class="link text-line-clamp-1"><?php the_title(); ?></a></h6>
+                <h6><a href="<?php echo get_permalink(); ?>" class="link text-line-clamp-1"><?php the_title(); ?></a></h6>
                 <div class="location">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10 7C10 7.53043 9.78929 8.03914 9.41421 8.41421C9.03914 8.78929 8.53043 9 8 9C7.46957 9 6.96086 8.78929 6.58579 8.41421C6.21071 8.03914 6 7.53043 6 7C6 6.46957 6.21071 5.96086 6.58579 5.58579C6.96086 5.21071 7.46957 5 8 5C8.53043 5 9.03914 5.21071 9.41421 5.58579C9.78929 5.96086 10 6.46957 10 7Z" stroke="#A3ABB0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />

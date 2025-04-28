@@ -55,7 +55,7 @@ $container_class = isset($args['container_class']) && $args['container_class'] ?
         </div>
         <div class="archive-bottom">
             <div class="content-top">
-                <h6 class="text-capitalize"><a href="<?php echo get_permalink(); ?>" class="link">
+                <h6><a href="<?php echo get_permalink(); ?>" class="link">
                         <?php the_title(); ?>
                     </a></h6>
                 <?php
