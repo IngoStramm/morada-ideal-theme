@@ -71,7 +71,7 @@ $mi_add_form_update_user_nonce = wp_create_nonce('mi_form_update_user_nonce');
                         <h5 class="title"><?php _e('Imagem', 'mi') ?></h5>
                         <div class="box-agent-avt">
                             <div>
-                                <div class="img-poster images-preview">
+                                <div class="img-poster user-avatar-preview images-preview">
                                     <?php if ($user_avatar_url) { ?>
                                         <img class="image-preview" src="<?php echo $user_avatar_url; ?>" loading="lazy">
                                     <?php } ?>
@@ -91,7 +91,7 @@ $mi_add_form_update_user_nonce = wp_create_nonce('mi_form_update_user_nonce');
                                     <input type="file" class="ip-file" accept=".jpg,.jpeg,.png" name="user_avatar">
                                 </div>
                                 <?php echo mi_invalid_feedback(); ?>
-                                <span><?php _e('Arquivos aceitos: ".jpg" e ".png". Tamanho máximo permitido: 2MB.'); ?></span>
+                                <span><?php _e('Arquivos aceitos: ".jpg" e ".png". Tamanho máximo permitido: 2MB. Tamanho: 110px x 25px'); ?></span>
                             </div>
                         </div>
                     </div>

@@ -250,7 +250,7 @@ $author_phone = get_user_meta($author_id, 'mi_user_phone', true);
                                         <li class="d-flex align-items-center gap-4 text-variant-1"><i class="icon icon-mail"></i><?php echo $author_email; ?></li>
                                     <?php } ?>
                                     <?php if ($author_avatar) { ?>
-                                        <li class="d-flex align-items-center gap-4 text-variant-1 mt-3"><img src="<?php echo $author_avatar; ?>" class="author-avatar" alt="avatar"></li>
+                                        <li class="d-flex align-items-center gap-4 text-variant-1 mt-3"><img src="<?php echo $author_avatar; ?>" class="user-avatar" alt="avatar"></li>
                                     <?php } ?>
                                 </ul>
                             </div>
