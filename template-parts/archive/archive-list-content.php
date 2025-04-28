@@ -60,7 +60,7 @@ $imovel_certificado_energetico = get_post_meta($post_id, 'imovel_certificado_ene
                 <?php
                 $imovel_tipologia = isset($imovel_tipologia[0]) ? $imovel_tipologia[0]->name : null;
                 $imovel_casas_banho = isset($imovel_casas_banho[0]) ? $imovel_casas_banho[0]->name : null;
-                echo mi_imovel_meta_list($imovel_tipologia, $imovel_casas_banho, $imovel_area_bruta);
+                echo mi_imovel_meta_list($imovel_tipologia, $imovel_casas_banho, $imovel_area_bruta, $imovel_certificado_energetico);
                 ?>
 
                 <div class="description mt-20 text-line-clamp-2 text-variant-1"><?php the_excerpt(); ?></div>

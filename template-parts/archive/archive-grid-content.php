@@ -61,7 +61,7 @@ $container_class = isset($args['container_class']) && $args['container_class'] ?
                 <?php
                 $imovel_tipologia = isset($imovel_tipologia[0]) ? $imovel_tipologia[0]->name : null;
                 $imovel_casas_banho = isset($imovel_casas_banho[0]) ? $imovel_casas_banho[0]->name : null;
-                echo mi_imovel_meta_list($imovel_tipologia, $imovel_casas_banho, $imovel_area_bruta);
+                echo mi_imovel_meta_list($imovel_tipologia, $imovel_casas_banho, $imovel_area_bruta, $imovel_certificado_energetico);
                 ?>
 
             </div>
