@@ -33,7 +33,7 @@ $post_id = get_the_ID();
                 </div>
             <?php } ?>
             <div class="content">
-                <div class="caption-2 text"><?php echo $user->display_name; ?></div>
+                <div class="caption-2 text"><?php echo $user->first_name; ?> <?php echo $user->last_name; ?></div>
                 <div class="text-white fw-6"><?php echo $user->user_email; ?></div>
                 <?php if ($user_avatar) { ?>
                     <img src="<?php echo $user_avatar; ?>" alt="avatar" class="user-avatar img-fluid mw-100 mt-3">

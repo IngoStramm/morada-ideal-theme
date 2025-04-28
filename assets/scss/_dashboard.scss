@@ -120,6 +120,16 @@
             &:not(:last-child) {
                 margin-bottom: 6px;
             }
+            .nav-menu-link {
+                .icon {
+                    color: $on-surface;
+                }
+                svg {
+                    g {
+                        opacity: 1;
+                    }
+                }
+            }
             &:hover,
             &.active {
                 .nav-menu-link {
