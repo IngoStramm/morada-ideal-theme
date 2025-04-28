@@ -185,7 +185,7 @@ function mi_imovel_form_step_3_handle()
         foreach ($imovel_galeria as $item_id => $img_url) {
             $attach_exists = in_array($item_id, $imovel_galeria_ids);
             // Verifica se alguma imagem existente foi removida
-            mi_debug($attach_exists);
+            // mi_debug($attach_exists);
             if (!$attach_exists) {
                 // Salva no array os IDs dos attachments a serem removidos
                 $attach_ids_to_delete[] = $item_id;
@@ -215,7 +215,7 @@ function mi_imovel_form_step_3_handle()
     $curr_img_qty = $imovel_galeria ? count($imovel_galeria) : 0;
 
     // Verifica se o limite atual de imagens para o imóvel
-    if ((int)$curr_img_qty >= (int)$max_img_qty) {
+    if ((int)$curr_img_qty > (int)$max_img_qty) {
         $_SESSION['mi_imovel_error_message'] = __('Você já atingiu o limite de imagens para o imóvel.', 'mi');
         wp_safe_redirect($edit_novo_imovel_link);
         exit;
@@ -224,8 +224,15 @@ function mi_imovel_form_step_3_handle()
     // Arquivos que estão sendo feito o upload
     $imovel_galeria_upload = $_FILES['imovel_galeria'];
 
+    $galeria_upload_array = [];
+    foreach ($imovel_galeria_upload['tmp_name'] as $temp_path) {
+        if ($temp_path) {
+            $galeria_upload_array[] = $temp_path;
+        }
+    }
+
     // Verifica o limite do imóvel com as imagens que o usuário está sunindo
-    if (((int)$curr_img_qty + count($imovel_galeria_upload['tmp_name'])) > (int)$max_img_qty) {
+    if (((int)$curr_img_qty + count($galeria_upload_array)) > (int)$max_img_qty) {
         $_SESSION['mi_imovel_error_message'] = __('Seu limite de imagens para o imóvel não permite subir as imagens selecionadas.', 'mi');
         wp_safe_redirect($edit_novo_imovel_link);
         exit;
