@@ -40,7 +40,7 @@ $estado_terms = get_terms(array(
     'hide_empty' => false,
 ));
 $estado_post_terms = $post_id ? get_the_terms($post_id, 'estado') : array();
-$current_estado_terms = $estado_post_terms && count($estado_post_terms) > 0 ? $estado_post_terms : null;
+$current_estado_term = $estado_post_terms && count($estado_post_terms) > 0 ? $estado_post_terms[0] : null;
 
 
 $filtro_terms = get_terms(array(
@@ -161,7 +161,7 @@ $caracteristicas_especificas = $post_id ? get_post_meta($post_id, 'imovel_caract
     </div>
 
     <div class="box grid-2 gap-30">
-        <?php echo mi_checkbox_widget(__('Condição', 'mi'), 'estado-terms[]', $estado_terms, $current_estado_terms); ?>
+        <?php echo mi_radio_widget(__('Condição', 'mi'), 'estado-terms[]', $estado_terms, $current_estado_term); ?>
 
         <?php echo mi_radio_widget(__('Andar', 'mi'), 'andar-term', $andar_terms, $current_andar_term, true); ?>
     </div>

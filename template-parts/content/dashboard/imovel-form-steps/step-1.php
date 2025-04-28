@@ -13,7 +13,6 @@ $tipo_terms = get_terms(array(
     'taxonomy'   => 'tipo',
     'hide_empty' => false,
 ));
-
 $tipo_post_terms = $post_id ? get_the_terms($post_id, 'tipo') : array();
 $current_tipo_term = null;
 if (is_array($tipo_post_terms)) {
@@ -52,12 +51,8 @@ $price = $post_id ? get_post_meta($post_id, 'imovel_valor', true) : null;
                     <div class="nice-select" tabindex="0"><span class="current"><?php echo $current_tipo_term ? $current_tipo_term->name : __('Selecione', 'mi'); ?></span>
                         <ul class="list">
                             <?php foreach ($tipo_terms as $term) { ?>
-                                <?php // Apenas pega 
-                                ?>
-                                <?php if ($term->parent !== 0) { ?>
-                                    <?php $active = isset($current_tipo_term) && $current_tipo_term && (int)$current_tipo_term->term_id === (int)$term->term_id ? 'selected' : ''; ?>
-                                    <li data-value="<?php echo $term->name ?>" data-term-id="<?php echo $term->term_id ?>" class="option <?php echo $active; ?>"><?php echo $term->name; ?></li>
-                                <?php } ?>
+                                <?php $active = isset($current_tipo_term) && $current_tipo_term && (int)$current_tipo_term->term_id === (int)$term->term_id ? 'selected' : ''; ?>
+                                <li data-value="<?php echo $term->name ?>" data-term-id="<?php echo $term->term_id ?>" class="option <?php echo $active; ?>"><?php echo $term->name; ?></li>
                             <?php } ?>
                         </ul>
                     </div>
