@@ -161,7 +161,7 @@ $caracteristicas_especificas = $post_id ? get_post_meta($post_id, 'imovel_caract
     </div>
 
     <div class="box grid-2 gap-30">
-        <?php echo mi_checkbox_widget(__('Estado', 'mi'), 'estado-terms[]', $estado_terms, $current_estado_terms); ?>
+        <?php echo mi_checkbox_widget(__('Condição', 'mi'), 'estado-terms[]', $estado_terms, $current_estado_terms); ?>
 
         <?php echo mi_radio_widget(__('Andar', 'mi'), 'andar-term', $andar_terms, $current_andar_term, true); ?>
     </div>
