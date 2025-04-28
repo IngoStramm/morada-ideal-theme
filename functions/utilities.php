@@ -1143,6 +1143,7 @@ function mi_format_number($number)
 function mi_garagens_options()
 {
     $options = array(
+        '0'             => esc_html__('Nenhum', 'mi'),
         '1'             => esc_html__('1', 'mi'),
         '2'             => esc_html__('2', 'mi'),
         '3'             => esc_html__('3', 'mi'),

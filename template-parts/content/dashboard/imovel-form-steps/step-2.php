@@ -171,7 +171,7 @@ $caracteristicas_especificas = $post_id ? get_post_meta($post_id, 'imovel_caract
         <?php echo mi_checkbox_widget(__('Mais filtros', 'mi'), 'filtro-terms[]', $filtro_terms, $current_filtro_terms); ?>
 
         <div>
-            <h6 class="text-btn mb-3"><?php _e('Características específicas', 'mi'); ?></h6>
+            <h6 class="text-btn mb-3"><?php _e('Adiciona características específicas', 'mi'); ?></h6>
             <div class="mi-repeater">
                 <div class="repeater-group">
                     <?php if ($caracteristicas_especificas) { ?>
