@@ -71,7 +71,6 @@
             line-height: 26px;
             font-weight: 600;
             font-size: 16px;
-            text-transform: capitalize;
             color: $variant-1;
             @include transition3;
             &:hover {
@@ -151,7 +150,6 @@
             gap: 12px;
             padding: 12px 30px;
             font-weight: 600;
-            text-transform: capitalize;
             color: $white;
             svg path {
                 @include transition3;

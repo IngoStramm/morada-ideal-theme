@@ -53,8 +53,8 @@ function mi_tipo_imovel_tax()
         array(
             'hierarchical' => true,
             'default_term' => array(
-                'name' => __('Moradia', 'mi'),
-                'slug' => 'moradia',
+                'name' => __('Moradias', 'mi'),
+                'slug' => 'moradias',
             )
         )
     );

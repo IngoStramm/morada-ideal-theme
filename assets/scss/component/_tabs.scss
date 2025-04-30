@@ -27,7 +27,7 @@
                     }
                 }
                 &::after {
-                    content: "";
+                    content: '';
                     position: absolute;
                     top: 100%;
                     left: 50%;
@@ -65,10 +65,9 @@
             display: inline-flex;
             overflow: hidden;
             .nav-link-item {
-               min-width: 115px;
-               padding: 7px 10px;
-               border-radius: 0;
-               
+                min-width: 115px;
+                padding: 7px 10px;
+                border-radius: 0;
             }
         }
         &.style-4 {
@@ -120,11 +119,9 @@
         padding: 10px 0px 8px 16px;
         margin-bottom: 40px;
         position: relative;
-
-        text-transform: capitalize;
         &::before {
             position: absolute;
-            content: "";
+            content: '';
             left: 0;
             width: 3px;
             top: 0;
@@ -158,25 +155,23 @@
         height: 40px;
         border-radius: 10px;
         border: 1px solid $outline;
-        @include flex(center,center);
+        @include flex(center, center);
         @include transition3;
 
         .icon {
             width: 24px;
-            path{
-            @include transition3;
-
+            path {
+                @include transition3;
             }
         }
         &.active {
-            svg path{
+            svg path {
                 fill: $on-surface;
-
             }
         }
-        &:hover{
+        &:hover {
             border-color: $on-surface;
-            svg path{
+            svg path {
                 fill: $on-surface;
             }
         }
@@ -184,7 +179,6 @@
 }
 
 .flat-animate-tab {
-   
     overflow: hidden;
     .tab-content {
         position: relative;

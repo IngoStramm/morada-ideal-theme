@@ -97,7 +97,7 @@
         .description {
             margin-top: 12px;
             color: $black;
-            font-size: 16px;
+            font-size: 18px;
         }
     }
     &.style-1 {
@@ -257,7 +257,6 @@
                 .title {
                     margin-bottom: 10px;
                     font-weight: 600;
-                    text-transform: capitalize;
                 }
             }
         }
@@ -736,7 +735,15 @@
         padding-bottom: 24px;
         margin-bottom: 24px;
         border-bottom: 1px solid $outline;
-
+        .imovel-title {
+            font-size: 18px;
+            height: 46px;
+            line-height: 1.2em;
+            overflow: hidden;
+            a {
+                display: block;
+            }
+        }
         .meta-list {
             margin-top: 12px;
             display: flex;
@@ -811,6 +818,15 @@
         .content-top {
             padding-bottom: 20px;
             margin-bottom: 20px;
+            .imovel-title {
+                font-size: 18px;
+                height: 24px;
+                line-height: 1.2em;
+                overflow: hidden;
+                a {
+                    display: block;
+                }
+            }
         }
         .archive-bottom {
             flex-grow: 1;
@@ -855,7 +871,6 @@
         margin-bottom: 30px;
     }
     .title {
-        text-transform: capitalize;
         font-weight: 800;
     }
     .desc {
@@ -1183,7 +1198,6 @@
     .content {
         text-align: center;
         .title {
-            text-transform: capitalize;
             margin-bottom: 20px;
         }
         .description {
@@ -2126,7 +2140,6 @@
     .title {
         font-size: 18px;
         line-height: 25.2px;
-        text-transform: capitalize;
         margin-top: 4px;
         font-weight: 600;
         margin-top: 8px;
@@ -3480,7 +3493,6 @@
 .tf-faq {
     .title {
         margin-bottom: 40px;
-        text-transform: capitalize;
     }
 }
 .box-faq {
@@ -3496,7 +3508,6 @@
             line-height: 25.2px;
             font-weight: 600;
             position: relative;
-            text-transform: capitalize;
             &::after {
                 position: absolute;
                 content: '\e921';
