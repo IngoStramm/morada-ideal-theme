@@ -402,14 +402,17 @@ function mi_get_option($key = '', $default = false, $option_key = 'mi_theme_opti
 function mi_certificado_energetico_options()
 {
     $options = array(
-        'A+'        => esc_html__('A+', 'mi'),
-        'A'         => esc_html__('A', 'mi'),
-        'B'         => esc_html__('B', 'mi'),
-        'B-'        => esc_html__('B-', 'mi'),
-        'C'         => esc_html__('C', 'mi'),
-        'D'         => esc_html__('D', 'mi'),
-        'E'         => esc_html__('E', 'mi'),
-        'F'         => esc_html__('F', 'mi'),
+        'A+'                    => esc_html__('A+', 'mi'),
+        'A'                     => esc_html__('A', 'mi'),
+        'B'                     => esc_html__('B', 'mi'),
+        'B-'                    => esc_html__('B-', 'mi'),
+        'C'                     => esc_html__('C', 'mi'),
+        'D'                     => esc_html__('D', 'mi'),
+        'E'                     => esc_html__('E', 'mi'),
+        'F'                     => esc_html__('F', 'mi'),
+        'G'                     => esc_html__('G', 'mi'),
+        'Isento'                => esc_html__('Isento', 'mi'),
+        'Aguarda aprovação'     => esc_html__('Aguarda aprovação', 'mi'),
     );
     return $options;
 }
