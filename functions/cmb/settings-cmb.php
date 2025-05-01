@@ -31,7 +31,7 @@ function mi_register_main_options_metabox()
     ));
 
     $cmb_options->add_field(array(
-        'name' => esc_html__('Logo das telas de Login, Cadastro de Novo usuário, Senha perdida e redefinir Senha', 'mi'),
+        'name' => esc_html__('Logo das telas de Login, Cadastro de Novo usuário, Palavra-passe perdida e redefinir Palavra-passe', 'mi'),
         'id'   => 'mi_logo_alt',
         'type' => 'file',
         'attributes' => array(
@@ -136,7 +136,7 @@ function mi_register_site_pages_options_metabox()
     ));
 
     $cmb_options->add_field(array(
-        'name'    => esc_html__('Página de senha perdida', 'mi'),
+        'name'    => esc_html__('Página de palavra-passe perdida', 'mi'),
         'id'      => 'mi_lostpassword_page',
         'type'    => 'select',
         'options' => function () {
@@ -152,7 +152,7 @@ function mi_register_site_pages_options_metabox()
     ));
 
     $cmb_options->add_field(array(
-        'name'    => esc_html__('Página de redefinição de senha', 'mi'),
+        'name'    => esc_html__('Página de redefinição de Palavra-passe', 'mi'),
         'id'      => 'mi_resetpassword_page',
         'type'    => 'select',
         'options' => function () {

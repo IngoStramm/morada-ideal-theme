@@ -71,9 +71,9 @@ function mi_lostpassword_form_handle()
         exit;
     }
 
-    $_SESSION['mi_lostpassword_success_message'] = __('E-mail de redefinição de senha enviado. Verifique as instruções no e-mail para redefinr a sua senha.', 'mi');
+    $_SESSION['mi_lostpassword_success_message'] = __('E-mail de redefinição de palavra-passe enviado. Verifique as instruções no e-mail para redefinr a sua palavra-passe.', 'mi');
 
-    echo '<h3>' . __('E-mail de redefinição de senha enviado com sucesso! Por favor, aguarde enquanto está sendo redicionando...', 'mi') . '</p>';
+    echo '<h3>' . __('E-mail de redefinição de palavra-passe enviado com sucesso! Por favor, aguarde enquanto está sendo redicionando...', 'mi') . '</p>';
 
     wp_safe_redirect($login_page_url);
     exit;

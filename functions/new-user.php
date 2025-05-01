@@ -58,7 +58,7 @@ function mi_register_new_user_form_handle()
 
     if (!isset($_POST['user_pass']) || !$_POST['user_pass']) {
 
-        $_SESSION['mi_register_new_user_error_message'] = __('Senha inválida.', 'mi');
+        $_SESSION['mi_register_new_user_error_message'] = __('Palavra-passe inválida.', 'mi');
         wp_safe_redirect($register_new_user_page_url);
         exit;
     }

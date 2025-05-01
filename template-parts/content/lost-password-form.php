@@ -42,7 +42,7 @@ $contact_id = mi_get_option('mi_contact', false, 'mi_site_pages_options');
                     </div>
                     <div class="box box-btn">
 
-                        <button type="submit" class="tf-btn primary w-100"><?php _e('Obter nova senha', 'mi'); ?></a>
+                        <button type="submit" class="tf-btn primary w-100"><?php _e('Obter nova palavra-passe', 'mi'); ?></a>
 
                     </div>
 
