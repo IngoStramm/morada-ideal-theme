@@ -13,15 +13,8 @@ $tipo_terms = get_terms(array(
     'taxonomy'   => 'tipo',
     'hide_empty' => false,
 ));
-$tipo_post_terms = $post_id ? get_the_terms($post_id, 'tipo') : array();
-$current_tipo_term = null;
-if (is_array($tipo_post_terms)) {
-    foreach ($tipo_post_terms as $post_term) {
-        if ($post_term->parent !== 0) {
-            $current_tipo_term = $post_term;
-        }
-    }
-}
+$tipo_post_terms = $post_id ? get_the_terms($post_id, 'tipo') : null;
+$current_tipo_term = is_array($tipo_post_terms) ? $tipo_post_terms[0] : $tipo_post_terms;
 
 // Aluguel ou venda de imóvel (operação)
 $operacao_terms = get_terms(array(

@@ -51,7 +51,7 @@ function mi_tipo_imovel_tax()
 
     $tax->set_arguments(
         array(
-            'hierarchical' => true,
+            'hierarchical' => false,
             'default_term' => array(
                 'name' => __('Moradias', 'mi'),
                 'slug' => 'moradias',
