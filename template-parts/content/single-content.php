@@ -187,7 +187,9 @@ $author_phone = get_user_meta($author_id, 'mi_user_phone', true);
                             <ul>
                                 <?php if ($imovel_caracteristicas_especificas && count($imovel_caracteristicas_especificas) > 0) { ?>
                                     <?php foreach ($imovel_caracteristicas_especificas as $item) { ?>
-                                        <li><?php echo $item; ?></li>
+                                        <?php if (!empty($item) && !is_null($item)) { ?>
+                                            <li><?php echo $item; ?></li>
+                                        <?php } ?>
                                     <?php } ?>
                                 <?php } ?>
 
