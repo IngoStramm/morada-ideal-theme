@@ -24,6 +24,10 @@ function mi_imovel_form_step_3_handle()
     }
     $post_id = wp_strip_all_tags($_REQUEST['imovel_id']);
 
+    // Atualiza o imovel_id na url
+    $edit_novo_imovel_link = remove_query_arg('imovel_id', $edit_novo_imovel_link);
+    $edit_novo_imovel_link = add_query_arg('imovel_id', $post_id, $edit_novo_imovel_link);
+
     // Verifica se está voltando para a etapa anterior
     if (isset($_POST['previous-step'])) {
         $edit_novo_imovel_link = remove_query_arg('step', $edit_novo_imovel_link);

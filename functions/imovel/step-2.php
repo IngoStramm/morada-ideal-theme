@@ -105,9 +105,6 @@ function mi_imovel_form_step_2_handle()
         }
     }
 
-    $edit_novo_imovel_link = remove_query_arg('step', $edit_novo_imovel_link);
-    $edit_novo_imovel_link = add_query_arg('step', $next_step, $edit_novo_imovel_link);
-
     $args = [];
 
     $args['post_content'] = $dados_form_2['imovel-content']['value'];
@@ -130,21 +127,27 @@ function mi_imovel_form_step_2_handle()
         exit;
     }
 
-    $caracteristicas_gerais_terms_id = $dados_form_2['caracteristicas-gerais-terms']['value'];
-    $tipologia_term_id = (int)$dados_form_2['tipologia-term']['value'];
-    $outras_denominacoes_terms_id = $dados_form_2['outras-denominacoes-terms']['value'];
-    $casas_de_banho_term_id = (int)$dados_form_2['casas-de-banho-term']['value'];
-    $estado_terms_id = $dados_form_2['estado-terms']['value'];
-    $andar_term_id = (int)$dados_form_2['andar-term']['value'];
-    $filtro_terms_id = $dados_form_2['filtro-terms']['value'];
+    // Opcional
+    $caracteristicas_gerais_terms_id = isset($dados_form_2['caracteristicas-gerais-terms']['value']) && $dados_form_2['caracteristicas-gerais-terms']['value'] ? $dados_form_2['caracteristicas-gerais-terms']['value'] : null;
+    $tipologia_term_id = isset($dados_form_2['tipologia-term']['value']) && $dados_form_2['tipologia-term']['value'] ? (int)$dados_form_2['tipologia-term']['value'] : 0;
+    // Opcional
+    $outras_denominacoes_terms_id = isset($dados_form_2['outras-denominacoes-terms']['value']) && $dados_form_2['outras-denominacoes-terms']['value'] ? $dados_form_2['outras-denominacoes-terms']['value'] : null;
+    $casas_de_banho_term_id = isset($dados_form_2['casas-de-banho-term']['value']) && $dados_form_2['casas-de-banho-term']['value'] ? (int)$dados_form_2['casas-de-banho-term']['value'] : 0;
+    $estado_terms_id = isset($dados_form_2['estado-terms']['value']) && $dados_form_2['estado-terms']['value'] ? $dados_form_2['estado-terms']['value'] : array(0);
+    $andar_term_id = isset($dados_form_2['andar-term']['value']) && $dados_form_2['andar-term']['value'] ? (int)$dados_form_2['andar-term']['value'] : 0;
+    // Opcional
+    $filtro_terms_id = isset($dados_form_2['filtro-terms']['value']) && $dados_form_2['filtro-terms']['value'] ? $dados_form_2['filtro-terms']['value'] : null;
 
-    $caracteristicas_gerais_terms_id = array_map('intval', $caracteristicas_gerais_terms_id);
-    $update_caracteristicas_gerais = wp_set_post_terms($update_imovel_id, $caracteristicas_gerais_terms_id, 'caracteristica-geral');
-    if (is_wp_error($update_caracteristicas_gerais) || !$update_caracteristicas_gerais) {
-        $error_message = is_wp_error($update_caracteristicas_gerais) ? $update_caracteristicas_gerais->get_error_message() : __('Ocorreu um erro ao salvar as características gerais do imóvel');
-        $_SESSION['mi_imovel_error_message'] = $error_message;
-        wp_safe_redirect($edit_novo_imovel_link);
-        exit;
+    // Opcional
+    if ($caracteristicas_gerais_terms_id) {
+        $caracteristicas_gerais_terms_id = array_map('intval', $caracteristicas_gerais_terms_id);
+        $update_caracteristicas_gerais = wp_set_post_terms($update_imovel_id, $caracteristicas_gerais_terms_id, 'caracteristica-geral');
+        if (is_wp_error($update_caracteristicas_gerais) || !$update_caracteristicas_gerais) {
+            $error_message = is_wp_error($update_caracteristicas_gerais) ? $update_caracteristicas_gerais->get_error_message() : __('Ocorreu um erro ao salvar as características gerais do imóvel');
+            $_SESSION['mi_imovel_error_message'] = $error_message;
+            wp_safe_redirect($edit_novo_imovel_link);
+            exit;
+        }
     }
 
     $update_tipologia = wp_set_post_terms($update_imovel_id, array($tipologia_term_id), 'tipologia');
@@ -155,13 +158,16 @@ function mi_imovel_form_step_2_handle()
         exit;
     }
 
-    $outras_denominacoes_terms_id = array_map('intval', $outras_denominacoes_terms_id);
-    $update_outras_denominacoes = wp_set_post_terms($update_imovel_id, $outras_denominacoes_terms_id, 'outras-denominacoes');
-    if (is_wp_error($update_outras_denominacoes) || !$update_outras_denominacoes) {
-        $error_message = is_wp_error($update_outras_denominacoes) ? $update_outras_denominacoes->get_error_message() : __('Ocorreu um erro ao salvar as outras denominações do imóvel');
-        $_SESSION['mi_imovel_error_message'] = $error_message;
-        wp_safe_redirect($edit_novo_imovel_link);
-        exit;
+    // Opcional
+    if ($outras_denominacoes_terms_id) {
+        $outras_denominacoes_terms_id = array_map('intval', $outras_denominacoes_terms_id);
+        $update_outras_denominacoes = wp_set_post_terms($update_imovel_id, $outras_denominacoes_terms_id, 'outras-denominacoes');
+        if (is_wp_error($update_outras_denominacoes) || !$update_outras_denominacoes) {
+            $error_message = is_wp_error($update_outras_denominacoes) ? $update_outras_denominacoes->get_error_message() : __('Ocorreu um erro ao salvar as outras denominações do imóvel');
+            $_SESSION['mi_imovel_error_message'] = $error_message;
+            wp_safe_redirect($edit_novo_imovel_link);
+            exit;
+        }
     }
 
     $update_casas_de_banho = wp_set_post_terms($update_imovel_id, array($casas_de_banho_term_id), 'casas-de-banho');
@@ -189,14 +195,17 @@ function mi_imovel_form_step_2_handle()
         exit;
     }
 
-    $filtro_terms_id = array_map('intval', $filtro_terms_id);
-    $update_filtro = wp_set_post_terms($update_imovel_id, $filtro_terms_id, 'filtro');
-    if (is_wp_error($update_filtro) || !$update_filtro) {
-        $error_message = is_wp_error($update_filtro) ? $update_filtro->get_error_message() : __('Ocorreu um erro ao salvar os filtros do imóvel');
-        $_SESSION['mi_imovel_error_message'] = $error_message;
-        wp_safe_redirect($edit_novo_imovel_link);
-        exit;
-    }
+    // Opcional
+    // if ($filtro_terms_id) {
+    //     $filtro_terms_id = array_map('intval', $filtro_terms_id);
+    //     $update_filtro = wp_set_post_terms($update_imovel_id, $filtro_terms_id, 'filtro');
+    //     if (is_wp_error($update_filtro) || !$update_filtro) {
+    //         $error_message = is_wp_error($update_filtro) ? $update_filtro->get_error_message() : __('Ocorreu um erro ao salvar os filtros do imóvel');
+    //         $_SESSION['mi_imovel_error_message'] = $error_message;
+    //         wp_safe_redirect($edit_novo_imovel_link);
+    //         exit;
+    //     }
+    // }
 
     // Atualiza a url com a próxima etapa
     $edit_novo_imovel_link = remove_query_arg('step', $edit_novo_imovel_link);

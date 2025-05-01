@@ -103,32 +103,36 @@ $author_phone = get_user_meta($author_id, 'mi_user_phone', true);
 
                 <div id="preview-return-point"></div>
 
-                <div class="single-property-gallery mb-5">
-                    <div class="position-relative">
-                        <div dir="ltr" class="swiper sw-single">
-                            <div class="swiper-wrapper">
-                                <?php if ($imovel_thumbnail) { ?>
-                                    <div class="swiper-slide">
-                                        <div class="image-sw-single">
-                                            <img src="<?php echo $imovel_thumbnail; ?>" alt="images">
+                <?php if ($imovel_thumbnail || $imovel_galeria) { ?>
+                    <div class="single-property-gallery mb-5">
+                        <div class="position-relative">
+                            <div dir="ltr" class="swiper sw-single">
+                                <div class="swiper-wrapper">
+                                    <?php if ($imovel_thumbnail) { ?>
+                                        <div class="swiper-slide">
+                                            <div class="image-sw-single">
+                                                <img src="<?php echo $imovel_thumbnail; ?>" alt="images">
+                                            </div>
                                         </div>
-                                    </div>
-                                <?php } ?>
-                                <?php foreach ($imovel_galeria as $image) { ?>
-                                    <div class="swiper-slide">
-                                        <div class="image-sw-single">
-                                            <img src="<?php echo $image; ?>" alt="images">
-                                        </div>
-                                    </div>
-                                <?php } ?>
+                                    <?php } ?>
+                                    <?php if ($imovel_galeria) { ?>
+                                        <?php foreach ($imovel_galeria as $image) { ?>
+                                            <div class="swiper-slide">
+                                                <div class="image-sw-single">
+                                                    <img src="<?php echo $image; ?>" alt="images">
+                                                </div>
+                                            </div>
+                                        <?php } ?>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <div class="box-navigation">
+                                <div class="navigation swiper-nav-next nav-next-single"><span class="icon icon-arr-l"></span></div>
+                                <div class="navigation swiper-nav-prev nav-prev-single"><span class="icon icon-arr-r"></span></div>
                             </div>
                         </div>
-                        <div class="box-navigation">
-                            <div class="navigation swiper-nav-next nav-next-single"><span class="icon icon-arr-l"></span></div>
-                            <div class="navigation swiper-nav-prev nav-prev-single"><span class="icon icon-arr-r"></span></div>
-                        </div>
                     </div>
-                </div>
+                <?php } ?>
 
                 <div class="single-property-element single-property-desc">
                     <h5 class="fw-6 title"><?php _e('Descrição do imóvel', 'mi'); ?></h5>

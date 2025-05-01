@@ -1200,13 +1200,13 @@ function mi_dados_imovel_form_2()
         'imovel_ano'                            =>  __('Ano inválido.', 'mi'),
         'imovel_garagens'                       =>  __('Garagem inválida.', 'mi'),
         'imovel_certificado_energetico'         =>  __('Certificado energético inválido.', 'mi'),
-        'caracteristicas-gerais-terms'          =>  __('Característica(s) Geral(is) inválida(s).', 'mi'),
+        // 'caracteristicas-gerais-terms'          =>  __('Característica(s) Geral(is) inválida(s).', 'mi'),
         'tipologia-term'                        =>  __('Tipologia inválida.', 'mi'),
-        'outras-denominacoes-terms'             =>  __('Outra(s) Denominação(ões) inválida(s).', 'mi'),
+        // 'outras-denominacoes-terms'             =>  __('Outra(s) Denominação(ões) inválida(s).', 'mi'),
         'casas-de-banho-term'                   =>  __('Casa(s) de Banho inválida(s).', 'mi'),
-        'estado-terms'                          =>  __('Filtro(s) inválido(s).', 'mi'),
+        'estado-terms'                          =>  __('Estado(s) inválido(s).', 'mi'),
         'andar-term'                            =>  __('andar-term.', 'mi'),
-        'filtro-terms'                          =>  __('Filtro(s) inválido(s).', 'mi'),
+        // 'filtro-terms'                          =>  __('Filtro(s) inválido(s).', 'mi'),
         'caracteristicas-especificas'           =>  __('Característica(s) específica(s) inválida(s).', 'mi'),
     ];
     $dados = mi_form_dados_array($messages);
