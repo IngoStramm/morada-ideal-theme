@@ -98,12 +98,15 @@
         height: auto;
         align-self: stretch;
         display: flex;
-        img {
-            display: block;
+        .image-sw-single {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
+            img {
+                display: block;
+                width: 100%;
+                height: 300px;
+                object-fit: cover;
+                object-position: center;
+            }
         }
     }
 }
@@ -624,6 +627,15 @@ p {
             margin-bottom: 0;
         }
     }
+    .swiper-fade {
+        .swiper-slide {
+            .image-sw-single {
+                img {
+                    height: 475px;
+                }
+            }
+        }
+    }
 }
 
 @media (min-width: 992px) {
@@ -716,10 +728,28 @@ p {
             height: 340px;
         }
     }
+    .swiper-fade {
+        .swiper-slide {
+            .image-sw-single {
+                img {
+                    height: 375px;
+                }
+            }
+        }
+    }
 }
 
 @media (min-width: 1200px) {
     .login-page {
         background-position: calc(50vw - 650px) center;
+    }
+    .swiper-fade {
+        .swiper-slide {
+            .image-sw-single {
+                img {
+                    height: 575px;
+                }
+            }
+        }
     }
 }
