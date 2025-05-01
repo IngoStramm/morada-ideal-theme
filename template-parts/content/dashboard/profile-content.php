@@ -49,10 +49,10 @@ $mi_add_form_update_user_nonce = wp_create_nonce('mi_form_update_user_nonce');
                 </div>
                 <div class="box grid-2 gap-30">
                     <div class="box-fieldset">
-                        <h5 class="title"><?php _e('Alterar palavra chave', 'mi'); ?></h5>
-                        <label for="user_pass"><?php _e('Palavra chave', 'mi'); ?>:<span>*</span></label>
+                        <h5 class="title"><?php _e('Alterar palavra-passe', 'mi'); ?></h5>
+                        <label for="user_pass"><?php _e('Palavra-passe', 'mi'); ?>:<span>*</span></label>
                         <div class="box-password">
-                            <input type="password" class="form-contact style-1 password-field" placeholder="<?php _e('Palavra chave', 'mi'); ?>" name="user_pass" id="user_pass" autocomplete="off" aria-autocomplete="list" aria-label="<?php _e('Palavra chave', 'mi'); ?>" aria-describedby="passwordHelp">
+                            <input type="password" class="form-contact style-1 password-field" placeholder="<?php _e('Palavra-passe', 'mi'); ?>" name="user_pass" id="user_pass" autocomplete="off" aria-autocomplete="list" aria-label="<?php _e('Palavra-passe', 'mi'); ?>" aria-describedby="passwordHelp">
                             <span class="show-pass">
                                 <i class="icon-pass icon-eye"></i>
                                 <i class="icon-pass icon-eye-off"></i>
