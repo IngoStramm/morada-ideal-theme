@@ -134,7 +134,7 @@ $author_phone = get_user_meta($author_id, 'mi_user_phone', true);
                     <h5 class="fw-6 title"><?php _e('Descrição do imóvel', 'mi'); ?></h5>
                     <div class="toogle-preview mb-3">
                         <div class="toogle-preview-content">
-                            <?php the_content(); ?>
+                            <div class="imovel-content"><?php the_content(); ?></div>
                         </div>
                         <a href="#" class="toogle-preview-btn" data-text="<?php _e('Ver menos', 'mi'); ?>" data-anchor="preview-return-point"><span class="text"><?php _e('Ver mais', 'mi'); ?></span> </a>
                     </div>

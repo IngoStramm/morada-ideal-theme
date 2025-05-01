@@ -74,7 +74,8 @@ $caracteristicas_especificas = $post_id ? get_post_meta($post_id, 'imovel_caract
             <label for="imovel_content">
                 <?php _e('Comentário sobre o imóvel', 'mi'); ?><span class="text-danger" data-bs-toggle="tooltip" data-bs-title="<?php _e('Campo obrigatório.', 'mi'); ?>">*</span>
             </label>
-            <?php echo do_shortcode('[mi_editor name="imovel-content" tabindex="3" post_id="' . $post_id . '"]'); ?>
+            <textarea name="imovel-content" id="imovel-content" class="form-control" required><?php the_content(); ?></textarea>
+            <div class="invalid-feedback"><?php _e('Campo obrigatório', 'mi'); ?></div>
         </fieldset>
     </div>
 

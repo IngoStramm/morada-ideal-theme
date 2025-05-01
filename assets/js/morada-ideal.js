@@ -229,23 +229,31 @@ const markers = {};
 
     function tooglePreviewContent() {
         const togglePreviews = document.querySelectorAll('.toogle-preview');
+
         togglePreviews.forEach((previewContent) => {
+            const imovelContent = previewContent.querySelector('.imovel-content');
+            console.log('imovelContent', imovelContent.offsetHeight);
             const tooglePreviewContent = previewContent.querySelector('.toogle-preview-content');
             const togglebtn = previewContent.querySelector('.toogle-preview-btn');
-            togglebtn.addEventListener('click', e => {
-                e.preventDefault();
-                const previousText = togglebtn.innerText;
-                const newText = togglebtn.getAttribute('data-text');
-                const anchorId = togglebtn.getAttribute('data-anchor');
-                const anchorDiv = document.getElementById(anchorId);
-                const spanText = togglebtn.querySelector('.text');
+            if (imovelContent.offsetHeight >= 80) {
+                togglebtn.addEventListener('click', e => {
+                    e.preventDefault();
+                    const previousText = togglebtn.innerText;
+                    const newText = togglebtn.getAttribute('data-text');
+                    const anchorId = togglebtn.getAttribute('data-anchor');
+                    const anchorDiv = document.getElementById(anchorId);
+                    const spanText = togglebtn.querySelector('.text');
+                    tooglePreviewContent.classList.toggle('expanded');
+                    spanText.innerText = newText;
+                    togglebtn.setAttribute('data-text', previousText);
+                    if (!tooglePreviewContent.classList.contains('expanded') && (typeof anchorDiv !== undefined && anchorDiv)) {
+                        anchorDiv.scrollIntoView();
+                    }
+                });
+            } else {
+                togglebtn.remove();
                 tooglePreviewContent.classList.toggle('expanded');
-                spanText.innerText = newText;
-                togglebtn.setAttribute('data-text', previousText);
-                if (!tooglePreviewContent.classList.contains('expanded') && (typeof anchorDiv !== undefined && anchorDiv)) {
-                    anchorDiv.scrollIntoView();
-                }
-            });
+            }
         });
     }
 
