@@ -168,6 +168,8 @@ $order_list = [
                     </div>
                     <?php echo mi_pagination(2, 1, false, $imoveis_query); ?>
                     <?php wp_reset_postdata(); ?>
+                <?php } else { ?>
+                    <?php echo mi_alert(__('Nenhum imóvel encontrado.', 'mi'), 'warning'); ?>
                 <?php } ?>
 
             </div>

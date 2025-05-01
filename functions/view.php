@@ -298,7 +298,7 @@ function mi_get_icon($name)
  * mi_dismissible_alert
  *
  * @param  string $message
- * @param  string $type
+ * @param  string $type (primary, secondary, success, danger, warning, info, light, dark)
  * @return string
  */
 function mi_dismissible_alert($message, $type = 'success')
@@ -310,6 +310,26 @@ function mi_dismissible_alert($message, $type = 'success')
         <i class="bi bi-exclamation-triangle-fill"></i>
         <div>' . $message . '</div>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        ';
+    }
+    return $output;
+}
+/**
+ * mi_dismissible_alert
+ *
+ * @param  string $message
+ * @param  string $type (primary, secondary, success, danger, warning, info, light, dark)
+ * @return string
+ */
+function mi_alert($message, $type = 'success')
+{
+    $output = '';
+    if ($message) {
+        $output .= '
+        <div class="alert alert-' . $type . ' d-flex align-items-center gap-2 fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        <div>' . $message . '</div>
         </div>
         ';
     }
