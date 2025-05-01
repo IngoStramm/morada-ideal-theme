@@ -410,7 +410,7 @@ const markers = {};
     function inputMasks() {
         const inputTelefone = document.getElementById('user_phone');
         const maskOptionsTelefone = {
-            mask: '(00) 0000-0000[0]'
+            mask: '000-000-000'
         };
         if (typeof inputTelefone !== undefined && inputTelefone) {
             const maskTelefone = IMask(inputTelefone, maskOptionsTelefone);
