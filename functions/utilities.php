@@ -1031,7 +1031,7 @@ function mi_get_imoveis()
             $post_id = $post->ID;
             $post_url = get_post_permalink($post_id);
             $title = get_the_title($post_id);
-            $thumbnail = get_the_post_thumbnail_url($post_id, 'medium');
+            $thumbnail = has_post_thumbnail($post_id) ? get_the_post_thumbnail_url($post_id, 'full') : mi_get_option('mi_anuncio_default_image');
             $imovel_valor = get_post_meta($post_id, 'imovel_valor', true);
             $imovel_area_bruta = get_post_meta($post_id, 'imovel_area_bruta', true);
             $imovel_rua = get_post_meta($post_id, 'imovel_rua', true);

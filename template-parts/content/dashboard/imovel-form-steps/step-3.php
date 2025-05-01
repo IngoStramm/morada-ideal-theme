@@ -9,7 +9,6 @@ $imovel_galeria = get_post_meta($post_id, 'imovel_galeria', true);
 $default_image = mi_get_option('mi_anuncio_default_image');
 $max_img_qty = mi_get_option('mi_anuncio_max_image_qty');
 $curr_img_qty = $imovel_galeria ? count($imovel_galeria) : 0;
-$imovel_thumbnail = get_the_post_thumbnail_url($post_id, 'full');
 $post_status = get_post_status($post_id);
 ?>
 <form name="new-imovel-form" id="new-imovel-form" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" class="needs-validation new-imovel-form" enctype="multipart/form-data" novalidate>

@@ -22,7 +22,10 @@ $imovel_certificado_energetico = get_post_meta($post_id, 'imovel_certificado_ene
         <div class="archive-top">
             <a href="<?php echo get_permalink(); ?>" class="images-group">
                 <div class="images-style">
-                    <img class="lazyload" data-src="<?php echo get_the_post_thumbnail_url(); ?>" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="img-property">
+                    <?php
+                    $post_thumbnail_url = has_post_thumbnail($post_id) ? get_the_post_thumbnail_url($post_id, 'full') : mi_get_option('mi_anuncio_default_image');
+                    ?>
+                    <img class="lazyload" data-src="<?php echo $post_thumbnail_url; ?>" src="<?php echo $post_thumbnail_url; ?>" alt="img-property">
                 </div>
                 <?php /* ?>
                 <div class="top">

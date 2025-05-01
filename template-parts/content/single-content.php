@@ -1,6 +1,6 @@
 <?php
 $post_id = get_the_ID();
-$imovel_thumbnail = get_the_post_thumbnail_url($post_id, 'full');
+$imovel_thumbnail = has_post_thumbnail($post_id) ? get_the_post_thumbnail_url($post_id, 'full') : mi_get_option('mi_anuncio_default_image');
 $imovel_operacao = wp_get_post_terms($post_id, 'operacao');
 $imovel_valor = get_post_meta($post_id, 'imovel_valor', true);
 $imovel_lat = get_post_meta($post_id, 'imovel_lat', true);

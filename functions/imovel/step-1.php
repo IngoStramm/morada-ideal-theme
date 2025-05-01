@@ -76,7 +76,6 @@ function mi_imovel_form_step_1_handle()
         }
     }
     $dados_form_1['imovel_andar']['value'] = isset($_POST['imovel_andar']) && $_POST['imovel_andar'] ? $_POST['imovel_andar'] : null;
-    $dados_form_1['imovel_porta']['value'] = isset($_POST['imovel_porta']) && $_POST['imovel_porta'] ? $_POST['imovel_porta'] : null;
 
     $tipo_term_id = (int)$dados_form_1['tipo-terms']['value'];
     $operacao_term_id = (int)$dados_form_1['operacao-term']['value'];
@@ -108,7 +107,6 @@ function mi_imovel_form_step_1_handle()
     $meta_input['imovel_rua'] = $dados_form_1['imovel_rua']['value'];
     $meta_input['imovel_numero'] = $dados_form_1['imovel_numero']['value'];
     $meta_input['imovel_andar'] = $dados_form_1['imovel_andar']['value'];
-    $meta_input['imovel_porta'] = $dados_form_1['imovel_porta']['value'];
     $meta_input['imovel_codigo_postal'] = $dados_form_1['imovel_codigo_postal']['value'];
     $meta_input['imovel_cidade'] = $dados_form_1['imovel_cidade']['value'];
     $meta_input['imovel_estado'] = $dados_form_1['imovel_estado']['value'];
