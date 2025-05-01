@@ -418,7 +418,7 @@ const markers = {};
 
         const inputWhatsApp = document.getElementById('user_whatsapp');
         const maskOptionsWhatsApp = {
-            mask: '(00) 0000-00000'
+            mask: '000-000-000'
         };
         if (typeof inputWhatsApp !== undefined && inputWhatsApp) {
             const maskWhatsApp = IMask(inputWhatsApp, maskOptionsWhatsApp);
