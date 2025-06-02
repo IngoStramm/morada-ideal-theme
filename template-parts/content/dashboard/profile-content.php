@@ -43,7 +43,7 @@ $mi_add_form_update_user_nonce = wp_create_nonce('mi_form_update_user_nonce');
                     </div>
                     <div class="box-fieldset">
                         <label for="user_phone"><?php _e('Telefone de Contacto', 'mi') ?>:<span>*</span></label>
-                        <input type="text" value="<?php echo $user_phone; ?>" class="form-control style-1" id="user_phone" name="user_phone" required>
+                        <input type="text" placeholder="+55" value="<?php echo $user_phone; ?>" class="form-control style-1" id="user_phone" name="user_phone" required>
                         <?php echo mi_invalid_feedback(); ?>
                     </div>
                 </div>

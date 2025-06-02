@@ -410,7 +410,7 @@ const markers = {};
     function inputMasks() {
         const inputTelefone = document.getElementById('user_phone');
         const maskOptionsTelefone = {
-            mask: '000-000-000'
+            mask: '+00[000000000000]'
         };
         if (typeof inputTelefone !== undefined && inputTelefone) {
             const maskTelefone = IMask(inputTelefone, maskOptionsTelefone);
@@ -421,7 +421,7 @@ const markers = {};
             mask: '000-000-000'
         };
         if (typeof inputWhatsApp !== undefined && inputWhatsApp) {
-            const maskWhatsApp = IMask(inputWhatsApp, maskOptionsWhatsApp);
+            // const maskWhatsApp = IMask(inputWhatsApp, maskOptionsWhatsApp);
         }
 
         const inputPrice = document.getElementById('imovel_price');
