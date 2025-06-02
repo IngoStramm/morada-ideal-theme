@@ -347,7 +347,7 @@ function mi_dashboard_footer()
     $output = '';
     $output .= '
     <div class="footer-dashboard">
-        <p>' . $site_name . '© Todos os deireito reservados</p>
+        <p>' . $site_name . '© Todos os direitos reservados</p>
     </div>';
     return $output;
 }

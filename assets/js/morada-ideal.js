@@ -1032,7 +1032,7 @@ function miOnPlaceChanged(autocompleteMessage) {
 
 
     if (typeof autocompleteFormBtn !== undefined && autocompleteFormBtn) {
-        autocompleteFormBtn.setAttribute('disabled', '');
+        autocompleteFormBtn.disabled = true;
     }
 
     if (typeof autocompleteMessage !== undefined && autocompleteMessage) {
@@ -1059,7 +1059,7 @@ function miOnPlaceChanged(autocompleteMessage) {
         miSetInputsNewValue(imovelRua, '');
         autocompleteMessage.style.display = 'block';
         if (typeof autocompleteFormBtn !== undefined && autocompleteFormBtn) {
-            autocompleteFormBtn.setAttribute('disabled', '');
+            autocompleteFormBtn.disabled = true;
         }
         const regiaoTable = document.getElementById('table-regiao-imoveis');
         if (typeof regiaoTable !== undefined && regiaoTable) {
@@ -1077,7 +1077,9 @@ function miOnPlaceChanged(autocompleteMessage) {
     } else {
         console.log(place.address_components);
         autocompleteMessage.style.display = 'none';
-
+        if (typeof autocompleteFormBtn !== undefined && autocompleteFormBtn) {
+            autocompleteFormBtn.disabled = false;
+        }
         lat = place.geometry.location.lat();
         lng = place.geometry.location.lng();
         const estado = place.address_components.filter(item => item.types.includes('administrative_area_level_1'));
@@ -1094,6 +1096,9 @@ function miOnPlaceChanged(autocompleteMessage) {
         } else if (validateCompleteAdress) {
             autocompleteMessage.style.display = 'block';
             miSetInputsNewValue(stateInput, '');
+            if (typeof autocompleteFormBtn !== undefined && autocompleteFormBtn) {
+                autocompleteFormBtn.disabled = true;
+            }
         }
         if (cidade[0]?.short_name) {
             const newCidadeValue = cidade[0]?.short_name ? cidade[0]?.short_name : '';
@@ -1101,6 +1106,9 @@ function miOnPlaceChanged(autocompleteMessage) {
         } else if (validateCompleteAdress) {
             autocompleteMessage.style.display = 'block';
             miSetInputsNewValue(cidadeInput, '');
+            if (typeof autocompleteFormBtn !== undefined && autocompleteFormBtn) {
+                autocompleteFormBtn.disabled = true;
+            }
         }
         if (cep[0]?.short_name) {
             const newCepValue = cep[0]?.short_name ? cep[0]?.short_name : '';
@@ -1108,6 +1116,9 @@ function miOnPlaceChanged(autocompleteMessage) {
         } else if (validateCompleteAdress) {
             autocompleteMessage.style.display = 'block';
             miSetInputsNewValue(cepInput, '');
+            if (typeof autocompleteFormBtn !== undefined && autocompleteFormBtn) {
+                autocompleteFormBtn.disabled = true;
+            }
         }
         if (rua[0]?.long_name) {
             const newRuaValue = rua[0]?.long_name ? rua[0]?.long_name : '';
@@ -1115,6 +1126,9 @@ function miOnPlaceChanged(autocompleteMessage) {
         } else if (validateCompleteAdress) {
             autocompleteMessage.style.display = 'block';
             miSetInputsNewValue(imovelRua, '');
+            if (typeof autocompleteFormBtn !== undefined && autocompleteFormBtn) {
+                autocompleteFormBtn.disabled = true;
+            }
         }
 
         const regiaoTable = document.getElementById('table-regiao-imoveis');
@@ -1135,10 +1149,6 @@ function miOnPlaceChanged(autocompleteMessage) {
                     }
                 });
             }
-        }
-
-        if (typeof autocompleteFormBtn !== undefined && autocompleteFormBtn) {
-            autocompleteFormBtn.removeAttribute('disabled');
         }
     }
 }

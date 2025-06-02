@@ -137,7 +137,7 @@ $price = $post_id ? get_post_meta($post_id, 'imovel_valor', true) : null;
     </div>
 
     <div class="box-btn">
-        <button id="new-imovel-form-btn" type="submit" href="#" class="tf-btn primary"><?php _e('Salvar e avançar', 'mi'); ?></button>
+        <button id="new-imovel-form-btn" type="submit" href="#" class="tf-btn primary" <?php echo !$post_id ? 'disabled' : ''; ?>><?php _e('Salvar e avançar', 'mi'); ?></button>
 
     </div>
 

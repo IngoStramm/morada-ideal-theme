@@ -54,6 +54,11 @@
         .icon {
             color: $white;
         }
+        &:disabled {
+            cursor: not-allowed;
+            background-color: $variant-2;
+            border-color: $variant-2;
+        }
     }
     &.secondary {
         background-color: $secondary;

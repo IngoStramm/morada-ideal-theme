@@ -408,6 +408,12 @@
                 width: 168px;
                 border-radius: 8px;
                 overflow: hidden;
+                img {
+                    width: 168px;
+                    height: 114px;
+                    object-fit: cover;
+                    object-position: center;
+                }
             }
             .content {
                 .title {
@@ -558,9 +564,12 @@
     }
     .box-agent-avt {
         display: flex;
-        align-items: center;
-        gap: 30px;
+        align-items: flex-start;
+        gap: 10px;
         position: relative;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-top: 50px;
         .btn-close {
             // position: absolute;
             // top: 50%;

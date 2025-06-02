@@ -45,7 +45,7 @@ function mi_fetch_blogposts()
     }
     if ($media_arr && count($media_arr) > 0) {
         foreach ($media_arr as $blogpost_id => $media_id) {
-            $get_media_response = wp_remote_get('https://moradaideal.pt/wp-json/wp/v2/media/' . $media_id);
+            $get_media_response = wp_remote_get($blog_url . '/wp-json/wp/v2/media/' . $media_id);
             if (is_array($get_media_response) && ! is_wp_error($get_media_response)) {
                 $media = json_decode(wp_remote_retrieve_body($get_media_response));
                 // mi_debug($media->media_details->sizes->full->source_url);
@@ -61,7 +61,9 @@ function mi_fetch_blogposts()
                 if (is_array($get_cat_response) && ! is_wp_error($get_cat_response)) {
                     $cat = json_decode(wp_remote_retrieve_body($get_cat_response));
                     // mi_debug($cat->media_details->sizes->full->source_url);
-                    $blogposts_arr[$blogpost_id]->cats[] = $cat->name;
+                    if (isset($cat->name) && $cat->name) {
+                        $blogposts_arr[$blogpost_id]->cats[] = $cat->name;
+                    }
                 }
             }
         }
