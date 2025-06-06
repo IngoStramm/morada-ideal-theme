@@ -3,7 +3,6 @@
 .box-icon {
     @include flex(center, center);
     @include transition3;
-    cursor: pointer;
     .icon{
         font-size: 18px;
     }

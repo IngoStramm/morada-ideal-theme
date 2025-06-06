@@ -248,7 +248,7 @@ function mi_overview_list_item_text($item, $icon, $text)
     $output = '';
     $output .= '
         <li class="item">
-            <a href="#" class="box-icon w-52"><i class="icon ' . $icon . '"></i></a>
+            <div class="box-icon w-52"><i class="icon ' . $icon . '"></i></div>
             <div class="content">
                 <span class="label">' . $text . ':</span>
                 <span>' . $item . '</span>

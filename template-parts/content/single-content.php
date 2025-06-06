@@ -147,7 +147,7 @@ $author_phone = get_user_meta($author_id, 'mi_user_phone', true);
                     <h6 class="title fw-6">Overview</h6>
                     <ul class="info-box">
                         <li class="item">
-                            <a href="#" class="box-icon w-52"><i class="icon icon-house-line"></i></a>
+                            <div class="box-icon w-52"><i class="icon icon-house-line"></i></div>
                             <div class="content">
                                 <span class="label">ID:</span>
                                 <span><?php echo $post_id; ?></span>
