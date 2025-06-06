@@ -408,7 +408,15 @@ const markers = {};
 
     // Máscaras dos campos
     function inputMasks() {
-        const inputTelefone = document.getElementById('user_phone');
+        const inputUserTelefone = document.getElementById('user_phone');
+        const maskOptionsUserTelefone = {
+            mask: '+00[000000000000]'
+        };
+        if (typeof inputUserTelefone !== undefined && inputUserTelefone) {
+            const maskTelefone = IMask(inputUserTelefone, maskOptionsUserTelefone);
+        }
+
+        const inputTelefone = document.getElementById('phone');
         const maskOptionsTelefone = {
             mask: '+00[000000000000]'
         };
@@ -835,10 +843,15 @@ const markers = {};
                 })
                     .then((response) => response.json())
                     .then((response) => {
-                        miShowAlert(alertPlaceholder, response.data.msg, 'success');
-                        nomeInput.value = '';
-                        emailInput.value = '';
-                        mensagemTextarea.value = '';
+                        console.log('response', response);
+                        if (response.success) {
+                            miShowAlert(alertPlaceholder, response.data.msg, 'success');
+                            nomeInput.value = '';
+                            emailInput.value = '';
+                            mensagemTextarea.value = '';
+                        } else {
+                            miShowAlert(alertPlaceholder, response.data.msg, 'danger');
+                        }
                     })
                     .catch((error) => {
                         console.error(error);

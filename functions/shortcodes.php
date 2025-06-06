@@ -73,7 +73,7 @@ function mi_contact_form_shortcode($atts)
 
                         <fieldset>
                             <label for="phone" class="form-label">' . __('Telefone', 'mi') . '</label>
-                            <input type="text" class="form-control" name="phone" id="phone" value="' . $phone . '" autocomplete="off" aria-autocomplete="list" aria-label="' . __('Telefone', 'mi') . '" tabindex="3" placeholder="+" required>
+                            <input type="text" class="form-control" name="phone" id="phone" value="' . $phone . '" autocomplete="off" aria-autocomplete="list" aria-label="' . __('Telefone', 'mi') . '" tabindex="3" placeholder="+351" required>
                             <div class="invalid-feedback">' . __('Campo obrigatório', 'mi') . '</div>
                         </fieldset>
 
@@ -96,7 +96,7 @@ function mi_contact_form_shortcode($atts)
                                         </ul>
                                     </div>
 
-                                    <input type="hidden" name="subject" data-select-list-value="" value="" required>
+                                    <input type="hidden" name="subject" id="subject" data-select-list-value="" value="" required>
                                     <div class="invalid-feedback">' . __('Campo obrigatório', 'mi') . '</div>
                                 </div>
                             </div>
