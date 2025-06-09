@@ -76,9 +76,14 @@ $imovel_certificado_energetico = get_post_meta($post_id, 'imovel_certificado_ene
                     <?php } ?>
                     <?php /* ?><span><?php the_author(); ?></span><?php */ ?>
                 </div>
-                <?php if ($imovel_valor) { ?>
-                    <h6 class="price"><?php echo mi_format_money($imovel_valor); ?> €<?php echo $imovel_operacao[0]->name === 'Arrendar' ? '/mês' : ''; ?></h6>
-                <?php } ?>
+                <div class="d-flex align-items-center gap-3">
+                    <?php if ($imovel_valor) { ?>
+                        <h6 class="price"><?php echo mi_format_money($imovel_valor); ?> €<?php echo $imovel_operacao[0]->name === 'Arrendar' ? '/mês' : ''; ?></h6>
+                    <?php } ?>
+                    <div class="mi-toggle-favorite-item-wrapper">
+                        <?php get_template_part('template-parts/general/favorite'); ?>
+                    </div>
+                </div>
             </div>
         </div>
 

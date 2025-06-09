@@ -218,7 +218,7 @@ function mi_text_login_btn()
 /**
  * mi_get_page_id
  *
- * @param  string $slug ('login', 'newuser', 'lostpassword', 'resetpassword', 'dashboard', 'profile', 'editimovel', 'myimoveis')
+ * @param  string $slug ('login', 'newuser', 'lostpassword', 'resetpassword', 'serviceterms', 'cookies', 'contact', 'favorites', 'dashboard', 'profile', 'editimovel', 'myimoveis')
  * @return string
  */
 function mi_get_page_id($slug)
@@ -253,6 +253,27 @@ function mi_get_page_id($slug)
             }
             break;
 
+        case 'serviceterms':
+            $service_terms_page_id = mi_get_option('mi_service_terms', false, 'mi_site_pages_options');
+            if ($service_terms_page_id) {
+                $return_id = $service_terms_page_id;
+            }
+            break;
+
+        case 'cookies':
+            $cookies_page_id = mi_get_option('mi_cookies_policy', false, 'mi_site_pages_options');
+            if ($cookies_page_id) {
+                $return_id = $cookies_page_id;
+            }
+            break;
+
+        case 'contact':
+            $contact_page_id = mi_get_option('mi_contact', false, 'mi_site_pages_options');
+            if ($contact_page_id) {
+                $return_id = $contact_page_id;
+            }
+            break;
+
         case 'dashboard':
             $account_page_id = mi_get_option('mi_dashboard_page', false, 'mi_dashboard_pages_options');
             if ($account_page_id) {
@@ -281,6 +302,13 @@ function mi_get_page_id($slug)
             }
             break;
 
+
+        case 'favorites':
+            $favorites_page_id = mi_get_option('mi_favorites', false, 'mi_dashboard_pages_options');
+            if ($favorites_page_id) {
+                $return_id = $favorites_page_id;
+            }
+            break;
         default:
             $return_id = null;
             break;
@@ -291,7 +319,7 @@ function mi_get_page_id($slug)
 /**
  * mi_get_page_url
  *
- * @param  string $slug ('login', 'newuser', 'lostpassword', 'resetpassword', 'dashboard', 'editimovel', 'myimoveis')
+ * @param  string $slug ('login', 'newuser', 'lostpassword', 'resetpassword', 'serviceterms', 'cookies', 'contact', 'favorites','dashboard', 'editimovel', 'myimoveis')
  * @return string
  */
 function mi_get_page_url($slug)
@@ -326,6 +354,27 @@ function mi_get_page_url($slug)
             }
             break;
 
+        case 'serviceterms':
+            $serviceterms_page_id = mi_get_page_id('serviceterms');
+            if ($serviceterms_page_id) {
+                $return_url = get_page_link($serviceterms_page_id);
+            }
+            break;
+
+        case 'cookies':
+            $cookies_page_id = mi_get_page_id('cookies');
+            if ($cookies_page_id) {
+                $return_url = get_page_link($cookies_page_id);
+            }
+            break;
+
+        case 'contact':
+            $contact_page_id = mi_get_page_id('contact');
+            if ($contact_page_id) {
+                $return_url = get_page_link($contact_page_id);
+            }
+            break;
+
         case 'dashboard':
             $account_page_id = mi_get_page_id('dashboard');
             if ($account_page_id) {
@@ -354,13 +403,12 @@ function mi_get_page_url($slug)
             }
             break;
 
-        case 'myimoveis':
-            $my_imovel_page_id = mi_get_page_id('myimoveis');
-            if ($my_imovel_page_id) {
-                $return_url = get_page_link($my_imovel_page_id);
+        case 'favorites':
+            $favorites_page_id = mi_get_page_id('favorites');
+            if ($favorites_page_id) {
+                $return_url = get_page_link($favorites_page_id);
             }
             break;
-
 
         default:
             $return_url = get_home_url();

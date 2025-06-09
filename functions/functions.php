@@ -27,3 +27,5 @@ require_once 'imovel/imovel-form.php';
 require_once 'messages.php';
 require_once 'home-filter.php';
 require_once 'imovel-single.php';
+require_once 'favorite-ajax.php';
+require_once 'favorite-remove.php';

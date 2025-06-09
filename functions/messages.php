@@ -200,3 +200,48 @@ function mi_home_filter_error_message()
         unset($_SESSION['mi_home_filter_error_message']);
     }
 }
+
+add_action('dashboard_announces', 'mi_favorite_success_message');
+
+/**
+ * mi_favorite_success_message
+ *
+ * @return void
+ */
+function mi_favorite_success_message()
+{
+    if (isset($_SESSION['mi_favorite_success_message']) && $_SESSION['mi_favorite_success_message']) {
+        echo mi_dismissible_alert($_SESSION['mi_favorite_success_message'], 'success');
+        unset($_SESSION['mi_favorite_success_message']);
+    }
+}
+
+add_action('dashboard_announces', 'mi_favorite_warning_message');
+
+/**
+ * mi_favorite_warning_message
+ *
+ * @return void
+ */
+function mi_favorite_warning_message()
+{
+    if (isset($_SESSION['mi_favorite_warning_message']) && $_SESSION['mi_favorite_warning_message']) {
+        echo mi_dismissible_alert($_SESSION['mi_favorite_warning_message'], 'warning');
+        unset($_SESSION['mi_favorite_warning_message']);
+    }
+}
+
+add_action('dashboard_announces', 'mi_favorite_error_message');
+
+/**
+ * mi_favorite_error_message
+ *
+ * @return void
+ */
+function mi_favorite_error_message()
+{
+    if (isset($_SESSION['mi_favorite_error_message']) && $_SESSION['mi_favorite_error_message']) {
+        echo mi_dismissible_alert($_SESSION['mi_favorite_error_message'], 'danger');
+        unset($_SESSION['mi_favorite_error_message']);
+    }
+}

@@ -88,8 +88,16 @@ $author_phone = get_user_meta($author_id, 'mi_user_phone', true);
                                     echo $imovel_cidade;
                                 }
                                 ?>
-                            </span></p>
+                            </span>
+                        </p>
                     </div>
+                </div>
+                <div class="box-right">
+                    <ul class="icon-box">
+                        <li>
+                            <?php get_template_part('template-parts/general/favorite'); ?>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

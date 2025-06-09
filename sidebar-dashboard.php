@@ -7,6 +7,7 @@ $dashboard_id = mi_get_page_id('dashboard');
 $profile_id = mi_get_page_id('profile');
 $my_imoveis_id = mi_get_page_id('myimoveis');
 $new_imovel_id = mi_get_page_id('editimovel');
+$favorites_id = mi_get_page_id('favorites');
 $post_id = get_the_ID();
 ?>
 <!-- sidebar dashboard -->
@@ -115,17 +116,19 @@ $post_id = get_the_ID();
                 </li>
             <?php } ?>
 
-            <!-- <li class="nav-menu-item">
-                <a class="nav-menu-link" href="my-favorites.html">
-                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g opacity="0.2">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2.63385 10.6318C1.65026 7.56096 2.79976 4.05104 6.02368 3.01246C7.71951 2.46521 9.59135 2.78788 11.0012 3.84846C12.3349 2.81721 14.2755 2.46888 15.9695 3.01246C19.1934 4.05104 20.3503 7.56096 19.3676 10.6318C17.8368 15.4993 11.0012 19.2485 11.0012 19.2485C11.0012 19.2485 4.21601 15.5561 2.63385 10.6318Z" stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M14.668 6.14258C15.6488 6.45974 16.3418 7.33516 16.4252 8.36274" stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </g>
-                    </svg>
-                    My favorite
-                </a>
-            </li> -->
+            <?php if ($favorites_id) { ?>
+                <li class="nav-menu-item <?php echo $post_id === (int)$favorites_id ? 'active' : ''; ?>">
+                    <a class="nav-menu-link" href="<?php echo mi_get_page_url('favorites'); ?>">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g opacity="0.2">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.63385 10.6318C1.65026 7.56096 2.79976 4.05104 6.02368 3.01246C7.71951 2.46521 9.59135 2.78788 11.0012 3.84846C12.3349 2.81721 14.2755 2.46888 15.9695 3.01246C19.1934 4.05104 20.3503 7.56096 19.3676 10.6318C17.8368 15.4993 11.0012 19.2485 11.0012 19.2485C11.0012 19.2485 4.21601 15.5561 2.63385 10.6318Z" stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M14.668 6.14258C15.6488 6.45974 16.3418 7.33516 16.4252 8.36274" stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </g>
+                        </svg>
+                        <?php echo get_the_title($favorites_id); ?>
+                    </a>
+                </li>
+            <?php } ?>
 
             <!-- <li class="nav-menu-item">
                 <a class="nav-menu-link" href="save-search.html">

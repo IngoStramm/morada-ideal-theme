@@ -293,6 +293,22 @@ function mi_register_dashboard_pages_options_metabox()
         },
         'required'      => true
     ));
+
+    $cmb_options->add_field(array(
+        'name'    => esc_html__('Página de Favoritos', 'mi'),
+        'id'      => 'mi_favorites',
+        'type'    => 'select',
+        'options' => function () {
+            $pages = mi_get_pages();
+            $array = [];
+            $array[''] = __('Selecione uma página', 'mi');
+            foreach ($pages as $id => $title) {
+                $array[$id] = $title;
+            }
+            return $array;
+        },
+        'required'      => true
+    ));
 }
 
 

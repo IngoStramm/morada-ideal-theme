@@ -75,7 +75,12 @@ $container_class = isset($args['container_class']) && $args['container_class'] ?
                     <?php } ?>
                     <?php /* ?><span><?php the_author(); ?></span><?php */ ?>
                 </div>
-                <h6 class="price"><?php echo mi_format_money($imovel_valor); ?> €<?php echo $imovel_operacao[0]->name === 'Arrendar' ? '/mês' : ''; ?></h6>
+                <div class="d-flex align-items-center gap-1">
+                    <h6 class="price"><?php echo mi_format_money($imovel_valor); ?> €<?php echo $imovel_operacao[0]->name === 'Arrendar' ? '/mês' : ''; ?></h6>
+                    <div class="mi-toggle-favorite-item-wrapper">
+                        <?php get_template_part('template-parts/general/favorite'); ?>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

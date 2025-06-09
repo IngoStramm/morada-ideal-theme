@@ -772,10 +772,10 @@ const markers = {};
                     slidesPerView: 2,
                 },
                 992: {
-                    slidesPerView: 3,
+                    slidesPerView: 2,
                 },
                 1200: {
-                    slidesPerView: 4,
+                    slidesPerView: 3,
                 },
             },
         });
@@ -888,6 +888,128 @@ const markers = {};
         });
     }
 
+    function miToggleFavoriteForm() {
+        const toggleFavoriteForms = document.querySelectorAll('.mi-toggle-favorite');
+        toggleFavoriteForms.forEach(toggleFavoriteForm => {
+            toggleFavoriteForm.addEventListener('submit', e => {
+                e.preventDefault();
+
+                if (typeof document.getElementById('contact-form-alert') !== undefined && document.getElementById('contact-form-alert')) {
+                    const contactFormAlert = bootstrap.Alert.getOrCreateInstance('#contact-form-alert');
+                    contactFormAlert.close();
+                }
+
+                const btn = toggleFavoriteForm.querySelector('button');
+
+                if (typeof btn === undefined || !btn) {
+                    return;
+                }
+
+                if (btn.disabled) {
+                    return;
+                }
+                btn.disabled = true;
+
+                const ajaxUrl = ajax_object.ajax_url;
+                const data = new FormData(toggleFavoriteForm);
+                const action = data.get('action');
+
+                console.log(data.get('action'));
+
+                // for (const [key, value] of data) {
+                //     console.log('data', `${key}: ${value}\n`);
+                // }
+
+                fetch(ajaxUrl, {
+                    method: 'POST',
+                    body: data
+                })
+                    .then((response) => response.json())
+                    .then((response) => {
+                        console.log('response', response);
+                        if (response.success) {
+                            if (response.data.status === 'added') {
+                                btn.classList.add('favorited');
+                            } else {
+                                btn.classList.remove('favorited');
+                            }
+                            console.log(response.data.msg);
+                        } else {
+                            miCustomModal('mi-modal-favorite', 'Atenção!', response.data.msg);
+                            console.log(response.data.msg);
+                        }
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                    })
+                    .finally(() => {
+                        btn.disabled = false;
+                    });
+
+            });
+        });
+    }
+
+    function miCustomModal(modalId, title, message) {
+
+        let modalContainer = document.getElementById(modalId);
+        if (typeof modalContainer === undefined || !modalContainer) {
+            modalContainer = document.createElement('div');
+            modalContainer.id = modalId;
+            modalContainer.classList.add('modal');
+            modalContainer.classList.add('fade');
+            modalContainer.setAttribute('aria-hidden', true);
+
+            const modalDialog = document.createElement('div');
+            modalDialog.classList.add('modal-dialog');
+            modalContainer.append(modalDialog);
+
+            const modalContent = document.createElement('div');
+            modalContent.classList.add('modal-content');
+            modalDialog.append(modalContent);
+
+            const modalHeader = document.createElement('div');
+            modalHeader.classList.add('modal-header');
+            modalContent.append(modalHeader);
+
+            const modalTitle = document.createElement('h5');
+            modalTitle.classList.add('modal-title');
+            modalTitle.innerText = title;
+            modalHeader.append(modalTitle);
+
+            const modalCloseBtn = document.createElement('button');
+            modalCloseBtn.classList.add('btn-close');
+            modalCloseBtn.type = 'button';
+            modalCloseBtn.setAttribute('data-bs-dismiss', 'modal');
+            modalCloseBtn.setAttribute('aria-label', 'Close');
+            modalHeader.append(modalCloseBtn);
+
+            const modalBody = document.createElement('div');
+            modalBody.classList.add('modal-body');
+            modalBody.innerHTML = `<p>${message}</p>`;
+            modalContent.append(modalBody);
+
+            // const modalFooter = document.createElement('div');
+            // modalFooter.classList.add('modal-footer');
+            // modalContent.append(modalFooter);
+
+            const body = document.querySelector('body');
+            body.prepend(modalContainer);
+        }
+
+        const options = {
+            backdrop: true,
+            focus: true,
+            keyboard: true
+        };
+        const newModal = new bootstrap.Modal(modalContainer, options);
+        newModal.show();
+        modalContainer.addEventListener('hidden.bs.modal', e => {
+            newModal.dispose();
+            modalContainer.remove();
+        });
+    }
+
     window.addEventListener('load', function () {
         miFormsValidation();
         miNewsletterForm();
@@ -909,6 +1031,7 @@ const markers = {};
         homeDestaquesSwiper();
         miContactForm();
         miUnselectRAdioInput();
+        miToggleFavoriteForm();
     });
 
 })();

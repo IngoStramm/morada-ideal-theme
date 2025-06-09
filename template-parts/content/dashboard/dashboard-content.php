@@ -6,6 +6,8 @@ $user_id = $user->get('id');
 $user_imoveis = mi_get_user_imoveis($user_id, array('draft'));
 $imoveis_page_id = mi_get_page_id('myimoveis');
 $imoveis_page_url = mi_get_page_url('myimoveis');
+$favorites_id = mi_get_page_id('favorites');
+$user_favorites = get_user_meta($user_id, '_user_favorites', true);
 ?>
 
 <div class="main-content">
@@ -34,19 +36,24 @@ $imoveis_page_url = mi_get_page_url('myimoveis');
 
                 </div>
             </div>
-            <div class="counter-box">
-                <div class="box-icon">
-                    <span class="icon icon-favorite"></span>
-                </div>
-                <div class="content-box">
-                    <div class="title-count text-variant-1"><?php _e('Favoritos', 'mi'); ?></div>
-                    <div class="d-flex align-items-end">
-                        <!-- <h6 class="number" data-speed="2000" data-to="1" data-inviewport="yes">1</h6>  -->
-                        <h3 class="fw-8 fs-5"><?php _e('Em breve', 'mi'); ?></h3>
+            <?php if ($favorites_id) { ?>
+                <?php
+                $total_favorites = !$user_favorites || !is_array($user_favorites) ? 0 : count($user_favorites);
+                ?>
+                <div class="counter-box">
+                    <div class="box-icon">
+                        <span class="icon icon-favorite"></span>
                     </div>
+                    <div class="content-box">
+                        <div class="title-count text-variant-1"><?php echo sprintf('<a href="%s">%s</a>', mi_get_page_url('favorites'), get_the_title($favorites_id)); ?></div>
+                        <div class="d-flex align-items-end">
+                            <!-- <h6 class="number" data-speed="2000" data-to="1" data-inviewport="yes">1</h6>  -->
+                            <h3 class="fw-8"><?php echo (string)$total_favorites; ?></h3>
+                        </div>
 
+                    </div>
                 </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
     <?php echo mi_dashboard_footer(); ?>

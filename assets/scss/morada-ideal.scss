@@ -604,6 +604,36 @@ p {
     fill: $variant-2;
 }
 
+.favorite-link {
+    background-color: $white;
+    @include transition3;
+    &.favorited {
+        .icon {
+            fill: $danger;
+            path {
+                stroke: $danger;
+            }
+        }
+    }
+}
+
+.mi-toggle-favorite-item-wrapper {
+    button {
+        border: none;
+        background-color: $surface;
+        border-radius: 50%;
+        width: 34px;
+        height: 34px;
+    }
+}
+
+.remove-favorite-btn {
+    @include transition3;
+    background-color: transparent;
+    border: none;
+    color: $primary;
+}
+
 @media (min-width: 768px) {
     .home-imoveis-em-destaque {
         .homelengo-box {
