@@ -1,7 +1,7 @@
                 <div class="inner-footer">
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-4 col-md-6">
+                            <div class="col-lg-8 col-md-12">
                                 <div class="footer-cl-1">
                                     <?php
                                     $company_text = mi_get_option('mi_company_text', false, 'mi_site_info_options');
@@ -76,6 +76,7 @@
                                     </div>
                                 <?php endif; ?>
                             </div>
+                            <?php /* ?>
                             <div class="col-lg-4 col-md-6">
                                 <div class="footer-cl-4 footer-col-block">
                                     <div class="fw-7 text-white footer-heading-mobile"><?php _e('Newsletter', 'mi'); ?></div>
@@ -85,7 +86,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <?php */ ?>
                         </div>
                     </div>
                 </div>
