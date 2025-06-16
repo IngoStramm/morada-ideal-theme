@@ -15,7 +15,7 @@ $grid_content_args = array(
             <div class="row">
                 <div class="col-md-12">
                     <div class="d-flex align-items-center justify-content-between">
-                        <h3 class="home-imoveis-em-destaque-title"><?php _e('Em destaque', 'mi'); ?></h3>
+                        <h3 class="home-imoveis-em-destaque-title"><?php _e('Publicados recentes', 'mi'); ?></h3>
                         <a class="home-imoveis-em-destaque-link" href="<?php echo get_site_url(null, '/imovel/'); ?>"><?php _e('Todos os imóveis', 'mi'); ?><span class="icon icon-arrow-right2"></span></a>
                     </div>
                     <div class="swiper home-destaque-swiper home-imoveis-em-destaque-carousel">

@@ -6,6 +6,11 @@ const itemsLista = Object.values(ajax_object.imoveis);
 const todosImoveis = itemsLista;
 const allInfoWindows = [];
 const markers = {};
+let maskTelefone = null;
+let maskWhatsApp = null;
+let maskPrice = null;
+let maskPriceSimulador = null;
+let maskPoupancaSimulador = null;
 
 (() => {
     'use strict';
@@ -413,15 +418,7 @@ const markers = {};
             mask: '+00[000000000000]'
         };
         if (typeof inputUserTelefone !== undefined && inputUserTelefone) {
-            const maskTelefone = IMask(inputUserTelefone, maskOptionsUserTelefone);
-        }
-
-        const inputTelefone = document.getElementById('phone');
-        const maskOptionsTelefone = {
-            mask: '+00[000000000000]'
-        };
-        if (typeof inputTelefone !== undefined && inputTelefone) {
-            const maskTelefone = IMask(inputTelefone, maskOptionsTelefone);
+            maskTelefone = IMask(inputUserTelefone, maskOptionsUserTelefone);
         }
 
         const inputWhatsApp = document.getElementById('user_whatsapp');
@@ -429,12 +426,12 @@ const markers = {};
             mask: '000-000-000'
         };
         if (typeof inputWhatsApp !== undefined && inputWhatsApp) {
-            // const maskWhatsApp = IMask(inputWhatsApp, maskOptionsWhatsApp);
+            // maskWhatsApp = IMask(inputWhatsApp, maskOptionsWhatsApp);
         }
 
         const inputPrice = document.getElementById('imovel_price');
         const maskOptionsPrice = {
-            mask: 'num',
+            mask: '€ num',
             blocks: {
                 num: {
                     mask: Number,
@@ -447,7 +444,43 @@ const markers = {};
             }
         };
         if (typeof inputPrice !== undefined && inputPrice) {
-            const maskPrice = IMask(inputPrice, maskOptionsPrice);
+            maskPrice = IMask(inputPrice, maskOptionsPrice);
+        }
+
+        const inputPriceSimulador = document.getElementById('imovel_price_simulador');
+        const maskOptionsPriceSimulador = {
+            mask: '€ num',
+            blocks: {
+                num: {
+                    mask: Number,
+                    scale: 2,
+                    thousandsSeparator: '.',
+                    padFractionalZeros: true,
+                    radix: ',',
+                    mapToRadix: ['.'],
+                }
+            }
+        };
+        if (typeof inputPriceSimulador !== undefined && inputPriceSimulador) {
+            maskPriceSimulador = IMask(inputPriceSimulador, maskOptionsPriceSimulador);
+        }
+
+        const inputPoupancaSimulador = document.getElementById('poupanca');
+        const maskOptionsPoupancaSimulador = {
+            mask: '€ num',
+            blocks: {
+                num: {
+                    mask: Number,
+                    scale: 2,
+                    thousandsSeparator: '.',
+                    padFractionalZeros: true,
+                    radix: ',',
+                    mapToRadix: ['.'],
+                }
+            }
+        };
+        if (typeof inputPoupancaSimulador !== undefined && inputPoupancaSimulador) {
+            maskPoupancaSimulador = IMask(inputPoupancaSimulador, maskOptionsPoupancaSimulador);
         }
     }
 
@@ -764,7 +797,7 @@ const markers = {};
             slidesPerView: 1,
             spaceBetween: 30,
             autoplay: {
-                delay: 3000,
+                delay: 5000,
                 disableOnInteraction: false,
             },
             breakpoints: {
@@ -772,10 +805,10 @@ const markers = {};
                     slidesPerView: 2,
                 },
                 992: {
-                    slidesPerView: 2,
+                    slidesPerView: 3,
                 },
                 1200: {
-                    slidesPerView: 3,
+                    slidesPerView: 4,
                 },
             },
         });
@@ -1010,6 +1043,47 @@ const markers = {};
         });
     }
 
+    function miGetPreviousElementByClass(element, className) {
+        let previous = element.previousElementSibling;
+        while (previous) {
+            if (previous.classList.contains(className)) {
+                return previous;
+            }
+            previous = previous.previousElementSibling;
+        }
+        return null;
+    }
+
+    function miGetPreviousElementById(element, previousElementId) {
+        let previous = element.previousElementSibling;
+        while (previous) {
+            if (previous.id === previousElementId) {
+                return previous;
+            }
+            previous = previous.previousElementSibling;
+        }
+        return null;
+    }
+
+    function miRangeInput() {
+        const rangeInputs = document.querySelectorAll('.range-input');
+        rangeInputs.forEach(rangeInput => {
+            const inputToGetValueId = rangeInput.getAttribute('data-label');
+            const inputToGetValue = miGetPreviousElementById(rangeInput, inputToGetValueId);
+            if (typeof inputToGetValue !== undefined && inputToGetValue) {
+                console.log('forEach');
+
+                rangeInput.addEventListener('input', e => {
+                    console.log('addEventListener');
+                    inputToGetValue.value = e.target.value;
+                    inputToGetValue.dispatchEvent(new KeyboardEvent('blur'));
+                });
+            } else {
+                console.warn('Não foi possível encontrar o elemento com o ID: ', inputToGetValueId);
+            }
+        });
+    }
+
     window.addEventListener('load', function () {
         miFormsValidation();
         miNewsletterForm();
@@ -1032,6 +1106,7 @@ const markers = {};
         miContactForm();
         miUnselectRAdioInput();
         miToggleFavoriteForm();
+        miRangeInput();
     });
 
 })();

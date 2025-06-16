@@ -1,5 +1,6 @@
 <?php
 $post_id = get_the_ID();
+$blog_url = mi_get_option('mi_blog_url');
 $blogposts = mi_get_blogposts();
 if ($blogposts && count($blogposts) > 0) {
     $blogpost_title = get_post_meta($post_id, 'home_destaque_4_title', true);
@@ -19,7 +20,9 @@ if ($blogposts && count($blogposts) > 0) {
                         <?php } ?>
                     </div>
                     <?php if ($blogpost_selo) { ?>
+                        <?php echo $blog_url ? "<a href='$blog_url' target='_BLANK'>" : ''; ?>
                         <img class="blog-latest-posts-selo" src="<?php echo $blogpost_selo; ?>">
+                        <?php echo $blog_url ? "</a>" : ''; ?>
                     <?php } ?>
                 </div>
             </div>
@@ -27,31 +30,32 @@ if ($blogposts && count($blogposts) > 0) {
                 <div class="swiper-wrapper">
                     <?php foreach ($blogposts as $blogpost_id => $blogpost) { ?>
                         <div class="swiper-slide">
-                            <a href="<?php echo $blogpost->link; ?>" class="flat-blog-item hover-img" target="_blank">
-                                <div class="img-style">
-                                    <img class="lazyload" data-src="<?php echo $blogpost->media; ?>" src="<?php echo $blogpost->media; ?>" alt="img-blog">
-                                    <?php if ($blogpost->cats && count($blogpost->cats) > 0) { ?>
-                                        <span class="date-post">
-                                            <?php
-                                            $count = 0;
-                                            foreach ($blogpost->cats as $cat) {
-                                                $sep = $count > 0 && $count < count($blogpost->cats) ? ', ' : '';
-                                                echo $sep . $cat;
-                                                $count++;
-                                            } ?>
-                                        </span>
-                                    <?php } ?>
-                                </div>
+                            <div class="flat-blog-item hover-img">
+                                <a href="<?php echo $blogpost->link; ?>" target="_blank">
+                                    <div class="img-style">
+                                        <img class="lazyload" data-src="<?php echo $blogpost->media; ?>" src="<?php echo $blogpost->media; ?>" alt="img-blog">
+                                        <?php if ($blogpost->cats && count($blogpost->cats) > 0) { ?>
+                                            <span class="date-post">
+                                                <?php
+                                                $count = 0;
+                                                foreach ($blogpost->cats as $cat) {
+                                                    $sep = $count > 0 && $count < count($blogpost->cats) ? ', ' : '';
+                                                    echo $sep . $cat;
+                                                    $count++;
+                                                } ?>
+                                            </span>
+                                        <?php } ?>
+                                    </div>
+                                </a>
                                 <div class="content-box">
                                     <div class="post-author">
                                     </div>
                                     <?php // mi_debug($blogpost); 
                                     ?>
                                     <h5 class="title link"><?php echo $blogpost->title->rendered; ?></h5>
-                                    <div class="description"><?php echo $blogpost->excerpt->rendered; ?></div>
+                                    <?php /* ?><div class="description"><?php echo $blogpost->excerpt->rendered; ?></div><?php */ ?>
                                 </div>
-
-                            </a>
+                            </div>
                         </div>
                     <?php } ?>
                 </div>

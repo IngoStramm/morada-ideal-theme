@@ -218,7 +218,7 @@ function mi_text_login_btn()
 /**
  * mi_get_page_id
  *
- * @param  string $slug ('login', 'newuser', 'lostpassword', 'resetpassword', 'serviceterms', 'cookies', 'contact', 'favorites', 'dashboard', 'profile', 'editimovel', 'myimoveis')
+ * @param  string $slug ('login', 'newuser', 'lostpassword', 'resetpassword', 'serviceterms', 'cookies', 'contact', 'simuladorcredito', 'favorites', 'dashboard', 'profile', 'editimovel', 'myimoveis')
  * @return string
  */
 function mi_get_page_id($slug)
@@ -274,6 +274,13 @@ function mi_get_page_id($slug)
             }
             break;
 
+        case 'simuladorcredito':
+            $simulador_credito_page_id = mi_get_option('mi_simulador_credito_habitacao', false, 'mi_site_pages_options');
+            if ($simulador_credito_page_id) {
+                $return_id = $simulador_credito_page_id;
+            }
+            break;
+
         case 'dashboard':
             $account_page_id = mi_get_option('mi_dashboard_page', false, 'mi_dashboard_pages_options');
             if ($account_page_id) {
@@ -309,6 +316,7 @@ function mi_get_page_id($slug)
                 $return_id = $favorites_page_id;
             }
             break;
+
         default:
             $return_id = null;
             break;
@@ -319,7 +327,7 @@ function mi_get_page_id($slug)
 /**
  * mi_get_page_url
  *
- * @param  string $slug ('login', 'newuser', 'lostpassword', 'resetpassword', 'serviceterms', 'cookies', 'contact', 'favorites','dashboard', 'editimovel', 'myimoveis')
+ * @param  string $slug ('login', 'newuser', 'lostpassword', 'resetpassword', 'serviceterms', 'cookies', 'contact', 'simuladorcredito', 'favorites','dashboard', 'editimovel', 'myimoveis')
  * @return string
  */
 function mi_get_page_url($slug)
@@ -372,6 +380,13 @@ function mi_get_page_url($slug)
             $contact_page_id = mi_get_page_id('contact');
             if ($contact_page_id) {
                 $return_url = get_page_link($contact_page_id);
+            }
+            break;
+
+        case 'simuladorcredito':
+            $simulador_credito_page_id = mi_get_page_id('simuladorcredito');
+            if ($simulador_credito_page_id) {
+                $return_url = get_page_link($simulador_credito_page_id);
             }
             break;
 

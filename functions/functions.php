@@ -29,3 +29,4 @@ require_once 'home-filter.php';
 require_once 'imovel-single.php';
 require_once 'favorite-ajax.php';
 require_once 'favorite-remove.php';
+require_once 'scripts.php';

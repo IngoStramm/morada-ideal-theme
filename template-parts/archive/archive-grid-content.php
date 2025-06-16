@@ -26,6 +26,9 @@ $container_class = isset($args['container_class']) && $args['container_class'] ?
                     <?php
                     $post_thumbnail_url = has_post_thumbnail($post_id) ? get_the_post_thumbnail_url($post_id, 'full') : mi_get_option('mi_anuncio_default_image'); ?>
                     <img class="lazyload" data-src="<?php echo $post_thumbnail_url; ?>" src="<?php echo $post_thumbnail_url; ?>" alt="img">
+                    <div class="mi-toggle-favorite-item-wrapper">
+                        <?php get_template_part('template-parts/general/favorite'); ?>
+                    </div>
                 </div>
                 <?php /* ?>
                 <div class="top">
@@ -75,11 +78,8 @@ $container_class = isset($args['container_class']) && $args['container_class'] ?
                     <?php } ?>
                     <?php /* ?><span><?php the_author(); ?></span><?php */ ?>
                 </div>
-                <div class="d-flex align-items-center gap-1">
+                <div class="d-flex align-items-center gap-1 text-end">
                     <h6 class="price"><?php echo mi_format_money($imovel_valor); ?> €<?php echo $imovel_operacao[0]->name === 'Arrendar' ? '/mês' : ''; ?></h6>
-                    <div class="mi-toggle-favorite-item-wrapper">
-                        <?php get_template_part('template-parts/general/favorite'); ?>
-                    </div>
                 </div>
             </div>
         </div>

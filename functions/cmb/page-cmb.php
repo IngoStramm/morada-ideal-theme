@@ -137,6 +137,7 @@ function mi_register_home_page_metabox()
         'id'         => 'home_destaque_1_url',
         'type'       => 'text_url',
     ));
+
     $cmb->add_field(array(
         'name'       => esc_html__('Seção de destaque #2', 'mi'),
         'id'         => 'home_destaque_3_title_cmb',
@@ -187,6 +188,28 @@ function mi_register_home_page_metabox()
         'name'       => esc_html__('Link', 'mi'),
         'id'         => 'home_destaque_3_url',
         'type'       => 'text_url',
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Seção Calculadora', 'mi'),
+        'id'         => 'home_calculadora_title_cmb',
+        'type'       => 'title',
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Título', 'mi'),
+        'id'         => 'home_calculadora_title',
+        'type'       => 'text',
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Imagem da Calculadora', 'mi'),
+        'id'         => 'home_calculadora_image',
+        'desc'       => esc_html__('A imagem é exibida do lado da calculadora.', 'mi'),
+        'type'       => 'file',
+        'attributes' => array(
+            'accept' => '.jpg,.jpeg,.png,.svg'
+        )
     ));
 
     $cmb->add_field(array(

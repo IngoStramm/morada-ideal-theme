@@ -27,6 +27,7 @@
     <!-- <a href="javascript:void(0);" id="toggle-rtl" class="tf-btn primary">RTL</a> -->
     <!-- /RTL  -->
     <?php echo mi_preloader(); ?>
+    <?php do_action('mi_body_start_scripts'); ?>
 
     <div id="wrapper">
         <div id="pagee" class="clearfix">

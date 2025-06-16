@@ -14,7 +14,7 @@ if ($random_post) {
     $random_post_thumbnail = has_post_thumbnail($random_post->ID) ? get_the_post_thumbnail_url($random_post->ID, 'full') : mi_get_option('mi_anuncio_default_image');
 }
 ?>
-<section class="flat-slider home-1" style="background-image: url(<?php echo $random_post_thumbnail; ?>);">
+<section class="flat-title-page" style="background-image: url(<?php echo $random_post_thumbnail; ?>);">
     <div class="container relative">
         <?php if ($random_post) { ?>
             <div class="home-slider-random-post">

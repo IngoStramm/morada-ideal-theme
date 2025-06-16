@@ -214,6 +214,22 @@ function mi_register_site_pages_options_metabox()
         },
         'required'      => true
     ));
+
+    $cmb_options->add_field(array(
+        'name'    => esc_html__('Página do Simulador do Crédito Habitação', 'mi'),
+        'id'      => 'mi_simulador_credito_habitacao',
+        'type'    => 'select',
+        'options' => function () {
+            $pages = mi_get_pages();
+            $array = [];
+            $array[''] = __('Selecione uma página', 'mi');
+            foreach ($pages as $id => $title) {
+                $array[$id] = $title;
+            }
+            return $array;
+        },
+        'required'      => true
+    ));
 }
 
 add_action('cmb2_admin_init', 'mi_register_dashboard_pages_options_metabox');
@@ -453,5 +469,41 @@ function mi_register_google_keys_options_metabox()
         'description'    => 'Acesse o <strong>Google Console</strong> para ativar a API e criar a Key: <a href="https://console.cloud.google.com/" target="_blank">clique aqui</a>.',
         'id'      => 'mapstatic_key',
         'type'    => 'text',
+    ));
+}
+
+add_action('cmb2_admin_init', 'mi_register_scripts_options_metabox');
+
+function mi_register_scripts_options_metabox()
+{
+    $cmb_options = new_cmb2_box(array(
+        'id'           => 'mi_scripts_options_page',
+        'title'        => esc_html__('Scripts', 'mi'),
+        'object_types' => array('options-page'),
+        'option_key'      => 'mi_scripts_options',
+        'icon_url'        => 'dashicons-admin-generic',
+        'menu_title'              => esc_html__('Scripts', 'mi'),
+        'parent_slug'             => 'mi_theme_options',
+    ));
+
+    $cmb_options->add_field(array(
+        'name'    => esc_html__('Scripts dentro da tag <head>', 'mi'),
+        'id'      => 'head_scripts',
+        'type'    => 'textarea_code',
+        // 'sanitization_cb' => 'mi_text_without_sanitization',
+    ));
+
+    $cmb_options->add_field(array(
+        'name'    => esc_html__('Scripts no início da tag <body>', 'mi'),
+        'id'      => 'body_start_scripts',
+        'type'    => 'textarea_code',
+        // 'sanitization_cb' => 'mi_text_without_sanitization',
+    ));
+
+    $cmb_options->add_field(array(
+        'name'    => esc_html__('Scripts no final da tag </body>', 'mi'),
+        'id'      => 'body_end_scripts',
+        'type'    => 'textarea_code',
+        // 'sanitization_cb' => 'mi_text_without_sanitization',
     ));
 }
