@@ -430,3 +430,117 @@ function mi_register_anuncie_page_metabox()
         ),
     ));
 }
+
+add_action('cmb2_admin_init', 'mi_register_simulador_credito_habitacao_page_metabox');
+
+function mi_register_simulador_credito_habitacao_page_metabox()
+{
+    $cmb = new_cmb2_box(array(
+        'id'            => 'mi_simulador_credito_habitacao_metabox',
+        'title'         => esc_html__('Opções de página', 'mi'),
+        'object_types'  => array('page'), // Post type
+        'show_on_cb' => 'mi_show_simulador_credito_habitacao_cmb_options',
+        'context'    => 'normal',
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Título do Banner do topo', 'mi'),
+        'id'         => 'banner_title',
+        'type'    => 'text',
+    ));
+
+    $cmb->add_field(array(
+        'name'       => esc_html__('Subtítulo do Banner do topo', 'mi'),
+        'id'         => 'banner_subtitle',
+        'type'    => 'textarea',
+        'attributes'        => array(
+            'rows'          => 2
+        )
+    ));
+
+    $cmb_group = new_cmb2_box(array(
+        'id'           => 'mi_depoimentos_metabox',
+        'title'        => esc_html__('Depoimentos', 'mi'),
+        'object_types' => array('page'),
+        'show_on_cb' => 'mi_show_simulador_credito_habitacao_cmb_options',
+    ));
+
+    // $group_field_id is the field id string, so in this case: 'yourprefix_group_demo'
+    $group_field_id = $cmb_group->add_field(array(
+        'id'          => 'depoimentos_group',
+        'type'        => 'group',
+        'description' => esc_html__('Depoimento', 'mi'),
+        'options'     => array(
+            'group_title'    => esc_html__('Depoimento {#}', 'mi'), // {#} gets replaced by row number
+            'add_button'     => esc_html__('Adicionar novo Depoimento', 'mi'),
+            'remove_button'  => esc_html__('Remover Depoimento', 'mi'),
+            'sortable'       => true,
+            // 'closed'      => true, // true to have the groups closed by default
+            // 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'mi' ), // Performs confirmation before removing group.
+        ),
+    ));
+
+    $cmb_group->add_group_field($group_field_id, array(
+        'name'       => esc_html__('Nome', 'mi'),
+        'id'         => 'depoimento_nome',
+        'type'     => 'text',
+    ));
+
+    $cmb_group->add_group_field($group_field_id, array(
+        'name'       => esc_html__('Avatar', 'mi'),
+        'id'         => 'depoimento_avatar',
+        'type'     => 'file',
+    ));
+
+    $cmb_group->add_group_field($group_field_id, array(
+        'name'       => esc_html__('Texto', 'mi'),
+        'id'         => 'depoimento_text',
+        'type'     => 'textarea',
+        'attributes'        => array(
+            'rows'      => 3
+        )
+    ));
+
+    $cmb_group->add_group_field($group_field_id, array(
+        'name'       => esc_html__('Avaliação', 'mi'),
+        'id'         => 'depoimento_rating',
+        'type'     => 'select',
+        'options'   => array(
+            1       => 1,
+            2       => 2,
+            3       => 3,
+            4       => 4,
+            5       => 5
+        )
+    ));
+
+    $cmb_group = new_cmb2_box(array(
+        'id'           => 'mi_simulador_credito_habitacao_faq_metabox',
+        'title'        => esc_html__('FAQ', 'mi'),
+        'object_types' => array('page'),
+        'show_on_cb' => 'mi_show_simulador_credito_habitacao_cmb_options',
+    ));
+
+    // $group_field_id is the field id string, so in this case: 'yourprefix_group_demo'
+    $group_field_id = $cmb_group->add_field(array(
+        'id'          => 'faq_group',
+        'type'        => 'group',
+        'description' => esc_html__('FAQ', 'mi'),
+        'options'     => array(
+            'group_title'    => esc_html__('FAQ {#}', 'mi'), // {#} gets replaced by row number
+            'add_button'     => esc_html__('Adicionar novo FAQ', 'mi'),
+            'remove_button'  => esc_html__('Remover FAQ', 'mi'),
+            'sortable'       => true,
+            // 'closed'      => true, // true to have the groups closed by default
+            // 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'mi' ), // Performs confirmation before removing group.
+        ),
+    ));
+
+    $cmb_group->add_group_field($group_field_id, array(
+        'name'       => esc_html__('Categoria de FAQ', 'mi'),
+        'id'         => 'faq_cat',
+        'type'     => 'select',
+        'options' => 'mi_faq_cat',
+        'show_option_none' => true,
+    ));
+}

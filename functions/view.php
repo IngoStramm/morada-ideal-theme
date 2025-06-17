@@ -539,7 +539,7 @@ function mi_faq($faq_terms_id, $title_center = true)
     if ($faq_terms_id) {
         $output .= '
         <div class="row mt-5">
-                <div class="col-md-12">';
+            <div class="col-md-12">';
         foreach ($faq_terms_id as $item_arr) {
             $term_id = $item_arr['faq_cat'];
             $args = [
@@ -593,6 +593,10 @@ function mi_faq($faq_terms_id, $title_center = true)
         </div>';
             }
         }
+        $output .= '
+            </div>
+        </div>
+        ';
     }
     return $output;
 }

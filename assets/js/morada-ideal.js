@@ -431,7 +431,7 @@ let maskPoupancaSimulador = null;
 
         const inputPrice = document.getElementById('imovel_price');
         const maskOptionsPrice = {
-            mask: '€ num',
+            mask: 'num',
             blocks: {
                 num: {
                     mask: Number,

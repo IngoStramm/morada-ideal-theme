@@ -80,6 +80,12 @@ function mi_show_anuncie_cmb_options($cmb)
     return $page_template === 'page-anuncie.php';
 }
 
+function mi_show_simulador_credito_habitacao_cmb_options($cmb)
+{
+    $page_template = get_page_template_slug();
+    return $page_template === 'page-simulador-credito.php';
+}
+
 /**
  * mi_text_without_sanitization
  *

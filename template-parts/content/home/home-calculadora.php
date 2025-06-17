@@ -14,7 +14,7 @@ $calculadora_image = get_post_meta($post_id, 'home_calculadora_image', true);
             <div class="col-md-6 destaque-text-col gap-3">
                 <?php if ($calculadora_title) { ?>
                     <h4 class="destaque-title"><?php echo $calculadora_title; ?></h4>
-                    <?php get_template_part('template-parts/general/simulador-credito-habitacao'); ?>
+                    <?php get_template_part('template-parts/general/simulador-credito-habitacao-preview'); ?>
                 <?php } ?>
             </div>
         </div>

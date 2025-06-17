@@ -655,6 +655,27 @@ p {
     color: $black;
 }
 
+.page-banner-with-text {
+    background-color: $secondary;
+    background-image: url(../images/pattern-login-background.png);
+    background-repeat: no-repeat;
+    background-position: calc(50vw - 58%) center;
+    background-size: auto;
+    text-align: center;
+    padding-block: 100px;
+    .banner-title {
+        font-size: 2.8em;
+        line-height: 1.2em;
+        font-weight: 700;
+        margin-bottom: .3em;
+    }
+    .banner-subtitle {
+        font-size: 1.6em;
+        line-height: 1.2em;
+        font-weight: 700;
+    }
+}
+
 @media (min-width: 768px) {
     .destaque-linha {
         display: block;
