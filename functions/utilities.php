@@ -1303,3 +1303,45 @@ function mi_form_dados_array($messages)
 
     return $dados;
 }
+
+/**
+ * mi_calculadora_locations
+ *
+ * @return array
+ */
+function mi_calculadora_locations()
+{
+    $locations = array(
+        'Seleciona',
+        'Aveiro',
+        'Beja',
+        'Braga',
+        'Bragança',
+        'Castelo Branco',
+        'Coimbra',
+        'Corvo (Ilha dos Açores)',
+        'Évora',
+        'Faial (Ilha dos Açores)',
+        'Faro',
+        'Flores (Ilha dos Açores)',
+        'Graciosa (Ilha dos Açores)',
+        'Guarda',
+        'Leiria',
+        'Lisboa',
+        'Madeira (Ilha)',
+        'Pico (Ilha dos Açores)',
+        'Portalegre',
+        'Porto',
+        'Porto Santo (Ilha)',
+        'Santa Maria (Ilha dos Açores)',
+        'Santarém',
+        'São Jorge (Ilha dos Açores)',
+        'São Miguel (Ilha dos Açores)',
+        'Setúbal',
+        'Terceira (Ilha dos Açores)',
+        'Viana do Castelo',
+        'Vila Real',
+        'Viseu',
+    );
+    return $locations;
+}

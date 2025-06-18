@@ -61,6 +61,9 @@
 
     .box-amenities-property {
         grid-template-columns: 1fr 1fr 1fr;
+        &.half-width {
+            grid-template-columns: 1fr 1fr;
+        }
         &.full-width {
             grid-template-columns: 1fr;
         }

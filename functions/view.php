@@ -600,3 +600,27 @@ function mi_faq($faq_terms_id, $title_center = true)
     }
     return $output;
 }
+
+/**
+ * mi_simulador_credito_habitacao_show_campos
+ *
+ * @return string
+ */
+function mi_simulador_credito_habitacao_show_campos()
+{
+    $output = '';
+    $output .= '
+    <fieldset class="box box-fieldset">
+        <label for="imovel_price_simulador">' . __('Preço do imóvel', 'mi') . '</label>
+        <input type="text" value="0" class="form-control style-1" id="imovel_price_simulador" name="imovel_price_simulador">
+        <input type="range" value="0" min="0" max="1000000" step="1000" class="form-range range-input" id="imovel_range_price" name="imovel_range_price" data-label="imovel_price_simulador">
+    </fieldset>
+
+    <fieldset class="box box-fieldset">
+        <label for="poupanca">' . __('Poupanças', 'mi') . '</label>
+        <input type="text" value="0" class="form-control style-1" id="poupanca" name="poupanca">
+        <input type="range" value="0" min="0" max="100000" step="1000" class="form-range range-input style-1" id="poupancas_range" name="poupancas_range" data-label="poupanca">
+    </fieldset>
+    ';
+    return $output;
+}

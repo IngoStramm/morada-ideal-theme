@@ -659,20 +659,59 @@ p {
     background-color: $secondary;
     background-image: url(../images/pattern-login-background.png);
     background-repeat: no-repeat;
-    background-position: calc(50vw - 58%) center;
-    background-size: auto;
+    background-position: calc(50vw - 50%) center;
+    background-size: 173px 467px;
     text-align: center;
     padding-block: 100px;
+    position: relative;
+    overflow: visible;
+    .banner-user-image {
+        display: none;
+    }
     .banner-title {
         font-size: 2.8em;
         line-height: 1.2em;
         font-weight: 700;
-        margin-bottom: .3em;
+        margin-bottom: 0.3em;
     }
     .banner-subtitle {
         font-size: 1.6em;
         line-height: 1.2em;
         font-weight: 700;
+    }
+}
+
+.input-number-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 45px;
+    .input-number-group-btn {
+        background-color: $primary;
+        color: $white;
+        width: 20px;
+        height: 20px;
+        border-radius: 6px;
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: 500;
+    }
+    .input-number-group-field-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        margin-right: 15px;
+        .input-number-group-field {
+            border: none;
+            border-radius: 0;
+            padding: 0;
+            width: 50px;
+            text-align: right;
+        }
+        .input-number-group-symbol {
+        }
     }
 }
 
@@ -839,6 +878,9 @@ p {
             }
         }
     }
+    .input-number-group {
+        justify-content: center;
+    }
 }
 
 @media (min-width: 992px) {
@@ -940,6 +982,25 @@ p {
             }
         }
     }
+    .page-banner-with-text {
+        background-position: calc(50% - 100px) center;
+        text-align: left;
+        .banner-user-image {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            translate: -135% 0;
+            z-index: 1;
+            width: auto;
+            height: auto;
+            max-width: 360px;
+        }
+        .banner-title,
+        .banner-subtitle {
+            text-align: left;
+        }
+    }
 }
 
 @media (min-width: 1200px) {
@@ -953,6 +1014,12 @@ p {
                     height: 575px;
                 }
             }
+        }
+    }
+    .page-banner-with-text {
+        background-position: calc(50% - 150px) center;
+        .banner-user-image {
+            translate: -175% 0;
         }
     }
 }

@@ -444,6 +444,15 @@ function mi_register_simulador_credito_habitacao_page_metabox()
     ));
 
     $cmb->add_field(array(
+        'name'       => esc_html__('Imagem do Banner do topo', 'mi'),
+        'id'         => 'banner_image',
+        'type'    => 'file',
+        'attributes' => array(
+            'accept' => '.jpg,.jpeg,.png,.svg'
+        )
+    ));
+
+    $cmb->add_field(array(
         'name'       => esc_html__('Título do Banner do topo', 'mi'),
         'id'         => 'banner_title',
         'type'    => 'text',
@@ -490,6 +499,9 @@ function mi_register_simulador_credito_habitacao_page_metabox()
         'name'       => esc_html__('Avatar', 'mi'),
         'id'         => 'depoimento_avatar',
         'type'     => 'file',
+        'attributes' => array(
+            'accept' => '.jpg,.jpeg,.png,.svg'
+        )
     ));
 
     $cmb_group->add_group_field($group_field_id, array(

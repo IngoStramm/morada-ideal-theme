@@ -1,5 +1,6 @@
 <?php
 $post_id = get_the_ID();
+$banner_image = get_post_meta($post_id, 'banner_image', true);
 $banner_title = get_post_meta($post_id, 'banner_title', true);
 $banner_subtitle = get_post_meta($post_id, 'banner_subtitle', true);
 $faq_terms_id = get_post_meta($post_id, 'faq_group', true);
@@ -8,12 +9,18 @@ $depoimentos = get_post_meta($post_id, 'depoimentos_group', true);
 <section class="flat-title-page page-banner-with-text">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-8 offset-lg-3 offset-md-2">
+            <?php if ($banner_image) { ?>
+                <img class="banner-user-image" src="<?php echo $banner_image; ?>" />
+            <?php } ?>
+            <div class="col-lg-6 offset-lg-6">
                 <h2 class="banner-title"><?php echo $banner_title; ?></h2>
                 <h5 class="banner-subtitle"><?php echo $banner_subtitle; ?></h5>
             </div>
         </div>
     </div>
+</section>
+<section class="flat-section">
+    <div class="container"><?php get_template_part('template-parts/general/simulador', 'credito-habitacao-complete'); ?></div>
 </section>
 <?php if ($depoimentos && count($depoimentos) > 0) { ?>
     <section class="flat-section">

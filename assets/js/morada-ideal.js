@@ -1084,6 +1084,79 @@ let maskPoupancaSimulador = null;
         });
     }
 
+    function miUpdateInputNumberOnKeyUp() {
+        const inputFields = document.querySelectorAll('.input-number-group-field');
+        inputFields.forEach(inputField => {
+            const minVal = inputField.getAttribute('data-min');
+            const maxVal = inputField.getAttribute('data-max');
+            let fixedMinVal = parseFloat(minVal);
+            let fixedMaxVal = parseFloat(maxVal);
+            fixedMinVal = Math.round(fixedMinVal * 100) / 100;
+            fixedMaxVal = Math.round(fixedMaxVal * 100) / 100;
+            inputField.addEventListener('keyup', e => {
+                const currVal = inputField.value;
+                if (isNaN(currVal)) {
+                    inputField.value = fixedMinVal.toFixed(2);
+                } else {
+                    let fixedCurrVal = parseFloat(currVal);
+                    fixedCurrVal = Math.round(currVal * 100) / 100;
+                    if (fixedCurrVal > fixedMaxVal) {
+                        inputField.value = fixedMaxVal.toFixed(2);
+                    } else if (fixedCurrVal < fixedMinVal) {
+                        inputField.value = fixedMinVal.toFixed(2);
+                    }
+                }
+            });
+        });
+    }
+
+    function miInputNumberGroup() {
+        const inputNumberGroups = document.querySelectorAll('.input-number-group');
+        inputNumberGroups.forEach(group => {
+            const btns = group.querySelectorAll('.input-number-group-btn');
+            const inputField = group.querySelector('.input-number-group-field');
+            const minVal = inputField.getAttribute('data-min');
+            const maxVal = inputField.getAttribute('data-max');
+            btns.forEach(btn => {
+                btn.addEventListener('click', e => {
+                    e.preventDefault();
+                    const action = btn.getAttribute('data-btn-type');
+                    inputField.value = miInputNumberGroupChangeValue(inputField, action, minVal, maxVal);
+                });
+            });
+        });
+    }
+
+    function miInputNumberGroupChangeValue(inputField, action, minVal, maxVal) {
+        // Converte para float para ter certeza que é um número
+        const currVal = parseFloat(inputField.value);
+        // Aplica estratégia de escalonamento para prevenir resultados imprecisos do JS
+        let fixedCurrVal = Math.round(currVal * 100) / 100;
+        // Converte para float para ter certeza que é um número
+        let fixedMinVal = parseFloat(minVal);
+        let fixedMaxVal = parseFloat(maxVal);
+        // Aplica estratégia de escalonamento para prevenir resultados imprecisos do JS
+        fixedMinVal = Math.round(fixedMinVal * 100) / 100;
+        fixedMaxVal = Math.round(fixedMaxVal * 100) / 100;
+        let newValue = fixedCurrVal;
+        // Verifica se o número passado já não é maior que o limite máximo 
+        // antes de tentar fazer o cálculo
+        if (fixedCurrVal > fixedMaxVal) {
+            newValue = fixedMaxVal;
+            // Verifica se o número passado é menor que o limite máximo 
+            // para então poder fazer o cálculo
+        } else if (action === '+' && fixedCurrVal < fixedMaxVal) {
+            newValue = fixedCurrVal + 0.01;
+            // Verifica se o número passado é maior que o limite mínimo 
+            // para então poder fazer o cálculo
+        } else if (action === '-' && fixedCurrVal > fixedMinVal) {
+            newValue = fixedCurrVal - 0.01;
+        }
+        // Aplica estratégia de escalonamento para prevenir resultados imprecisos do JS
+        const fixedNewValue = Math.round(newValue * 100) / 100;
+        return fixedNewValue.toFixed(2);
+    }
+
     window.addEventListener('load', function () {
         miFormsValidation();
         miNewsletterForm();
@@ -1107,6 +1180,8 @@ let maskPoupancaSimulador = null;
         miUnselectRAdioInput();
         miToggleFavoriteForm();
         miRangeInput();
+        miInputNumberGroup();
+        miUpdateInputNumberOnKeyUp();
     });
 
 })();
