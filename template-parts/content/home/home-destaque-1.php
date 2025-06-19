@@ -7,7 +7,7 @@ $destaque_1_btn = get_post_meta($post_id, 'home_destaque_1_btn', true);
 $destaque_1_icon = get_post_meta($post_id, 'home_destaque_1_icon', true);
 $destaque_1_url = get_post_meta($post_id, 'home_destaque_1_url', true);
 ?>
-<section class="destaque">
+<section class="destaque pt-0">
     <div class="container">
         <div class="row">
             <div class="col-md-6 destaque-image-col">

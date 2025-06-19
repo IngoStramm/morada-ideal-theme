@@ -10,7 +10,7 @@ $grid_content_args = array(
 );
 ?>
 <?php if ($imoveis_em_destaque->have_posts()) { ?>
-    <section class="home-imoveis-em-destaque">
+    <section class="home-imoveis-em-destaque pb-0">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
