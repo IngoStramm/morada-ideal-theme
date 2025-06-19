@@ -69,8 +69,140 @@ $mi_add_form_simulador_credito_habitacao_complete_nonce = wp_create_nonce('mi_fo
                     </div>
                 </fieldset>
 
+                <div class="box-amenities-property half-width">
+                    <div class="box-amenities">
+                        <div class="title-amenities text-btn"><?php _e('Tipos de casa', 'mi'); ?></div>
+                        <div class="list-amenities inline-list">
+                            <fieldset class="amenities-item">
+                                <input type="checkbox" class="tf-checkbox style-1" id="tipo-casa-principal" checked>
+                                <label for="tipo-casa-principal" class="text-cb-amenities"><?php _e('Principal', 'mi'); ?></label>
+                            </fieldset>
+                            <fieldset class="amenities-item">
+                                <input type="checkbox" class="tf-checkbox style-1" id="tipo-casa-secundaria" checked>
+                                <label for="tipo-casa-secundaria" class="text-cb-amenities"><?php _e('Secundária', 'mi'); ?></label>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-        <div class="col-md-6"></div>
+        <div class="col-md-6">
+            <div class="widget-box-2 widget-box-secondary w-100 mb-30">
+                <h6 class="prestacao-titulo"><?php _e('A tua prestação mensal', 'mi'); ?></h6>
+                <div class="prestacao-mensal"><span class="prestacao-mensal-valor">443</span> €</div>
+                <ul class="simulador-lista-info mb-20">
+                    <li>
+                        <span>
+                            <?php _e('Valor crédito habitação', 'mi'); ?>
+                            <a href="#"
+                                data-bs-toggle="tooltip"
+                                data-bs-custom-class="mi-tooltip"
+                                data-bs-html="true"
+                                data-bs-title="
+                                    <div class='container'>
+                                        <div class='row'>
+                                            <div class='col-md-6'>
+                                                <div class='custo-total'>126.22 €</div>
+                                                <p><?php _e('Custo total do imóvel', 'mi'); ?></p>
+                                            </div>
+                                            <div class='col-md-6'>
+                                                <div class='poupanca-disponivel'>938.14 €</div>
+                                                <p><?php _e('A tua poupança disponível', 'mi'); ?></p>
+                                            </div>
+                                        </div>
+                                    </div>">
+                                <?php echo mi_get_icon('info'); ?>
+                            </a>
+                        </span>
+                        <span>136.868 €</span>
+                    </li>
+                    <li>
+                        <span>
+                            <?php _e('Percentagem de financiamento', 'mi'); ?>
+                            <a href="#"
+                                data-bs-toggle="tooltip"
+                                data-bs-custom-class="mi-tooltip"
+                                data-bs-html="true"
+                                data-bs-title="<?php _e('Os bancos não costumam financiar mais de 80% do preço de compra, embora em alguns casos cheguem aos 90%, ou mesmo aos 100% se se apresentam mais garantias.', 'mi'); ?>">
+                                <?php echo mi_get_icon('info'); ?>
+                            </a>
+                        </span>
+                        <span>68 %</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="widget-box-2 w-100">
+                <ul class="simulador-lista-info mb-20">
+                    <li>
+                        <span class="d-flex align-items-center justify-content-start gap-2">
+                            <span class="square-block square-block-secondary-lighter"></span>
+                            <?php _e('Preço do imóvel', 'mi'); ?>
+                        </span>
+                        <span>200.000 €</span>
+                    </li>
+                    <li>
+                        <span class="d-flex align-items-center justify-content-start gap-2">
+                            <span class="square-block square-block-secondary"></span>
+                            <?php _e('Impostos e despesas da compra', 'mi'); ?>
+                            <a href="#">
+                                <?php echo mi_get_icon('info'); ?>
+                            </a>
+                        </span>
+                        <span>6.868 €</span>
+                    </li>
+                    <li>
+                        <h4><?php _e('Custo total do imóvel', 'mi'); ?></h4>
+                        <h4>206.868 €</h4>
+                    </li>
+                </ul>
+                <div class="charts-result mt-2 mb-4">
+                    <div class="bar" id="bar-expenses">
+                        <div id="total-expenses" class="bar-segment" style="left: 0; width: 30%;"></div>
+                        <div id="total-prices" class="bar-segment" style="left: 30%; width: 40%;"></div>
+                    </div>
+                    <div class="bar" id="bar-amounts">
+                        <div id="total-savings" class="bar-segment" style="left: 0; width: 12%;" data-line="saving-line"></div>
+                        <div id="total-mortgage" class="bar-segment" style="left: 12%; width: 59%;"></div>
+                        <div id="total-interest" class="bar-segment" style="left: 59%; width: 41%;"></div>
+                    </div>
+                    <div class="saving-line" style="left: 0; width: 12%;"></div>
+                    <div class="bar-legends" data-bar="bar-amounts">
+                        <div class="bar-legend" data-segment="total-savings" style="left: 0; width: 12%;"><?php _e('A tua poupança disponível', 'mi'); ?></div>
+                        <div class="bar-legend" data-segment="total-mortgage" style="left: 12%; width: 59%;"><?php _e('Crédito à Habitação', 'mi'); ?></div>
+                        <div class="bar-legend" data-segment="total-interest" style="left: 59%; width: 41%;"><?php _e('Juro', 'mi'); ?></div>
+                    </div>
+                </div>
+                <ul class="simulador-lista-info mb-20">
+                    <li>
+                        <span class="d-flex align-items-center justify-content-start gap-2">
+                            <span class="square-block square-block-primary-lighter"></span>
+                            <?php _e('Poupanças', 'mi'); ?>
+                        </span>
+                        <span>70.000 €</span>
+                    </li>
+                    <li>
+                        <span class="d-flex align-items-center justify-content-start gap-2">
+                            <span class="square-block square-block-primary"></span>
+                            <?php _e('Valor crédito habitação', 'mi'); ?>
+                        </span>
+                        <span>136.868 €</span>
+                    </li>
+                    <li>
+                        <span class="d-flex align-items-center justify-content-start gap-2">
+                            <span class="square-block square-block-primary-darker"></span>
+                            <?php _e('Juros crédito habitação', 'mi'); ?>
+                        </span>
+                        <span>283.046 €</span>
+                    </li>
+                    <li>
+                        <h4><?php _e('Valor total com crédito habitação', 'mi'); ?></h4>
+                        <h4>283.046 €</h4>
+                    </li>
+                </ul>
+                <button type="submit" class="tf-btn secondary mt-30" disabled><?php _e('Encontrar crédito habitação', 'mi'); ?></button>
+            </div>
+        </div>
     </div>
 </form>

@@ -200,6 +200,10 @@
     .title {
         margin-bottom: 20px;
     }
+    &.widget-box-secondary {
+        background-color: $secondary;
+        box-shadow: none;
+    }
 }
 
 .layout-wrap {

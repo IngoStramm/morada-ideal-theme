@@ -1157,6 +1157,18 @@ let maskPoupancaSimulador = null;
         return fixedNewValue.toFixed(2);
     }
 
+    function miTootltips() {
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {
+            trigger: 'click'
+        }));
+        tooltipTriggerList.forEach(item => {
+            item.addEventListener('click', e => {
+                e.preventDefault();
+            });
+        });
+    }
+
     window.addEventListener('load', function () {
         miFormsValidation();
         miNewsletterForm();
@@ -1182,6 +1194,7 @@ let maskPoupancaSimulador = null;
         miRangeInput();
         miInputNumberGroup();
         miUpdateInputNumberOnKeyUp();
+        miTootltips();
     });
 
 })();

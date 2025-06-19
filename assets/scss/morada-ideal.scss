@@ -641,6 +641,18 @@ p {
     color: $primary;
 }
 
+.prestacao-titulo {
+    font-weight: 700;
+    font-size: 1.375em;
+    line-height: 1.7em;
+}
+
+.prestacao-mensal {
+    font-size: 2.25em;
+    font-weight: 700;
+    line-height: 1.7em;
+}
+
 .range-input::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
@@ -712,6 +724,130 @@ p {
         }
         .input-number-group-symbol {
         }
+    }
+}
+
+.simulador-lista-info {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 5px;
+    font-weight: 600;
+    font-size: 1.2em;
+    line-height: 1.4em;
+    color: $almost-black;
+    li {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0;
+        h4 {
+            font-weight: 700;
+            font-size: 1.3em;
+            line-height: 1.6em;
+        }
+    }
+}
+
+.mi-tooltip {
+    .tooltip-inner {
+        max-width: 300px;
+    }
+}
+
+.square-block {
+    width: 25px;
+    height: 25px;
+    border-radius: 10px;
+    &.square-block-secondary {
+        background-color: $secondary;
+    }
+    &.square-block-secondary-lighter {
+        background-color: $secondary-lighter;
+    }
+    &.square-block-primary {
+        background-color: $primary;
+    }
+    &.square-block-primary-lighter {
+        background-color: $primary-lighter;
+    }
+    &.square-block-primary-darker {
+        background-color: $primary-darker;
+    }
+}
+
+.charts-result {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.bar {
+    position: relative;
+    display: block;
+    background-color: $white;
+    border-radius: 10px;
+    width: 100%;
+    height: 31px;
+    border: 1px solid $outline;
+    overflow: hidden;
+    .bar-segment {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+    }
+    #total-expenses {
+        background-color: $secondary-lighter;
+    }
+    #total-prices {
+        background-color: $secondary;
+    }
+    #total-savings {
+        background-color: $primary-lighter;
+    }
+    #total-mortgage {
+        background-color: $primary;
+    }
+    #total-interest {
+        background-color: $primary-darker;
+    }
+}
+
+.bar-legends {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 10px;
+    .bar-legend {
+        position: absolute;
+        bottom: 0;
+        font-size: 0.7em;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.saving-line {
+    position: absolute;
+    display: block;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    border-right: 1px dotted $outline;
+    margin-left: 1px;
+    margin-right: 1px;
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
     }
 }
 

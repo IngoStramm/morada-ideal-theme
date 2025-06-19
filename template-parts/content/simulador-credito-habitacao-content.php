@@ -23,7 +23,7 @@ $depoimentos = get_post_meta($post_id, 'depoimentos_group', true);
     <div class="container"><?php get_template_part('template-parts/general/simulador', 'credito-habitacao-complete'); ?></div>
 </section>
 <?php if ($depoimentos && count($depoimentos) > 0) { ?>
-    <section class="flat-section">
+    <section class="flat-section pt-0">
         <div class="container">
             <div class="box-title px-15">
                 <div class="text-center wow fadeInUpSmall" data-wow-delay=".2s" data-wow-duration="2000ms">
